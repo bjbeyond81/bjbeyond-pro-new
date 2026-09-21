@@ -17,6 +17,7 @@ export type StackCampaign = {
   cta: L<string>;
   href: string;
   visual: "desk" | "home" | "move" | "learn" | "water";
+  network: "awin" | "merchant";
 };
 
 export const stackCampaigns: StackCampaign[] = [
@@ -54,8 +55,9 @@ export const stackCampaigns: StackCampaign[] = [
       en: "Not a ritual. Not an identity upgrade. An object that stays.",
     },
     cta: { it: "Vai su ESR", en: "Go to ESR" },
-    href: "https://eu.esrtech.com/?utm_source=awin&utm_medium=affiliate&utm_campaign=3099482",
+    href: "https://www.awin1.com/cread.php?awinmid=24915&awinaffid=3099482&ued=https%3A%2F%2Feu.esrtech.com%2F",
     visual: "desk",
+    network: "awin",
   },
   {
     slug: "imou",
@@ -93,6 +95,7 @@ export const stackCampaigns: StackCampaign[] = [
     cta: { it: "Vai su IMOU", en: "Go to IMOU" },
     href: "https://www.awin1.com/cread.php?awinmid=122428&awinaffid=3099482",
     visual: "home",
+    network: "awin",
   },
   {
     slug: "toputure",
@@ -130,6 +133,7 @@ export const stackCampaigns: StackCampaign[] = [
     cta: { it: "Vai su Toputure", en: "Go to Toputure" },
     href: "https://toputure.com/",
     visual: "move",
+    network: "merchant",
   },
   {
     slug: "lingzio",
@@ -167,6 +171,7 @@ export const stackCampaigns: StackCampaign[] = [
     cta: { it: "Vai su Lingzio", en: "Go to Lingzio" },
     href: "https://lingzio.com/",
     visual: "learn",
+    network: "merchant",
   },
   {
     slug: "waterdrop",
@@ -186,8 +191,8 @@ export const stackCampaigns: StackCampaign[] = [
       en: "Under-sink RO, countertop, pitchers. Filters get changed. Detox is not on the list.",
     },
     body: {
-      it: "NSF sulle schede loro. «99% piombo» è un test di prodotto, non una liturgia. Bevi. Sostituisci il filtro. Fine.",
-      en: "NSF on their own sheets. “99% lead” is a product test, not a liturgy. Drink. Replace the filter. Done.",
+      it: "Certificazioni dichiarate dal produttore sulle schede Waterdrop. Non è un protocollo wellness: è un filtro. Bevi. Sostituisci il filtro. Fine.",
+      en: "Certifications claimed by the manufacturer on Waterdrop's own sheets. Not a wellness protocol: a filter. Drink. Replace the filter. Done.",
     },
     why: {
       it: "Rubinetto in casa. Meno plastica in giro. Un gesto solo.",
@@ -202,8 +207,9 @@ export const stackCampaigns: StackCampaign[] = [
       en: "Not a wellness protocol. Water. Then you decide on the claims.",
     },
     cta: { it: "Vai su Waterdrop", en: "Go to Waterdrop" },
-    href: "http://www.awin1.com/cread.php?awinmid=117653&awinaffid=3099482",
+    href: "https://www.awin1.com/cread.php?awinmid=117653&awinaffid=3099482",
     visual: "water",
+    network: "awin",
   },
 ];
 

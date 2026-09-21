@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteShell } from "@/components/site-shell";
+import { AffiliateNote } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
@@ -115,6 +116,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </p>
           </div>
         </Link>
+        <AffiliateNote locale={locale} variant="all" className="mt-8" />
       </section>
     </SiteShell>
   );

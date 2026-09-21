@@ -15,7 +15,11 @@ Il sito originale su [bjbeyond.pro](https://bjbeyond.pro) mescolava stili divers
 
 Lingua: italiano di default, inglese su `/en`.
 
-I link Amazon usano il tag affiliato `357921-21`. I prezzi sono indicativi e possono cambiare su Amazon.
+I link Amazon usano il tag affiliato `357921-21` e sono marcati come **link a pagamento**. I prezzi sono indicativi e possono cambiare su Amazon.it.
+
+Le campagne Stack ESR, IMOU e Waterdrop usano tracking Awin (`awinaffid=3099482`) e sono marcate **Pubblicità**. Toputure e Lingzio puntano al sito del marchio, sempre come pubblicità.
+
+Disclosure Amazon (testo ufficiale): *In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei.*
 
 ## Avvio locale
 

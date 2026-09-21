@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductImage } from "@/components/product-image";
 import { SiteShell } from "@/components/site-shell";
-import { AffiliateNote, ExternalCta } from "@/components/ui-bits";
+import { AffiliateNote, ExternalCta, PriceNote } from "@/components/ui-bits";
 import { Badge } from "@/components/ui/badge";
 import { copy } from "@/lib/copy";
 import { getGuide, guidePath } from "@/lib/guides";
@@ -48,15 +48,20 @@ export function TechDetailPage({
               {product.lead[locale]}
             </p>
             {product.price != null ? (
-              <p className="mt-6 font-serif text-4xl">
-                {formatEuro(product.price, locale)}{" "}
-                <small className="align-middle font-sans text-sm text-muted-foreground">
-                  {t.indicative}
-                </small>
-              </p>
+              <div className="mt-6">
+                <p className="font-serif text-4xl">
+                  {formatEuro(product.price, locale)}{" "}
+                  <small className="align-middle font-sans text-sm text-muted-foreground">
+                    {t.indicative}
+                  </small>
+                </p>
+                <PriceNote locale={locale} className="mt-2" />
+              </div>
             ) : null}
             <div className="mt-6">
-              <ExternalCta href={product.amazonUrl}>{t.seeAmazon}</ExternalCta>
+              <ExternalCta href={product.amazonUrl} locale={locale}>
+                {t.seeAmazon}
+              </ExternalCta>
             </div>
           </div>
         </div>

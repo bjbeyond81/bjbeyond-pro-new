@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/site-shell";
-import { ExternalCta } from "@/components/ui-bits";
+import { AffiliateNote, ExternalCta } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
@@ -61,13 +61,11 @@ export function StackDetailPage({
               />
             </dl>
             <div className="mt-8">
-              <ExternalCta href={campaign.href}>{campaign.cta[locale]}</ExternalCta>
+              <ExternalCta href={campaign.href} locale={locale}>
+                {campaign.cta[locale]}
+              </ExternalCta>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              {locale === "it"
-                ? "Link affiliato. Il prezzo per te non cambia."
-                : "Affiliate link. The price does not change for you."}
-            </p>
+            <AffiliateNote locale={locale} variant="awin" className="mt-6" />
           </div>
         </div>
       </div>

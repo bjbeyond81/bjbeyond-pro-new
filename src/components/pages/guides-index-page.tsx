@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CoverImage } from "@/components/product-image";
 import { SiteShell } from "@/components/site-shell";
-import { PageIntro } from "@/components/ui-bits";
+import { AffiliateNote, PageIntro } from "@/components/ui-bits";
 import { Badge } from "@/components/ui/badge";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
@@ -54,6 +54,7 @@ export function GuidesIndexPage({ locale }: { locale: Locale }) {
             </article>
           ))}
         </div>
+        <AffiliateNote locale={locale} editorial className="mt-12" />
       </div>
     </SiteShell>
   );

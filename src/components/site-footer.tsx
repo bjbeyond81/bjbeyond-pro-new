@@ -22,6 +22,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
             {t.disclosure}
           </p>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            {t.awinDisclosure}
+          </p>
         </div>
         <div className="text-sm leading-6 text-muted-foreground sm:text-right">
           <p>{t.amazonTm}</p>

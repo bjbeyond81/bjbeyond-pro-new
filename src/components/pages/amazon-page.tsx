@@ -52,7 +52,9 @@ export function AmazonPage({ locale }: { locale: Locale }) {
                 </p>
                 <p className="mt-4 text-sm font-medium">{s.facts[locale]}</p>
                 <div className="mt-5">
-                  <ExternalCta href={s.href}>{s.cta[locale]}</ExternalCta>
+                  <ExternalCta href={s.href} locale={locale}>
+                    {s.cta[locale]}
+                  </ExternalCta>
                 </div>
               </div>
             </article>
@@ -66,8 +68,8 @@ export function AmazonPage({ locale }: { locale: Locale }) {
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground leading-7">
             {locale === "it"
-              ? "Amazon prevede bounty distinti per le prove gratuite di Prime Video Channels. Le landing page cambiano in base al canale. Qui trovi una selezione di destinazioni ufficiali con tracking affiliato."
-              : "Amazon runs distinct bounties for Prime Video Channel trials. Landing pages change by channel. Here is a selection of official destinations with affiliate tracking."}
+              ? "Alcuni canali Prime Video possono prevedere una prova. Durata, prezzo e idoneità li decide Amazon e possono cambiare. Qui trovi destinazioni ufficiali con link a pagamento."
+              : "Some Prime Video channels may include a trial. Length, price and eligibility are set by Amazon and can change. These are official destinations with paid links."}
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {channels.map((s) => (
@@ -83,7 +85,9 @@ export function AmazonPage({ locale }: { locale: Locale }) {
                     {s.body[locale]}
                   </p>
                   <div className="mt-5">
-                    <ExternalCta href={s.href}>{s.cta[locale]}</ExternalCta>
+                    <ExternalCta href={s.href} locale={locale}>
+                      {s.cta[locale]}
+                    </ExternalCta>
                   </div>
                 </div>
               </article>

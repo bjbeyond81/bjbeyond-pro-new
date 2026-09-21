@@ -11,6 +11,9 @@ export type Copy = {
   amazonTm: string;
   noDirectSales: string;
   disclosure: string;
+  awinDisclosure: string;
+  paidLink: string;
+  priceDisclaimer: string;
   editorialNote: string;
   seeAmazon: string;
   indicative: string;
@@ -58,15 +61,21 @@ export const copy: Record<Locale, Copy> = {
     menu: "Menu",
     close: "Chiudi",
     langLabel: "Lingua",
-    footerNote: "Pubblicità · link affiliati dove indicato.",
+    footerNote:
+      "Pubblicità. I link Amazon sono link a pagamento del Programma Affiliazione. Le campagne Stack Awin sono pubblicità tracciata.",
     amazonTm:
       "Amazon e il logo Amazon sono marchi di Amazon.com, Inc. o delle sue affiliate.",
     noDirectSales:
       "Questo sito non vende direttamente prodotti e non gestisce pagamenti, spedizioni, rinnovi o cancellazioni.",
     disclosure:
-      "In qualità di Affiliato Amazon, BJ Beyond riceve un guadagno dagli acquisti idonei. Per te il prezzo non cambia.",
+      "In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei.",
+    awinDisclosure:
+      "Le campagne Stack sono pubblicità. ESR, IMOU e Waterdrop usano link di tracciamento Awin su HTTPS. Toputure e Lingzio puntano al sito del marchio. BJ Beyond può ricevere una commissione se acquisti tramite quei link.",
+    paidLink: "link a pagamento",
+    priceDisclaimer:
+      "Prezzo e disponibilità su Amazon.it; possono variare. Verifica sempre sulla scheda Amazon.",
     editorialNote:
-      "Le guide editoriali restano indipendenti dal fatto che un link sia affiliato.",
+      "Le guide restano editoriali: i link a prodotti o servizi Amazon sono comunque link a pagamento.",
     seeAmazon: "Vedi su Amazon",
     indicative: "indicativo",
     readGuide: "Leggi la guida",
@@ -127,15 +136,21 @@ export const copy: Record<Locale, Copy> = {
     menu: "Menu",
     close: "Close",
     langLabel: "Language",
-    footerNote: "Advertising · affiliate links where marked.",
+    footerNote:
+      "Advertising. Amazon links are paid Associates Program links. Stack Awin campaigns are tracked advertising.",
     amazonTm:
       "Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.",
     noDirectSales:
       "This site does not sell products directly and does not handle payments, shipping, renewals or cancellations.",
     disclosure:
-      "As an Amazon Associate, BJ Beyond earns from qualifying purchases. The price does not change for you.",
+      "As an Amazon Associate I earn from qualifying purchases.",
+    awinDisclosure:
+      "Stack campaigns are advertising. ESR, IMOU and Waterdrop use HTTPS Awin tracking links. Toputure and Lingzio go to the merchant site. BJ Beyond may earn a commission if you buy through those links.",
+    paidLink: "paid link",
+    priceDisclaimer:
+      "Price and availability are on Amazon.it and can change. Always check the Amazon listing.",
     editorialNote:
-      "Editorial guidance is independent of whether a link is affiliated.",
+      "Guides stay editorial: Amazon product or service links are still paid links.",
     seeAmazon: "View on Amazon",
     indicative: "indicative",
     readGuide: "Read the guide",

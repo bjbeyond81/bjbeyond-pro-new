@@ -56,30 +56,30 @@ export const techProducts: TechProduct[] = [
     badge: { it: "Wearable", en: "Wearable" },
     name: { it: "HUAWEI WATCH GT 7 Pro", en: "HUAWEI WATCH GT 7 Pro" },
     short: {
-      it: "Titanio e ceramica, GPS, ECG e autonomia fino a 21 giorni.",
-      en: "Titanium and ceramic, GPS, ECG and up to 21 days of battery.",
+      it: "Titanio e ceramica, GPS e ECG dichiarati dal produttore, autonomia dichiarata fino a 21 giorni.",
+      en: "Titanium and ceramic, manufacturer-declared GPS and ECG, claimed battery up to 21 days.",
     },
     lead: {
-      it: "Un orologio da portare settimane, non da ricaricare ogni sera. Materiali da fascia alta, GPS e ECG: la scheda tecnica serve, il teatro no.",
-      en: "A watch to wear for weeks, not to charge every night. Premium materials, GPS and ECG: the spec sheet matters, the theatre does not.",
+      it: "Un orologio da portare settimane, non da ricaricare ogni sera. Materiali da fascia alta, GPS e ECG dichiarati dal produttore: la scheda tecnica serve, il teatro no. Non è un dispositivo medico.",
+      en: "A watch to wear for weeks, not to charge every night. Premium materials, manufacturer-declared GPS and ECG: the spec sheet matters, the theatre does not. It is not a medical device.",
     },
     amazonUrl: "https://amzn.to/3T8Kfvn",
     image: "/products/huawei-watch-gt7-pro.jpg",
     highlights: {
       it: [
         "Cassa in titanio, lunetta in ceramica",
-        "GPS e ECG",
-        "Autonomia dichiarata fino a 21 giorni",
+        "GPS e ECG dichiarati dal produttore (non è un dispositivo medico)",
+        "Autonomia dichiarata dal produttore fino a 21 giorni",
       ],
       en: [
         "Titanium case, ceramic bezel",
-        "GPS and ECG",
+        "Manufacturer-declared GPS and ECG (not a medical device)",
         "Claimed battery life up to 21 days",
       ],
     },
     forWhom: {
-      it: "Per chi vuole salute e GPS senza vivere attaccato al cavo.",
-      en: "For health and GPS without living next to a charger.",
+      it: "Per chi vuole GPS e monitoraggio wellness dichiarato dal produttore, senza vivere attaccato al cavo.",
+      en: "For GPS and manufacturer-declared wellness tracking without living next to a charger.",
     },
   },
   {
@@ -152,30 +152,30 @@ export const techProducts: TechProduct[] = [
     badge: { it: "Wearable", en: "Wearable" },
     name: { it: "Garmin Venu 4", en: "Garmin Venu 4" },
     short: {
-      it: "GPS, salute, fitness e autonomia fino a 12 giorni.",
-      en: "GPS, health, fitness and up to 12 days of battery.",
+      it: "GPS e monitoraggio wellness Garmin, autonomia dichiarata fino a 12 giorni.",
+      en: "Garmin GPS and wellness tracking, claimed battery up to 12 days.",
     },
     lead: {
-      it: "Garmin da polso urbano: GPS, salute, 12 giorni. Meno app, più allenamento. Android e iPhone restano entrambi in gioco.",
-      en: "Urban Garmin: GPS, health, 12 days. Fewer apps, more training. Android and iPhone both stay in play.",
+      it: "Garmin da polso urbano: GPS, monitoraggio wellness dichiarato dal produttore, autonomia dichiarata fino a 12 giorni. Meno app, più allenamento. Android e iPhone restano entrambi in gioco. Non è un dispositivo medico.",
+      en: "Urban Garmin: GPS, manufacturer-declared wellness tracking, claimed battery up to 12 days. Fewer apps, more training. Android and iPhone both stay in play. It is not a medical device.",
     },
     amazonUrl: "https://amzn.to/3TE2AAA",
     image: "/products/garmin-venu-4.png",
     highlights: {
       it: [
-        "GPS e monitoraggio salute Garmin",
-        "Autonomia fino a 12 giorni",
+        "GPS e monitoraggio wellness Garmin (non è un dispositivo medico)",
+        "Autonomia dichiarata dal produttore fino a 12 giorni",
         "Compatibile iOS e Android",
       ],
       en: [
-        "Garmin GPS and health tracking",
-        "Battery life up to 12 days",
+        "Garmin GPS and wellness tracking (not a medical device)",
+        "Manufacturer-claimed battery life up to 12 days",
         "Works with iOS and Android",
       ],
     },
     forWhom: {
-      it: "Per chi vuole sport e salute senza chiudersi in un solo telefono.",
-      en: "For sport and health without locking into one phone.",
+      it: "Per chi vuole sport e monitoraggio wellness senza chiudersi in un solo telefono.",
+      en: "For sport and wellness tracking without locking into one phone.",
     },
     relatedGuide: "come-scegliere-smartwatch",
   },
@@ -218,7 +218,7 @@ export const techProducts: TechProduct[] = [
   {
     slug: "earpods-usb-c",
     category: "audio",
-    badge: { it: "Sotto 20€", en: "Under €20" },
+    badge: { it: "Audio", en: "Audio" },
     name: {
       it: "Apple EarPods USB-C originali",
       en: "Apple EarPods USB-C (original)",
@@ -265,8 +265,8 @@ export const techProducts: TechProduct[] = [
       en: "49 mm titanium, S11 chip, up to 50 hours. Apple's endurance watch.",
     },
     lead: {
-      it: "Il nuovo Ultra 4 punta su sensori salute più evoluti, autonomia maggiore e funzioni sportive più profonde, restando fortemente legato all'ecosistema iPhone.",
-      en: "Ultra 4 leans on deeper health sensors, more battery and stronger sport tools — still tightly bound to iPhone.",
+      it: "Ultra 4 punta su sensori wellness dichiarati da Apple, autonomia dichiarata maggiore e funzioni sportive più profonde, restando fortemente legato all'ecosistema iPhone. Non è un dispositivo medico.",
+      en: "Ultra 4 leans on Apple-declared wellness sensors, claimed battery and stronger sport tools — still tightly bound to iPhone. It is not a medical device.",
     },
     price: 909,
     amazonUrl: "https://www.amazon.it/dp/B0HJB281DM?tag=357921-21",
@@ -274,18 +274,18 @@ export const techProducts: TechProduct[] = [
     highlights: {
       it: [
         "Cassa da 49 mm in titanio e chip S11",
-        "Fino a 50 ore di autonomia; 84 ore in Low Power Mode",
-        "GPS avanzato, Readiness score, SOS satellitare",
+        "Autonomia dichiarata: fino a 50 ore; 84 ore in Low Power Mode",
+        "GPS avanzato, Readiness score e SOS satellitare dichiarati da Apple",
       ],
       en: [
         "49 mm titanium case and S11 chip",
-        "Up to 50 hours; 84 hours in Low Power Mode",
-        "Advanced GPS, Readiness score, satellite SOS",
+        "Claimed battery: up to 50 hours; 84 hours in Low Power Mode",
+        "Advanced GPS, Readiness score and satellite SOS as declared by Apple",
       ],
     },
     forWhom: {
-      it: "Ha più senso per chi usa iPhone e cerca un orologio premium per sport, salute e uso quotidiano. Per autonomia estrema, confrontalo con Garmin.",
-      en: "It makes most sense if you use iPhone and want a premium watch for sport, health and daily use. For extreme battery life, compare it with Garmin.",
+      it: "Ha più senso per chi usa iPhone e cerca un orologio premium per sport, monitoraggio wellness e uso quotidiano. Per autonomia estrema, confrontalo con Garmin.",
+      en: "It makes most sense if you use iPhone and want a premium watch for sport, wellness tracking and daily use. For extreme battery life, compare it with Garmin.",
     },
     relatedGuide: "apple-watch-ultra-4-vs-garmin-fenix-8",
   },

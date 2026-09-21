@@ -225,8 +225,8 @@ export const guides: Guide[] = [
       en: "Battery, GPS, maps, sport, ecosystem and daily use.",
     },
     lead: {
-      it: "Due approcci premium molto diversi: Apple punta su integrazione smart e salute; Garmin su autonomia, mappe e profondità multisport.",
-      en: "Two premium approaches: Apple leans on smart integration and health; Garmin on battery, maps and multisport depth.",
+      it: "Due approcci premium molto diversi: Apple punta su integrazione smart e monitoraggio wellness; Garmin su autonomia, mappe e profondità multisport. Nessuno dei due è un dispositivo medico.",
+      en: "Two premium approaches: Apple leans on smart integration and wellness tracking; Garmin on battery, maps and multisport depth. Neither is a medical device.",
     },
     kind: "compare",
     image: "/guides/compare-watches.jpg",
@@ -239,12 +239,12 @@ export const guides: Guide[] = [
         {
           label: { it: "Autonomia", en: "Battery" },
           a: {
-            it: "Fino a 50 ore uso quotidiano; 84 ore in Low Power Mode.",
-            en: "Up to 50 hours daily; 84 hours in Low Power Mode.",
+            it: "Autonomia dichiarata da Apple: fino a 50 ore uso quotidiano; 84 ore in Low Power Mode.",
+            en: "Apple-claimed battery: up to 50 hours daily; 84 hours in Low Power Mode.",
           },
           b: {
-            it: "Da giorni a settimane; il 47 mm AMOLED arriva fino a 16 giorni in modalità smartwatch.",
-            en: "Days to weeks; the 47 mm AMOLED reaches up to 16 days in smartwatch mode.",
+            it: "Autonomia dichiarata da Garmin: da giorni a settimane; il 47 mm AMOLED fino a 16 giorni in modalità smartwatch.",
+            en: "Garmin-claimed battery: days to weeks; the 47 mm AMOLED up to 16 days in smartwatch mode.",
           },
         },
         {
@@ -341,12 +341,12 @@ export const guides: Guide[] = [
         {
           label: { it: "Prova gratuita", en: "Free trial" },
           a: {
-            it: "30 giorni per clienti idonei; condizioni e rinnovo automatico su Audible.",
-            en: "30 days for eligible customers; terms and auto-renewal on Audible.",
+            it: "Prova eventuale per clienti idonei; durata, prezzo successivo e rinnovo automatico sulla pagina Amazon/Audible.",
+            en: "A trial may be available for eligible customers; length, next price and auto-renewal are on the Amazon/Audible page.",
           },
           b: {
-            it: "30 giorni per clienti idonei; poi rinnovo secondo le condizioni Amazon.",
-            en: "30 days for eligible customers; then renewal under Amazon's terms.",
+            it: "Prova eventuale per clienti idonei; durata e rinnovo secondo le condizioni Amazon in vigore.",
+            en: "A trial may be available for eligible customers; length and renewal follow Amazon's current terms.",
           },
         },
         {

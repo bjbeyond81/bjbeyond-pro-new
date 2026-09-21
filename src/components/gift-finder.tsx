@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AffiliateNote } from "@/components/ui-bits";
+import { AffiliateNote, PriceNote } from "@/components/ui-bits";
 import { ProductImage } from "@/components/product-image";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
@@ -123,6 +123,7 @@ export function GiftFinder({
                     {t.indicative}
                   </small>
                 </p>
+                <PriceNote locale={locale} />
                 <a
                   href={product.u}
                   target="_blank"
@@ -131,6 +132,9 @@ export function GiftFinder({
                 >
                   {t.seeAmazon}
                 </a>
+                <span className="text-[11px] font-medium tracking-wide text-muted-foreground uppercase">
+                  {t.paidLink}
+                </span>
               </div>
             </article>
           ))}
@@ -263,6 +267,7 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
           </Link>
         </p>
       </form>
+      <AffiliateNote locale={locale} className="mt-8" />
     </section>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ProductImage } from "@/components/product-image";
 import { SiteShell } from "@/components/site-shell";
-import { AffiliateNote, ExternalCta, PageIntro } from "@/components/ui-bits";
+import { AffiliateNote, ExternalCta, PageIntro, PriceNote } from "@/components/ui-bits";
 import { Badge } from "@/components/ui/badge";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
@@ -52,15 +52,20 @@ export function TechIndexPage({ locale }: { locale: Locale }) {
                 </h2>
                 <p className="text-muted-foreground leading-6">{p.short[locale]}</p>
                 {p.price != null ? (
-                  <p className="font-serif text-3xl">
-                    {formatEuro(p.price, locale)}{" "}
-                    <small className="align-middle font-sans text-xs text-muted-foreground">
-                      {t.indicative}
-                    </small>
-                  </p>
+                  <div>
+                    <p className="font-serif text-3xl">
+                      {formatEuro(p.price, locale)}{" "}
+                      <small className="align-middle font-sans text-xs text-muted-foreground">
+                        {t.indicative}
+                      </small>
+                    </p>
+                    <PriceNote locale={locale} className="mt-1" />
+                  </div>
                 ) : null}
                 <div className="mt-auto flex flex-wrap gap-2 pt-2">
-                  <ExternalCta href={p.amazonUrl}>{t.seeAmazon}</ExternalCta>
+                  <ExternalCta href={p.amazonUrl} locale={locale}>
+                    {t.seeAmazon}
+                  </ExternalCta>
                   <Link
                     href={localizedPath(locale, `/tech/${p.slug}`)}
                     className="inline-flex h-11 items-center px-3 text-sm font-semibold underline-offset-4 hover:underline"

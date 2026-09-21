@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SiteShell } from "@/components/site-shell";
-import { PageIntro } from "@/components/ui-bits";
+import { AffiliateNote, PageIntro } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
@@ -47,7 +47,8 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
               <SceneVisual scene={c.visual} className="min-h-[160px]" />
               <div className="p-6">
                 <p className="kicker">
-                  {c.n} {c.kicker[locale]}
+                  {c.n} {c.kicker[locale]} · {t.advertising}
+                  {c.network === "awin" ? " · Awin" : ""}
                 </p>
                 <h2 className="mt-2 text-4xl">{c.name}</h2>
                 <p className="mt-2 text-muted-foreground">{c.short[locale]}</p>
@@ -58,6 +59,7 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
             </Link>
           ))}
         </div>
+        <AffiliateNote locale={locale} variant="awin" className="mt-12" />
       </div>
     </SiteShell>
   );
