@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useMemo, useState } from "react";
 import { copy } from "@/lib/copy";
 import { GIFT_THEMES, themesOf, type GiftProduct } from "@/lib/gifts";
 import type { Locale } from "@/lib/i18n";
@@ -10,91 +10,71 @@ import { AffiliateNote } from "@/components/ui-bits";
 import { Button } from "@/components/ui/button";
 
 type ThemeId = (typeof GIFT_THEMES)[number]["id"];
-
 type Who = "all" | "mamma" | "papà";
 type Budget = "all" | "sotto_20" | "20_50" | "50_100" | "oltre_100";
 type Sort = "featured" | "priceAsc" | "priceDesc";
 
-function subscribeSearch(callback: () => void) {
-  window.addEventListener("popstate", callback);
-  return () => window.removeEventListener("popstate", callback);
-}
-
-function getSearch() {
-  return window.location.search;
-}
-
-function getServerSearch() {
-  return "";
-}
-
-function parseSearch(search: string) {
-  const q = new URLSearchParams(search);
-  return {
-    who: q.get("who") ?? undefined,
-    budget: q.get("budget") ?? undefined,
-    theme: q.get("theme") ?? undefined,
-    go: q.get("go") === "1",
-  };
-}
+export type GiftFinderInitial = {
+  who?: string;
+  budget?: string;
+  theme?: string;
+  go?: boolean;
+};
 
 export function GiftFinder({
   locale,
   products,
+  initial,
 }: {
   locale: Locale;
   products: GiftProduct[];
+  initial?: GiftFinderInitial;
 }) {
   const t = copy[locale];
-  const search = useSyncExternalStore(subscribeSearch, getSearch, getServerSearch);
-  const query = parseSearch(search);
-  const urlTheme = GIFT_THEMES.some((x) => x.id === query.theme)
-    ? (query.theme as ThemeId)
-    : "all";
-  const urlStage: "quiz" | "results" =
-    query.go || Boolean(query.theme) || Boolean(query.who && query.who !== "all")
+  const [who, setWho] = useState<Who>(() => normalizeWho(initial?.who));
+  const [budget, setBudget] = useState<Budget>(() => normalizeBudget(initial?.budget));
+  const [theme, setTheme] = useState<ThemeId>(() => normalizeTheme(initial?.theme));
+  const [stage, setStage] = useState<"quiz" | "results">(() =>
+    initial?.go || Boolean(initial?.theme) || Boolean(initial?.who && initial.who !== "all")
       ? "results"
-      : "quiz";
-
-  const [who, setWho] = useState<Who | null>(null);
-  const [budget, setBudget] = useState<Budget | null>(null);
-  const [theme, setTheme] = useState<ThemeId | null>(null);
-  const [stage, setStage] = useState<"quiz" | "results" | null>(null);
+      : "quiz",
+  );
   const [sort, setSort] = useState<Sort>("featured");
   const [shown, setShown] = useState(24);
 
-  const effectiveWho = who ?? normalizeWho(query.who);
-  const effectiveBudget = budget ?? normalizeBudget(query.budget);
-  const effectiveTheme = theme ?? urlTheme;
-  const effectiveStage = stage ?? urlStage;
-
   const filtered = useMemo(() => {
     const list = products.filter((p) => {
-      if (effectiveWho !== "all" && p.c !== effectiveWho && p.c !== "all") return false;
-      if (effectiveBudget !== "all" && p.b !== effectiveBudget) return false;
-      if (effectiveTheme !== "all" && !themesOf(p.t).includes(effectiveTheme)) return false;
+      if (who !== "all" && p.c !== who && p.c !== "all") return false;
+      if (budget !== "all" && p.b !== budget) return false;
+      if (theme !== "all" && !themesOf(p.t).includes(theme)) return false;
       return true;
     });
     if (sort === "priceAsc") return [...list].sort((a, b) => a.p - b.p);
     if (sort === "priceDesc") return [...list].sort((a, b) => b.p - a.p);
     return list;
-  }, [products, effectiveWho, effectiveBudget, effectiveTheme, sort]);
+  }, [products, who, budget, theme, sort]);
 
   const visible = filtered.slice(0, shown);
 
-  if (effectiveStage === "quiz") {
+  if (stage === "quiz") {
     return (
       <section className="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-20">
         <p className="kicker">{t.quizEyebrow}</p>
-        <h1
-          className="mt-3 text-4xl leading-[0.94] sm:text-6xl"
-          dangerouslySetInnerHTML={{
-            __html:
-              locale === "it"
-                ? "Tre domande.<br />Poi il regalo."
-                : "Three questions.<br />Then the gift.",
-          }}
-        />
+        <h1 className="mt-3 text-4xl leading-[0.94] sm:text-6xl">
+          {locale === "it" ? (
+            <>
+              Tre domande.
+              <br />
+              Poi il regalo.
+            </>
+          ) : (
+            <>
+              Three questions.
+              <br />
+              Then the gift.
+            </>
+          )}
+        </h1>
         <p className="mt-5 max-w-xl text-lg leading-7 text-muted-foreground">
           {locale === "it"
             ? "Niente lista infinita. Scegli per chi, il budget e la categoria. Ok, e vedi solo quello che ha senso."
@@ -104,15 +84,21 @@ export function GiftFinder({
         <div className="mt-10 rounded-[28px] border border-foreground/8 bg-card p-5 shadow-[0_18px_50px_rgba(40,24,10,.08)] sm:p-8">
           <Question n="01" label={t.qWho}>
             <ChipRow>
-              <Chip active={effectiveWho === "all"} onClick={() => setWho("all")}>{t.all}</Chip>
-              <Chip active={effectiveWho === "mamma"} onClick={() => setWho("mamma")}>{t.forMum}</Chip>
-              <Chip active={effectiveWho === "papà"} onClick={() => setWho("papà")}>{t.forDad}</Chip>
+              <Chip active={who === "all"} onClick={() => setWho("all")}>
+                {t.all}
+              </Chip>
+              <Chip active={who === "mamma"} onClick={() => setWho("mamma")}>
+                {t.forMum}
+              </Chip>
+              <Chip active={who === "papà"} onClick={() => setWho("papà")}>
+                {t.forDad}
+              </Chip>
             </ChipRow>
           </Question>
           <Question n="02" label={t.qBudget}>
             <ChipRow>
               {(Object.keys(t.budgets) as Budget[]).map((id) => (
-                <Chip key={id} active={effectiveBudget === id} onClick={() => setBudget(id)}>
+                <Chip key={id} active={budget === id} onClick={() => setBudget(id)}>
                   {t.budgets[id]}
                 </Chip>
               ))}
@@ -121,18 +107,18 @@ export function GiftFinder({
           <Question n="03" label={t.qCat} last>
             <ChipRow>
               {GIFT_THEMES.map((th) => (
-                <Chip key={th.id} active={effectiveTheme === th.id} onClick={() => setTheme(th.id)}>
+                <Chip key={th.id} active={theme === th.id} onClick={() => setTheme(th.id)}>
                   {t.themes[th.id]}
                 </Chip>
               ))}
             </ChipRow>
           </Question>
           <Button
+            type="button"
             className="mt-4 h-12 w-full text-base"
             onClick={() => {
               setShown(24);
               setStage("results");
-              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             {t.quizOk}
@@ -147,10 +133,7 @@ export function GiftFinder({
       <button
         type="button"
         className="mb-6 text-sm text-muted-foreground hover:text-foreground"
-        onClick={() => {
-          setStage("quiz");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
+        onClick={() => setStage("quiz")}
       >
         ← {t.changeAnswers}
       </button>
@@ -162,7 +145,7 @@ export function GiftFinder({
           {GIFT_THEMES.map((th) => (
             <Chip
               key={th.id}
-              active={effectiveTheme === th.id}
+              active={theme === th.id}
               onClick={() => {
                 setTheme(th.id);
                 setShown(24);
@@ -207,7 +190,8 @@ export function GiftFinder({
               <ProductImage src={p.i} alt={p.t} />
               <div className="flex flex-1 flex-col gap-3 p-4">
                 <p className="kicker">
-                  {p.c === "mamma" ? t.forMum : p.c === "papà" ? t.forDad : t.nav.tech} · {t.budgets[p.b]}
+                  {p.c === "mamma" ? t.forMum : p.c === "papà" ? t.forDad : t.nav.tech} ·{" "}
+                  {t.budgets[p.b]}
                 </p>
                 <h2 className="line-clamp-3 font-sans text-[15px] font-bold tracking-tight">
                   {p.t}
@@ -234,7 +218,7 @@ export function GiftFinder({
 
       {visible.length < filtered.length ? (
         <div className="mt-10 flex justify-center">
-          <Button variant="outline" onClick={() => setShown((n) => n + 24)}>
+          <Button type="button" variant="outline" onClick={() => setShown((n) => n + 24)}>
             {t.loadMore}
           </Button>
         </div>
@@ -301,8 +285,18 @@ function normalizeWho(value?: string): Who {
 }
 
 function normalizeBudget(value?: string): Budget {
-  if (value === "sotto_20" || value === "20_50" || value === "50_100" || value === "oltre_100" || value === "all") {
+  if (
+    value === "sotto_20" ||
+    value === "20_50" ||
+    value === "50_100" ||
+    value === "oltre_100" ||
+    value === "all"
+  ) {
     return value;
   }
   return "all";
+}
+
+function normalizeTheme(value?: string): ThemeId {
+  return GIFT_THEMES.some((x) => x.id === value) ? (value as ThemeId) : "all";
 }
