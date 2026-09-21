@@ -1,6 +1,8 @@
+import { CoverImage } from "@/components/product-image";
 import { SiteShell } from "@/components/site-shell";
 import { AffiliateNote, ExternalCta, PageIntro } from "@/components/ui-bits";
 import { Badge } from "@/components/ui/badge";
+import { SceneVisual } from "@/components/visuals/scene-visual";
 import { amazonServices } from "@/lib/amazon";
 import type { Locale } from "@/lib/i18n";
 
@@ -10,6 +12,15 @@ export function AmazonPage({ locale }: { locale: Locale }) {
   return (
     <SiteShell locale={locale}>
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <SceneVisual
+          scene="amazon"
+          className="mb-10 min-h-[200px] rounded-[28px] sm:min-h-[280px]"
+          label={
+            locale === "it"
+              ? "Scatola, libro e cuffie sul tavolo"
+              : "Box, book and headphones on the table"
+          }
+        />
         <PageIntro
           kicker={
             locale === "it"
@@ -30,16 +41,19 @@ export function AmazonPage({ locale }: { locale: Locale }) {
           {core.map((s) => (
             <article
               key={s.id}
-              className="flex min-h-[280px] flex-col rounded-[28px] border border-foreground/8 bg-card p-6 shadow-[0_18px_50px_rgba(19,19,19,.05)]"
+              className="flex min-h-[280px] flex-col overflow-hidden rounded-[28px] border border-foreground/8 bg-card shadow-[0_18px_50px_rgba(19,19,19,.05)]"
             >
-              <Badge variant="copper">{s.badge[locale]}</Badge>
-              <h2 className="mt-4 text-3xl leading-[0.98]">{s.name[locale]}</h2>
-              <p className="mt-3 flex-1 leading-6 text-muted-foreground">
-                {s.body[locale]}
-              </p>
-              <p className="mt-4 text-sm font-medium">{s.facts[locale]}</p>
-              <div className="mt-5">
-                <ExternalCta href={s.href}>{s.cta[locale]}</ExternalCta>
+              <CoverImage src={s.image} alt={s.name[locale]} />
+              <div className="flex flex-1 flex-col p-6">
+                <Badge variant="copper">{s.badge[locale]}</Badge>
+                <h2 className="mt-4 text-3xl leading-[0.98]">{s.name[locale]}</h2>
+                <p className="mt-3 flex-1 leading-6 text-muted-foreground">
+                  {s.body[locale]}
+                </p>
+                <p className="mt-4 text-sm font-medium">{s.facts[locale]}</p>
+                <div className="mt-5">
+                  <ExternalCta href={s.href}>{s.cta[locale]}</ExternalCta>
+                </div>
               </div>
             </article>
           ))}
@@ -59,15 +73,18 @@ export function AmazonPage({ locale }: { locale: Locale }) {
             {channels.map((s) => (
               <article
                 key={s.id}
-                className="flex flex-col rounded-[28px] border border-foreground/8 bg-card p-6"
+                className="flex flex-col overflow-hidden rounded-[28px] border border-foreground/8 bg-card"
               >
-                <Badge variant="outline">{s.badge[locale]}</Badge>
-                <h3 className="mt-4 text-3xl">{s.name[locale]}</h3>
-                <p className="mt-3 flex-1 leading-6 text-muted-foreground">
-                  {s.body[locale]}
-                </p>
-                <div className="mt-5">
-                  <ExternalCta href={s.href}>{s.cta[locale]}</ExternalCta>
+                <CoverImage src={s.image} alt={s.name[locale]} className="h-40" />
+                <div className="flex flex-1 flex-col p-6">
+                  <Badge variant="outline">{s.badge[locale]}</Badge>
+                  <h3 className="mt-4 text-3xl">{s.name[locale]}</h3>
+                  <p className="mt-3 flex-1 leading-6 text-muted-foreground">
+                    {s.body[locale]}
+                  </p>
+                  <div className="mt-5">
+                    <ExternalCta href={s.href}>{s.cta[locale]}</ExternalCta>
+                  </div>
                 </div>
               </article>
             ))}

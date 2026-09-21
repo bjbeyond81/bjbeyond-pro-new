@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AffiliateNote } from "@/components/ui-bits";
 import { ProductImage } from "@/components/product-image";
+import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import {
   filterGifts,
@@ -164,6 +165,15 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
 
   return (
     <section className="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-20">
+      <SceneVisual
+        scene="gifts"
+        className="mb-8 min-h-[180px] rounded-[28px] sm:min-h-[220px]"
+        label={
+          locale === "it"
+            ? "Pacco di lino, rosa e collana sul tavolo"
+            : "Linen gift, rose and necklace on the table"
+        }
+      />
       <p className="kicker">{t.quizEyebrow}</p>
       <h1 className="mt-3 text-4xl leading-[0.94] sm:text-6xl">
         {locale === "it" ? (

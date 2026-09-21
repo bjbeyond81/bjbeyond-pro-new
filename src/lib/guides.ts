@@ -10,6 +10,7 @@ export type Guide = {
   description: L<string>;
   lead: L<string>;
   kind: "article" | "compare";
+  image: string;
   sections?: { title: L<string>; body: L<string>; list?: L<string[]> }[];
   table?: {
     headers: L<[string, string, string]>;
@@ -37,6 +38,7 @@ export const guides: Guide[] = [
       en: "Pick a watch from what you will do every day. Battery, GPS, compatibility and comfort usually beat the feature count.",
     },
     kind: "article",
+    image: "/guides/watch.jpg",
     sections: [
       {
         title: { it: "Autonomia", en: "Battery life" },
@@ -90,6 +92,7 @@ export const guides: Guide[] = [
       en: "Under €50 you will find plenty of technology, and plenty of noise. Pick a clear use, simple compatibility, daily value.",
     },
     kind: "article",
+    image: "/guides/tech-gifts.jpg",
     sections: [
       {
         title: {
@@ -169,6 +172,7 @@ export const guides: Guide[] = [
       en: "The free trial is not the main criterion. Before you start, look at renewal, catalogue, supported devices and how hard it is to cancel.",
     },
     kind: "article",
+    image: "/amazon/kindle.jpg",
     sections: [
       {
         title: { it: "Prova gratuita e rinnovo", en: "Trial and renewal" },
@@ -225,6 +229,7 @@ export const guides: Guide[] = [
       en: "Two premium approaches: Apple leans on smart integration and health; Garmin on battery, maps and multisport depth.",
     },
     kind: "compare",
+    image: "/guides/compare-watches.jpg",
     table: {
       headers: {
         it: ["Criterio", "Apple Watch Ultra 4", "Garmin fēnix 8"],
@@ -304,6 +309,7 @@ export const guides: Guide[] = [
       en: "They are not direct rivals: one is built around listening, the other around digital reading.",
     },
     kind: "compare",
+    image: "/amazon/audible.jpg",
     table: {
       headers: {
         it: ["Criterio", "Audible", "Kindle Unlimited"],
@@ -383,6 +389,7 @@ export const guides: Guide[] = [
       en: "Prime Student is for eligible students. The deciding point is not the plan name — it is whether you qualify, and which terms are live right now.",
     },
     kind: "compare",
+    image: "/amazon/student.jpg",
     table: {
       headers: {
         it: ["Criterio", "Amazon Prime", "Prime Student"],

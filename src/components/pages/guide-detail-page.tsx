@@ -33,6 +33,12 @@ export function GuideDetailPage({
         <p className="mt-6 text-xl leading-8 text-muted-foreground">
           {guide.lead[locale]}
         </p>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={guide.image}
+          alt=""
+          className="mt-10 h-56 w-full rounded-[28px] object-cover sm:h-80"
+        />
 
         {guide.kind === "article" && guide.sections
           ? guide.sections.map((section) => (

@@ -10,6 +10,7 @@ export type AmazonService = {
   facts: L<string>;
   cta: L<string>;
   href: string;
+  image: string;
   group: "core" | "channels";
 };
 
@@ -28,6 +29,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Scopri Prime", en: "Explore Prime" },
     href: "https://www.amazon.it/provaprime?tag=357921-21",
+    image: "/amazon/prime.jpg",
     group: "core",
   },
   {
@@ -44,6 +46,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Apri Prime Video", en: "Open Prime Video" },
     href: "https://www.primevideo.com/?tag=357921-21",
+    image: "/amazon/video.jpg",
     group: "core",
   },
   {
@@ -60,6 +63,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Prova Audible", en: "Try Audible" },
     href: "https://www.amazon.it/b?node=17941650031&actionCode=AZIOther35606092201BR&tag=357921-21",
+    image: "/amazon/audible.jpg",
     group: "core",
   },
   {
@@ -76,6 +80,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Scopri Music Unlimited", en: "Explore Music Unlimited" },
     href: "https://www.amazon.it/gp/dmusic/promotions/AmazonMusicUnlimited?tag=357921-21",
+    image: "/amazon/music.jpg",
     group: "core",
   },
   {
@@ -92,6 +97,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Prova Kindle Unlimited", en: "Try Kindle Unlimited" },
     href: "https://www.amazon.it/kindle-dbs/hz/signup?tag=357921-21",
+    image: "/amazon/kindle.jpg",
     group: "core",
   },
   {
@@ -108,6 +114,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Scopri Prime Student", en: "Explore Prime Student" },
     href: "https://www.amazon.it/joinstudent?tag=357921-21",
+    image: "/amazon/student.jpg",
     group: "core",
   },
   {
@@ -124,6 +131,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Crea una Lista Nozze", en: "Create a wedding list" },
     href: "https://www.amazon.it/wedding?tag=357921-21",
+    image: "/amazon/wedding.jpg",
     group: "core",
   },
   {
@@ -140,6 +148,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Crea una Lista Nascita", en: "Create a baby list" },
     href: "https://www.amazon.it/baby-reg/homepage?tag=357921-21",
+    image: "/amazon/baby.jpg",
     group: "core",
   },
   {
@@ -159,6 +168,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Vedi gli articoli idonei", en: "See eligible items" },
     href: "https://www.amazon.it/primetrybeforeyoubuy?tag=357921-21",
+    image: "/amazon/fashion.jpg",
     group: "core",
   },
   {
@@ -175,6 +185,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Scopri MUBI", en: "Explore MUBI" },
     href: "https://www.primevideo.com/offers/?benefitId=mubiit&tag=357921-21",
+    image: "/amazon/mubi.jpg",
     group: "channels",
   },
   {
@@ -191,6 +202,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Scopri Raro Video", en: "Explore Raro Video" },
     href: "https://www.primevideo.com/offers/?benefitId=rarovideoit&tag=357921-21",
+    image: "/amazon/raro.jpg",
     group: "channels",
   },
   {
@@ -207,6 +219,7 @@ export const amazonServices: AmazonService[] = [
     },
     cta: { it: "Scopri Full Moon TV", en: "Explore Full Moon TV" },
     href: "https://www.primevideo.com/offers/?benefitId=duelit&tag=357921-21",
+    image: "/amazon/fullmoon.jpg",
     group: "channels",
   },
 ];

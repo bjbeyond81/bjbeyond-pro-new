@@ -3,6 +3,7 @@ import { ProductImage } from "@/components/product-image";
 import { SiteShell } from "@/components/site-shell";
 import { AffiliateNote, ExternalCta, PageIntro } from "@/components/ui-bits";
 import { Badge } from "@/components/ui/badge";
+import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
 import { techProducts } from "@/lib/tech";
@@ -13,6 +14,15 @@ export function TechIndexPage({ locale }: { locale: Locale }) {
   return (
     <SiteShell locale={locale}>
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <SceneVisual
+          scene="tech"
+          className="mb-10 min-h-[200px] rounded-[28px] sm:min-h-[260px]"
+          label={
+            locale === "it"
+              ? "Telefono, orologio e auricolari sul tavolo"
+              : "Phone, watch and earbuds on the table"
+          }
+        />
         <PageIntro
           kicker="Smartphone · Wearable · Audio"
           title={

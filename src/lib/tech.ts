@@ -32,7 +32,7 @@ export const techProducts: TechProduct[] = [
       en: "A countertop display, not a kitchen television. Timers, calls, weather, lights: Alexa stays in a size that belongs on the desk.",
     },
     amazonUrl: "https://amzn.to/4jf0d1q",
-    image: "https://m.media-amazon.com/images/I/41dmPvjN3WL._AC_SL1500_.jpg",
+    image: "/products/echo-show-5.jpg",
     highlights: {
       it: [
         "Schermo 5.5\" compatto da piano",
@@ -64,7 +64,7 @@ export const techProducts: TechProduct[] = [
       en: "A watch to wear for weeks, not to charge every night. Premium materials, GPS and ECG: the spec sheet matters, the theatre does not.",
     },
     amazonUrl: "https://amzn.to/3T8Kfvn",
-    image: "https://m.media-amazon.com/images/I/81i+p4TcVPL._AC_SL1500_.jpg",
+    image: "/products/huawei-watch-gt7-pro.jpg",
     highlights: {
       it: [
         "Cassa in titanio, lunetta in ceramica",
@@ -96,8 +96,7 @@ export const techProducts: TechProduct[] = [
       en: "Open-ear, with isolation when you need it. H2, Adaptive Audio, translation: three functions, not a badge catalogue.",
     },
     amazonUrl: "https://amzn.to/4gZ6n4u",
-    image:
-      "https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SL1500_.jpg",
+    image: "/products/airpods-5.jpg",
     highlights: {
       it: [
         "Design open-ear con ANC",
@@ -129,8 +128,7 @@ export const techProducts: TechProduct[] = [
       en: "This generation's Pro: A20 Pro, 48MP Fusion, Apple Intelligence. You buy the system, not the spec sheet.",
     },
     amazonUrl: "https://amzn.to/4xZNNPH",
-    image:
-      "https://m.media-amazon.com/images/I/61LFeKye45L._AC_SL1500_.jpg",
+    image: "/products/iphone-18-pro.jpg",
     highlights: {
       it: [
         "Chip A20 Pro",
@@ -162,7 +160,7 @@ export const techProducts: TechProduct[] = [
       en: "Urban Garmin: GPS, health, 12 days. Fewer apps, more training. Android and iPhone both stay in play.",
     },
     amazonUrl: "https://amzn.to/3TE2AAA",
-    image: "",
+    image: "/products/garmin-venu-4.png",
     highlights: {
       it: [
         "GPS e monitoraggio salute Garmin",
@@ -199,7 +197,7 @@ export const techProducts: TechProduct[] = [
     },
     price: 1149,
     amazonUrl: "https://www.amazon.it/dp/B0FQGPJCJK?tag=357921-21",
-    image: "https://m.media-amazon.com/images/I/61LFeKye45L._AC_UL320_.jpg",
+    image: "/products/iphone-17-pro.jpg",
     highlights: {
       it: [
         "256 GB, finitura Blu profondo",
@@ -235,7 +233,7 @@ export const techProducts: TechProduct[] = [
     },
     price: 16,
     amazonUrl: "https://www.amazon.it/dp/B0DCNWN8NZ?tag=357921-21",
-    image: "https://m.media-amazon.com/images/I/51oMc4XRaaL._AC_UL320_.jpg",
+    image: "/products/earpods-usb-c.jpg",
     highlights: {
       it: [
         "Connettore USB-C originale Apple",
@@ -272,7 +270,7 @@ export const techProducts: TechProduct[] = [
     },
     price: 909,
     amazonUrl: "https://www.amazon.it/dp/B0HJB281DM?tag=357921-21",
-    image: "https://m.media-amazon.com/images/I/8119y7GztZL._AC_UL320_.jpg",
+    image: "/products/apple-watch-ultra-4.jpg",
     highlights: {
       it: [
         "Cassa da 49 mm in titanio e chip S11",
