@@ -7,15 +7,38 @@ export type TechProduct = {
   category: "casa" | "wearable" | "audio" | "phone";
   badge: L<string>;
   name: L<string>;
+  headline?: L<string>;
   short: L<string>;
   lead: L<string>;
   price?: number;
-  amazonUrl: string;
+  amazonUrl?: string;
+  href?: string;
+  network?: "amazon" | "awin";
+  cta?: L<string>;
   image: string;
   highlights: L<string[]>;
   forWhom: L<string>;
   relatedGuide?: string;
+  sections?: { title: L<string>; body: L<string> }[];
+  discountCode?: string;
+  discountNote?: L<string>;
+  priceNote?: L<string>;
+  seoTitle?: L<string>;
+  seoDescription?: L<string>;
 };
+
+export function techHref(product: TechProduct) {
+  return product.href ?? product.amazonUrl ?? "";
+}
+
+export function techNetwork(product: TechProduct): "amazon" | "awin" {
+  return product.network ?? "amazon";
+}
+
+export function techCta(product: TechProduct, locale: Locale) {
+  if (product.cta) return product.cta[locale];
+  return locale === "it" ? "Vedi su Amazon" : "View on Amazon";
+}
 
 export const techProducts: TechProduct[] = [
   {
@@ -178,6 +201,111 @@ export const techProducts: TechProduct[] = [
       en: "For sport and wellness tracking without locking into one phone.",
     },
     relatedGuide: "come-scegliere-smartwatch",
+  },
+  {
+    slug: "ultrahuman-ring-pro",
+    category: "wearable",
+    badge: { it: "Wearable", en: "Wearable" },
+    name: { it: "Ultrahuman Ring Pro", en: "Ultrahuman Ring Pro" },
+    headline: {
+      it: "Ultrahuman Ring Pro — recensione completa 2026",
+      en: "Ultrahuman Ring Pro — full review 2026",
+    },
+    short: {
+      it: "Smart ring in titanio: batteria 15 giorni, nessun abbonamento obbligatorio, codice sconto 10%.",
+      en: "Titanium smart ring: 15-day battery, no mandatory subscription, 10% discount code.",
+    },
+    lead: {
+      it: "L'Ultrahuman Ring Pro è uno smart ring pensato per chi vuole tracciare salute e sonno senza indossare un orologio. Si indossa al dito, pesa pochissimo, e dura fino a quindici giorni con una singola carica. Niente abbonamento obbligatorio, niente schermo, niente notifiche che ti distraggono. Non è un dispositivo medico.",
+      en: "The Ultrahuman Ring Pro is a smart ring for anyone who wants health and sleep tracking without wearing a watch. It sits on the finger, weighs very little, and lasts up to fifteen days on one charge. No mandatory subscription, no screen, no notifications pulling you away. It is not a medical device.",
+    },
+    price: 499,
+    href: "https://tidd.ly/3UT6vdj",
+    network: "awin",
+    cta: {
+      it: "Acquista Ultrahuman Ring Pro",
+      en: "Buy Ultrahuman Ring Pro",
+    },
+    image: "/products/ultrahuman-ring-pro.jpg",
+    highlights: {
+      it: [
+        "Batteria dichiarata fino a 15 giorni; fino a 45 con la custodia PRO inclusa",
+        "Metriche core senza abbonamento obbligatorio",
+        "Titanio unibody, circa 3,3–4,8 g, taglie 5–14",
+        "Codice sconto 10% BJBEYOND10 (da verificare al checkout)",
+      ],
+      en: [
+        "Claimed battery up to 15 days; up to 45 with the included PRO case",
+        "Core metrics with no mandatory subscription",
+        "Unibody titanium, about 3.3–4.8 g, sizes 5–14",
+        "10% discount code BJBEYOND10 (confirm at checkout)",
+      ],
+    },
+    forWhom: {
+      it: "La scelta più pulita per chi vuole tracciare salute e sonno senza vincoli di abbonamento. Se cerchi solo il top della precisione sul sonno e non ti dispiace pagare ogni mese, guarda Oura.",
+      en: "The cleaner choice if you want health and sleep tracking without a subscription lock-in. If you only want the top of sleep precision and do not mind paying every month, look at Oura.",
+    },
+    sections: [
+      {
+        title: { it: "Design e materiali", en: "Design and materials" },
+        body: {
+          it: "Il corpo è in titanio unibody, quindi leggero e resistente. Pesa circa 3,3–4,8 grammi a seconda della taglia. I colori disponibili sono Bionic Gold, Space Silver, Aster Black e Raw Titanium. Le taglie vanno da 5 a 14. La custodia di ricarica PRO è inclusa e porta l'autonomia combinata fino a 45 giorni.",
+          en: "The body is unibody titanium: light and tough. It weighs about 3.3–4.8 grams depending on size. Colours: Bionic Gold, Space Silver, Aster Black and Raw Titanium. Sizes run from 5 to 14. The PRO charging case is included and takes combined battery life up to 45 days.",
+        },
+      },
+      {
+        title: { it: "Batteria e memoria", en: "Battery and memory" },
+        body: {
+          it: "15 giorni sul ring, fino a 45 giorni con la custodia. Fino a 250 giorni di memoria locale sul ring: i dati restano sul dispositivo anche senza connessione e si sincronizzano quando torni online.",
+          en: "15 days on the ring, up to 45 days with the case. Up to 250 days of local memory on the ring: data stays on the device offline and syncs when you come back.",
+        },
+      },
+      {
+        title: { it: "Sensori e metriche", en: "Sensors and metrics" },
+        body: {
+          it: "Sensori per frequenza cardiaca, HRV, temperatura cutanea, sonno, movimento e recupero. L'app mostra i dati in modo pulito, con trend e insight. Le metriche core non richiedono abbonamento obbligatorio. Alcuni PowerPlug avanzati sono opzionali a pagamento. Non è un dispositivo medico.",
+          en: "Sensors for heart rate, HRV, skin temperature, sleep, movement and recovery. The app shows the data cleanly, with trends and insight. Core metrics do not need a mandatory subscription. Some advanced PowerPlugs are optional and paid. It is not a medical device.",
+        },
+      },
+      {
+        title: { it: "Confronto con Oura Ring", en: "Compared with Oura Ring" },
+        body: {
+          it: "Oura Ring 4 è ancora un riferimento per il sonno, ma ha un abbonamento per sbloccare le insight complete. Ultrahuman Ring Pro costa 499 euro in Europa, include la custodia, e offre le metriche principali senza fee mensile. Se vuoi il massimo della precisione sul sonno e accetti l'abbonamento, Oura resta competitivo. Se vuoi valore, autonomia e semplicità, Ultrahuman è la scelta più pulita.",
+          en: "Oura Ring 4 is still a sleep reference, but it uses a subscription to unlock the full insight. Ultrahuman Ring Pro costs €499 in Europe, includes the case, and offers the main metrics with no monthly fee. If you want the most sleep precision and accept the subscription, Oura stays competitive. If you want value, battery life and simplicity, Ultrahuman is the cleaner choice.",
+        },
+      },
+      {
+        title: { it: "Prezzo e offerta", en: "Price and offer" },
+        body: {
+          it: "499 euro in Europa, custodia inclusa. Spedizioni indicate dal 10 ottobre in poi sulla pagina ufficiale. Codice sconto esclusivo per i lettori di BJ Beyond: BJBEYOND10 (verifica al checkout se il codice è attivo sul programma).",
+          en: "€499 in Europe, case included. Shipping listed from 10 October onwards on the official page. Exclusive BJ Beyond reader code: BJBEYOND10 (check at checkout whether the code is active on the programme).",
+        },
+      },
+      {
+        title: { it: "Verdetto", en: "Verdict" },
+        body: {
+          it: "L'Ultrahuman Ring Pro è la scelta migliore per chi vuole tracciare salute e sonno senza vincoli di abbonamento. Batteria lunga, design discreto, dati sul dito e non sul polso. Se cerchi solo il top della precisione sul sonno e non ti dispiace pagare ogni mese, guarda Oura. Per tutti gli altri, questo è il ring da considerare.",
+          en: "The Ultrahuman Ring Pro is the best choice if you want health and sleep tracking without a subscription lock-in. Long battery, discreet design, data on the finger not the wrist. If you only want the top of sleep precision and do not mind paying every month, look at Oura. For everyone else, this is the ring to consider.",
+        },
+      },
+    ],
+    discountCode: "BJBEYOND10",
+    discountNote: {
+      it: "Codice sconto 10% per i lettori di BJ Beyond. Verifica al checkout se il codice è attivo sul programma.",
+      en: "10% discount code for BJ Beyond readers. Check at checkout whether the code is active on the programme.",
+    },
+    priceNote: {
+      it: "Prezzo sul sito ufficiale; può variare. Spedizioni indicate dal 10 ottobre in poi. Verifica sempre in scheda.",
+      en: "Price is on the official site and can change. Shipping listed from 10 October onwards. Always check the listing.",
+    },
+    seoTitle: {
+      it: "Ultrahuman Ring Pro recensione 2026 – BJ Beyond",
+      en: "Ultrahuman Ring Pro review 2026 – BJ Beyond",
+    },
+    seoDescription: {
+      it: "Recensione Ultrahuman Ring Pro 2026: batteria 15 giorni, nessun abbonamento obbligatorio, titanio unibody e codice sconto 10% BJBEYOND10.",
+      en: "Ultrahuman Ring Pro review 2026: 15-day battery, no mandatory subscription, unibody titanium and 10% discount code BJBEYOND10.",
+    },
   },
   {
     slug: "iphone-17-pro",

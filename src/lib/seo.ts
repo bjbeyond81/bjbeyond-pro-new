@@ -57,8 +57,8 @@ export function metadataFor(match: RouteMatch): Metadata {
       const p = getTech(match.slug);
       return {
         ...base,
-        title: `${p?.name[locale] ?? "Tech"} | ${t.siteName}`,
-        description: p?.short[locale],
+        title: p?.seoTitle?.[locale] ?? `${p?.name[locale] ?? "Tech"} | ${t.siteName}`,
+        description: p?.seoDescription?.[locale] ?? p?.short[locale],
       };
     }
     case "amazon":
@@ -97,8 +97,8 @@ export function metadataFor(match: RouteMatch): Metadata {
           locale === "it" ? "Lo stack | BJ Beyond" : "The stack | BJ Beyond",
         description:
           locale === "it"
-            ? "Cinque campagne curate: ESR, IMOU, Toputure, Lingzio, Waterdrop."
-            : "Five curated campaigns: ESR, IMOU, Toputure, Lingzio, Waterdrop.",
+            ? "Sei campagne curate: ESR, IMOU, Toputure, Lingzio, Waterdrop, Ultrahuman."
+            : "Six curated campaigns: ESR, IMOU, Toputure, Lingzio, Waterdrop, Ultrahuman.",
       };
     case "stack-detail": {
       const c = getStack(match.slug);

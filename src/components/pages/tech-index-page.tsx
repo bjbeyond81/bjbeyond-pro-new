@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { techProducts } from "@/lib/tech";
+import { techCta, techHref, techNetwork, techProducts } from "@/lib/tech";
 import { formatEuro } from "@/lib/utils";
 
 export function TechIndexPage({ locale }: { locale: Locale }) {
@@ -32,8 +32,8 @@ export function TechIndexPage({ locale }: { locale: Locale }) {
           }
           lead={
             locale === "it"
-              ? "Una selezione di prodotti del catalogo Tech di BJ Beyond. I prezzi sono indicativi e possono cambiare su Amazon."
-              : "A selection from the BJ Beyond Tech catalogue. Prices are indicative and can change on Amazon."
+              ? "Una selezione di prodotti del catalogo Tech di BJ Beyond. I prezzi sono indicativi e possono cambiare su Amazon o sul sito ufficiale."
+              : "A selection from the BJ Beyond Tech catalogue. Prices are indicative and can change on Amazon or the official site."
           }
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -59,12 +59,18 @@ export function TechIndexPage({ locale }: { locale: Locale }) {
                         {t.indicative}
                       </small>
                     </p>
-                    <PriceNote locale={locale} className="mt-1" />
+                    {techNetwork(p) === "amazon" ? (
+                      <PriceNote locale={locale} className="mt-1" />
+                    ) : p.priceNote ? (
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground">
+                        {p.priceNote[locale]}
+                      </p>
+                    ) : null}
                   </div>
                 ) : null}
                 <div className="mt-auto flex flex-wrap gap-2 pt-2">
-                  <ExternalCta href={p.amazonUrl} locale={locale}>
-                    {t.seeAmazon}
+                  <ExternalCta href={techHref(p)} locale={locale}>
+                    {techCta(p, locale)}
                   </ExternalCta>
                   <Link
                     href={localizedPath(locale, `/tech/${p.slug}`)}
@@ -77,7 +83,7 @@ export function TechIndexPage({ locale }: { locale: Locale }) {
             </article>
           ))}
         </div>
-        <AffiliateNote locale={locale} className="mt-12" />
+        <AffiliateNote locale={locale} variant="all" className="mt-12" />
       </div>
     </SiteShell>
   );

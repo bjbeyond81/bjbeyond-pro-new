@@ -34,12 +34,15 @@ export function AffiliateNote({
         </p>
       ) : null}
       {awin ? (
-        <p className={amazon ? "mt-2" : undefined}>
-          <strong className="font-semibold text-foreground">
-            {locale === "it" ? "Trasparenza Awin:" : "Awin disclosure:"}
-          </strong>{" "}
-          {t.awinDisclosure}
-        </p>
+        <>
+          <p className={amazon ? "mt-2" : undefined}>
+            <strong className="font-semibold text-foreground">
+              {locale === "it" ? "Trasparenza Awin:" : "Awin disclosure:"}
+            </strong>{" "}
+            {t.awinCommission}
+          </p>
+          <p className="mt-2">{t.awinDisclosure}</p>
+        </>
       ) : null}
     </div>
   );
@@ -61,7 +64,7 @@ export function PriceNote({
 
 function networkOf(href: string): "amazon" | "awin" | "ad" {
   if (/amazon\.|amzn\.to|primevideo\.com/i.test(href)) return "amazon";
-  if (/awin1\.com/i.test(href)) return "awin";
+  if (/awin1\.com|tidd\.ly/i.test(href)) return "awin";
   return "ad";
 }
 

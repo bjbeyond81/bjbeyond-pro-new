@@ -16,7 +16,7 @@ export type StackCampaign = {
   not: L<string>;
   cta: L<string>;
   href: string;
-  visual: "desk" | "home" | "move" | "learn" | "water";
+  visual: "desk" | "home" | "move" | "learn" | "water" | "tech";
   network: "awin" | "merchant";
 };
 
@@ -209,6 +209,44 @@ export const stackCampaigns: StackCampaign[] = [
     cta: { it: "Vai su Waterdrop", en: "Go to Waterdrop" },
     href: "https://www.awin1.com/cread.php?awinmid=117653&awinaffid=3099482",
     visual: "water",
+    network: "awin",
+  },
+  {
+    slug: "ultrahuman",
+    n: "06",
+    kicker: { it: "Wearable", en: "Wearable" },
+    name: "Ultrahuman",
+    title: {
+      it: "La salute sul dito. Non sul polso.",
+      en: "Health on the finger. Not the wrist.",
+    },
+    short: {
+      it: "Ring Pro, 15 giorni, niente abbonamento obbligatorio.",
+      en: "Ring Pro, 15 days, no mandatory subscription.",
+    },
+    lead: {
+      it: "Salute e sonno senza orologio. Senza fee mensile sulle metriche core.",
+      en: "Health and sleep without a watch. No monthly fee on the core metrics.",
+    },
+    body: {
+      it: "Ultrahuman Ring Pro: titanio unibody, batteria dichiarata fino a 15 giorni, custodia inclusa. Recensione su Tech, codice BJBEYOND10 da verificare al checkout. Non è un dispositivo medico.",
+      en: "Ultrahuman Ring Pro: unibody titanium, claimed battery up to 15 days, case included. Review on Tech, code BJBEYOND10 to confirm at checkout. It is not a medical device.",
+    },
+    why: {
+      it: "Dati sul dito. Niente schermo. Niente abbonamento obbligatorio.",
+      en: "Data on the finger. No screen. No mandatory subscription.",
+    },
+    takes: {
+      it: "Ring Pro, custodia PRO, metriche core senza fee mensile, codice 10%.",
+      en: "Ring Pro, PRO case, core metrics with no monthly fee, 10% code.",
+    },
+    not: {
+      it: "Non un dispositivo medico. Non un rito Oura. Un anello da verificare in scheda.",
+      en: "Not a medical device. Not an Oura ritual. A ring to check on the listing.",
+    },
+    cta: { it: "Vai su Ultrahuman", en: "Go to Ultrahuman" },
+    href: "https://tidd.ly/3UT6vdj",
+    visual: "tech",
     network: "awin",
   },
 ];

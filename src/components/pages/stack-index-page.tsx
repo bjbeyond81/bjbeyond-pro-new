@@ -23,18 +23,18 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
         <PageIntro
           kicker={
             locale === "it"
-              ? "Cinque campagne · da comprare, non da collezionare"
-              : "Five campaigns · built to buy"
+              ? "Sei campagne · da comprare, non da collezionare"
+              : "Six campaigns · built to buy"
           }
           title={
             locale === "it"
-              ? "Cinque problemi. Cinque oggetti."
-              : "Five problems. Five objects."
+              ? "Sei problemi. Sei oggetti."
+              : "Six problems. Six objects."
           }
           lead={
             locale === "it"
-              ? "Scrivania che balla. Casa senza occhio. Corpo fermo. Lingua che non parte. Acqua che non bevi. Qui sotto c’è la via breve."
-              : "Desk that slides. Home with no eye. Body parked. Language that never starts. Water you don’t drink. Short path below."
+              ? "Scrivania che balla. Casa senza occhio. Corpo fermo. Lingua che non parte. Acqua che non bevi. Salute da orologio. Qui sotto c’è la via breve."
+              : "Desk that slides. Home with no eye. Body parked. Language that never starts. Water you don’t drink. Health on a watch. Short path below."
           }
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-2">

@@ -10,7 +10,7 @@ function fallbackFor(title?: string) {
   }
   if (/(rosa|fiore|girasole|eterna)/.test(t)) return "/fallbacks/flowers.jpg";
   if (
-    /(powerbank|usb|iphone|samsung|bluetooth|speaker|cuffie|auricolari|watch|caricab)/.test(
+    /(powerbank|usb|iphone|samsung|bluetooth|speaker|cuffie|auricolari|watch|ring|anello|caricab)/.test(
       t,
     )
   ) {

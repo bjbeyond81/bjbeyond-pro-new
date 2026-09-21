@@ -12,6 +12,7 @@ export type Copy = {
   noDirectSales: string;
   disclosure: string;
   awinDisclosure: string;
+  awinCommission: string;
   paidLink: string;
   priceDisclaimer: string;
   editorialNote: string;
@@ -62,7 +63,7 @@ export const copy: Record<Locale, Copy> = {
     close: "Chiudi",
     langLabel: "Lingua",
     footerNote:
-      "Pubblicità. I link Amazon sono link a pagamento del Programma Affiliazione. Le campagne Stack Awin sono pubblicità tracciata.",
+      "Pubblicità. I link Amazon sono link a pagamento del Programma Affiliazione. Le campagne Stack e Ultrahuman Awin sono pubblicità tracciata.",
     amazonTm:
       "Amazon e il logo Amazon sono marchi di Amazon.com, Inc. o delle sue affiliate.",
     noDirectSales:
@@ -70,7 +71,9 @@ export const copy: Record<Locale, Copy> = {
     disclosure:
       "In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei.",
     awinDisclosure:
-      "Le campagne Stack sono pubblicità. ESR, IMOU e Waterdrop usano link di tracciamento Awin su HTTPS. Toputure e Lingzio puntano al sito del marchio. BJ Beyond può ricevere una commissione se acquisti tramite quei link.",
+      "Le campagne Stack e i link Ultrahuman sono pubblicità. ESR, IMOU, Waterdrop e Ultrahuman usano link di tracciamento Awin su HTTPS. Toputure e Lingzio puntano al sito del marchio. BJ Beyond può ricevere una commissione se acquisti tramite quei link.",
+    awinCommission:
+      "Link di affiliazione Awin. Posso ricevere una commissione senza costi extra per te.",
     paidLink: "link a pagamento",
     priceDisclaimer:
       "Prezzo e disponibilità su Amazon.it; possono variare. Verifica sempre sulla scheda Amazon.",
@@ -137,7 +140,7 @@ export const copy: Record<Locale, Copy> = {
     close: "Close",
     langLabel: "Language",
     footerNote:
-      "Advertising. Amazon links are paid Associates Program links. Stack Awin campaigns are tracked advertising.",
+      "Advertising. Amazon links are paid Associates Program links. Stack and Ultrahuman Awin campaigns are tracked advertising.",
     amazonTm:
       "Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.",
     noDirectSales:
@@ -145,7 +148,9 @@ export const copy: Record<Locale, Copy> = {
     disclosure:
       "As an Amazon Associate I earn from qualifying purchases.",
     awinDisclosure:
-      "Stack campaigns are advertising. ESR, IMOU and Waterdrop use HTTPS Awin tracking links. Toputure and Lingzio go to the merchant site. BJ Beyond may earn a commission if you buy through those links.",
+      "Stack campaigns and Ultrahuman links are advertising. ESR, IMOU, Waterdrop and Ultrahuman use HTTPS Awin tracking links. Toputure and Lingzio go to the merchant site. BJ Beyond may earn a commission if you buy through those links.",
+    awinCommission:
+      "Awin affiliate links. I may earn a commission at no extra cost to you.",
     paidLink: "paid link",
     priceDisclaimer:
       "Price and availability are on Amazon.it and can change. Always check the Amazon listing.",

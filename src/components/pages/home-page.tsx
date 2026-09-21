@@ -109,10 +109,10 @@ export function HomePage({ locale }: { locale: Locale }) {
               05 {t.nav.stack} · {t.advertising}
             </p>
             <h2 className="mt-2 text-3xl sm:text-4xl">
-              {locale === "it" ? "Cinque campagne." : "Five campaigns."}
+              {locale === "it" ? "Sei campagne." : "Six campaigns."}
             </h2>
             <p className="mt-2 text-muted-foreground">
-              ESR · IMOU · Toputure · Lingzio · Waterdrop
+              ESR · IMOU · Toputure · Lingzio · Waterdrop · Ultrahuman
             </p>
           </div>
         </Link>

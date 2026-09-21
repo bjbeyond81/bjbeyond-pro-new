@@ -23,6 +23,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             {t.disclosure}
           </p>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            {t.awinCommission}
+          </p>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
             {t.awinDisclosure}
           </p>
         </div>

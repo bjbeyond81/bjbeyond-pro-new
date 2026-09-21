@@ -1,6 +1,6 @@
 # BJ Beyond
 
-Portale di scelta: gift finder, tech selezionata, servizi Amazon, guide e cinque campagne Stack.
+Portale di scelta: gift finder, tech selezionata, servizi Amazon, guide e sei campagne Stack.
 
 Il sito originale su [bjbeyond.pro](https://bjbeyond.pro) mescolava stili diversi, immagini rotte e una navigazione incompleta su mobile. Questa versione tiene tutto il contenuto (IT/EN, catalogo regali, link affiliati) e lo mette in un’unica interfaccia editoriale.
 
@@ -8,18 +8,20 @@ Il sito originale su [bjbeyond.pro](https://bjbeyond.pro) mescolava stili divers
 
 - **Home** — cinque porte, una sola identità grafica
 - **Gift Finder** — tre domande, poi il catalogo Amazon.it (203 idee)
-- **Tech** — schede prodotto con prezzi indicativi e link affiliati
+- **Tech** — schede prodotto con prezzi indicativi e link affiliati (Amazon o Awin)
 - **Amazon** — Prime, Audible, Kindle, registri e Prime Video Channels
 - **Guide** — articoli e confronti, anche in inglese
-- **Stack** — campagne ESR, IMOU, Toputure, Lingzio, Waterdrop
+- **Stack** — campagne ESR, IMOU, Toputure, Lingzio, Waterdrop, Ultrahuman
 
 Lingua: italiano di default, inglese su `/en`.
 
 I link Amazon usano il tag affiliato `357921-21` e sono marcati come **link a pagamento**. I prezzi sono indicativi e possono cambiare su Amazon.it.
 
-Le campagne Stack ESR, IMOU e Waterdrop usano tracking Awin (`awinaffid=3099482`) e sono marcate **Pubblicità**. Toputure e Lingzio puntano al sito del marchio, sempre come pubblicità.
+Le campagne Stack ESR, IMOU, Waterdrop e Ultrahuman usano tracking Awin e sono marcate **Pubblicità**. Ultrahuman usa `https://tidd.ly/3UT6vdj`. Toputure e Lingzio puntano al sito del marchio, sempre come pubblicità.
 
 Disclosure Amazon (testo ufficiale): *In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei.*
+
+Disclosure Awin: *Link di affiliazione Awin. Posso ricevere una commissione senza costi extra per te.*
 
 ## Avvio locale
 

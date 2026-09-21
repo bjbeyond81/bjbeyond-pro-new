@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { copy } from "@/lib/copy";
 import { getGuide, guidePath } from "@/lib/guides";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { getTech, techProducts } from "@/lib/tech";
+import { getTech, techCta, techHref, techNetwork, techProducts } from "@/lib/tech";
 import { formatEuro } from "@/lib/utils";
 
 export function TechDetailPage({
@@ -20,7 +20,12 @@ export function TechDetailPage({
   const product = getTech(slug);
   if (!product) notFound();
   const t = copy[locale];
-  const related = techProducts.filter((p) => p.slug !== slug).slice(0, 3);
+  const href = techHref(product);
+  const network = techNetwork(product);
+  const related = [
+    ...techProducts.filter((p) => p.slug !== slug && p.category === product.category),
+    ...techProducts.filter((p) => p.slug !== slug && p.category !== product.category),
+  ].slice(0, 3);
   const guide = product.relatedGuide
     ? getGuide("it", product.relatedGuide) ??
       getGuide("en", product.relatedGuide)
@@ -42,7 +47,7 @@ export function TechDetailPage({
           <div>
             <Badge variant="copper">{product.badge[locale]}</Badge>
             <h1 className="mt-4 text-4xl leading-[0.94] sm:text-6xl">
-              {product.name[locale]}
+              {(product.headline ?? product.name)[locale]}
             </h1>
             <p className="mt-5 text-lg leading-7 text-muted-foreground">
               {product.lead[locale]}
@@ -55,14 +60,35 @@ export function TechDetailPage({
                     {t.indicative}
                   </small>
                 </p>
-                <PriceNote locale={locale} className="mt-2" />
+                {network === "amazon" ? (
+                  <PriceNote locale={locale} className="mt-2" />
+                ) : product.priceNote ? (
+                  <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                    {product.priceNote[locale]}
+                  </p>
+                ) : null}
               </div>
             ) : null}
             <div className="mt-6">
-              <ExternalCta href={product.amazonUrl} locale={locale}>
-                {t.seeAmazon}
+              <ExternalCta href={href} locale={locale}>
+                {techCta(product, locale)}
               </ExternalCta>
             </div>
+            {product.discountCode ? (
+              <div className="mt-5 rounded-2xl border border-copper/30 bg-secondary/50 px-4 py-3">
+                <p className="text-sm font-bold tracking-wide uppercase text-walnut">
+                  {locale === "it" ? "Codice sconto 10%" : "10% discount code"}
+                </p>
+                <p className="mt-1 font-serif text-2xl tracking-[0.08em]">
+                  {product.discountCode}
+                </p>
+                {product.discountNote ? (
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                    {product.discountNote[locale]}
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         </div>
 
@@ -97,6 +123,24 @@ export function TechDetailPage({
           </div>
         </section>
 
+        {product.sections?.length ? (
+          <article className="mt-12 border-t border-foreground/8 pt-10">
+            {product.sections.map((section) => (
+              <section key={section.title[locale]} className="mt-10 first:mt-0">
+                <h2 className="text-3xl">{section.title[locale]}</h2>
+                <p className="mt-3 text-lg leading-8 text-muted-foreground">
+                  {section.body[locale]}
+                </p>
+              </section>
+            ))}
+            <div className="mt-10">
+              <ExternalCta href={href} locale={locale}>
+                {techCta(product, locale)}
+              </ExternalCta>
+            </div>
+          </article>
+        ) : null}
+
         <section className="mt-14">
           <h2 className="text-3xl">{t.related}</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -114,8 +158,69 @@ export function TechDetailPage({
             ))}
           </div>
         </section>
-        <AffiliateNote locale={locale} className="mt-12" />
+        <AffiliateNote
+          locale={locale}
+          variant={network === "awin" ? "awin" : "amazon"}
+          className="mt-12"
+        />
       </div>
+      <TechProductJsonLd locale={locale} slug={slug} />
     </SiteShell>
+  );
+}
+
+function TechProductJsonLd({
+  locale,
+  slug,
+}: {
+  locale: Locale;
+  slug: string;
+}) {
+  const product = getTech(slug);
+  if (!product) return null;
+  const href = techHref(product);
+  const url =
+    locale === "en"
+      ? `https://bjbeyond.pro/en/tech/${product.slug}/`
+      : `https://bjbeyond.pro/tech/${product.slug}/`;
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    name: (product.headline ?? product.name)[locale],
+    url,
+    inLanguage: locale === "it" ? "it-IT" : "en-GB",
+    reviewBody: product.lead[locale],
+    author: {
+      "@type": "Organization",
+      name: "BJ Beyond",
+      url: "https://bjbeyond.pro/",
+    },
+    itemReviewed: {
+      "@type": "Product",
+      name: product.name[locale],
+      image: `https://bjbeyond.pro${product.image}`,
+      brand: { "@type": "Brand", name: product.name.it.split(" ")[0] },
+      description: product.short[locale],
+      ...(product.price != null
+        ? {
+            offers: {
+              "@type": "Offer",
+              url: href,
+              price: product.price,
+              priceCurrency: "EUR",
+              availability:
+                product.slug === "ultrahuman-ring-pro"
+                  ? "https://schema.org/PreOrder"
+                  : "https://schema.org/InStock",
+            },
+          }
+        : {}),
+    },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
   );
 }
