@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GiftFinderPage } from "@/components/pages/gift-finder-page";
 import { HtmlLang } from "@/components/html-lang";
 import gifts from "@/data/gifts.json";
-import { giftInitialFromQuery } from "@/lib/gift-query";
+import { parseGiftQuery } from "@/lib/gift-query";
 import type { GiftProduct } from "@/lib/gifts";
 import { metadataFor } from "@/lib/seo";
 
@@ -20,7 +20,7 @@ export default async function Page({
       <GiftFinderPage
         locale="en"
         products={gifts as GiftProduct[]}
-        initial={giftInitialFromQuery(query)}
+        query={parseGiftQuery(query)}
       />
     </>
   );

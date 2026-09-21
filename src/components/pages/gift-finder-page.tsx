@@ -1,21 +1,26 @@
-import { GiftFinder, type GiftFinderInitial } from "@/components/gift-finder";
+import { GiftFinder } from "@/components/gift-finder";
 import { SiteShell } from "@/components/site-shell";
+import { parseGiftQuery, type GiftQuery } from "@/lib/gift-query";
 import type { GiftProduct } from "@/lib/gifts";
 import type { Locale } from "@/lib/i18n";
 
 export function GiftFinderPage({
   locale,
   products,
-  initial,
+  query,
 }: {
   locale: Locale;
   products: GiftProduct[];
-  initial?: GiftFinderInitial;
+  query?: GiftQuery;
 }) {
   return (
     <SiteShell locale={locale}>
       <GiftJsonLd />
-      <GiftFinder locale={locale} products={products} initial={initial} />
+      <GiftFinder
+        locale={locale}
+        products={products}
+        query={query ?? parseGiftQuery({})}
+      />
     </SiteShell>
   );
 }

@@ -105,3 +105,11 @@ h3,
   text-transform: uppercase;
   color: var(--walnut);
 }
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}

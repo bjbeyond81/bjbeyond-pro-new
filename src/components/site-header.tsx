@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { copy } from "@/lib/copy";
 import { localizedPath, swapLocalePath, type Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -22,12 +21,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const pathname = usePathname() || "/";
   const home = localizedPath(locale, "/");
-  const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-foreground/8 bg-background/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6">
-        <Link href={home} className="flex items-center gap-3 no-underline" onClick={() => setOpen(false)}>
+        <Link href={home} className="flex items-center gap-3 no-underline">
           <span className="grid size-9 place-items-center rounded-full bg-primary font-sans text-[10px] font-extrabold tracking-[0.14em] text-primary-foreground">
             BJ
           </span>
@@ -60,41 +58,30 @@ export function SiteHeader({ locale }: { locale: Locale }) {
 
         <div className="flex items-center gap-2 md:hidden">
           <LangSwitch locale={locale} pathname={pathname} />
-          <button
-            type="button"
-            className="grid size-10 place-items-center rounded-full border border-foreground/15"
-            aria-label={open ? t.close : t.menu}
-            aria-expanded={open}
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? <X className="size-4" /> : <Menu className="size-4" />}
-          </button>
+          <details className="relative">
+            <summary
+              className="grid size-10 list-none place-items-center rounded-full border border-foreground/15 [&::-webkit-details-marker]:hidden"
+              aria-label={t.menu}
+            >
+              <Menu className="size-4" />
+            </summary>
+            <nav className="absolute top-[calc(100%+10px)] right-0 z-50 w-[min(calc(100vw-2rem),18rem)] rounded-3xl border border-foreground/10 bg-card p-3 shadow-[0_18px_50px_rgba(19,19,19,.16)]">
+              <Link href={home} className="block rounded-2xl px-3 py-3 text-base hover:bg-secondary">
+                Home
+              </Link>
+              {NAV.map((key) => (
+                <Link
+                  key={key}
+                  href={localizedPath(locale, NAV_HREF[key])}
+                  className="block rounded-2xl px-3 py-3 text-base hover:bg-secondary"
+                >
+                  {t.nav[key]}
+                </Link>
+              ))}
+            </nav>
+          </details>
         </div>
       </div>
-
-      {open ? (
-        <div className="border-t border-foreground/8 bg-card px-4 py-5 md:hidden">
-          <nav className="flex flex-col gap-1 text-lg">
-            <Link
-              href={home}
-              className="rounded-2xl px-3 py-3 hover:bg-secondary"
-              onClick={() => setOpen(false)}
-            >
-              Home
-            </Link>
-            {NAV.map((key) => (
-              <Link
-                key={key}
-                href={localizedPath(locale, NAV_HREF[key])}
-                className="rounded-2xl px-3 py-3 hover:bg-secondary"
-                onClick={() => setOpen(false)}
-              >
-                {t.nav[key]}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      ) : null}
     </header>
   );
 }
