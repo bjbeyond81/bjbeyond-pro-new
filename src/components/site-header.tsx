@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
 import { copy } from "@/lib/copy";
 import { localizedPath, swapLocalePath, type Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -23,66 +22,82 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const home = localizedPath(locale, "/");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-foreground/8 bg-background/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6">
-        <Link href={home} className="flex items-center gap-3 no-underline">
-          <span className="grid size-9 place-items-center rounded-full bg-primary font-sans text-[10px] font-extrabold tracking-[0.14em] text-primary-foreground">
-            BJ
-          </span>
-          <span className="text-[11px] font-extrabold tracking-[0.22em] leading-tight">
-            BJ
-            <br />
-            BEYOND
-          </span>
-        </Link>
+    <header className="sticky top-0 z-50 border-b border-foreground/8 bg-background/92 backdrop-blur-xl">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex items-center justify-between gap-4 py-3.5">
+          <Link href={home} className="flex items-center gap-3 no-underline">
+            <span className="grid size-9 place-items-center rounded-full bg-primary font-sans text-[10px] font-extrabold tracking-[0.14em] text-primary-foreground shadow-[inset_0_0_0_1.5px_rgba(196,137,74,.55)]">
+              BJ
+            </span>
+            <span className="text-[11px] font-extrabold tracking-[0.22em] leading-tight">
+              BJ
+              <br />
+              BEYOND
+            </span>
+          </Link>
 
-        <nav className="hidden items-center gap-6 text-[12px] font-bold tracking-wide md:flex">
-          {NAV.map((key) => {
-            const href = localizedPath(locale, NAV_HREF[key]);
-            const active = isActive(pathname, href);
-            return (
-              <Link
-                key={key}
-                href={href}
-                className={cn(
-                  "opacity-55 transition-opacity hover:opacity-100",
-                  active && "opacity-100 underline decoration-2 underline-offset-8",
-                )}
-              >
-                {t.nav[key]}
-              </Link>
-            );
-          })}
-          <LangSwitch locale={locale} pathname={pathname} />
-        </nav>
-
-        <div className="flex items-center gap-2 md:hidden">
-          <LangSwitch locale={locale} pathname={pathname} />
-          <details className="relative">
-            <summary
-              className="grid size-10 list-none place-items-center rounded-full border border-foreground/15 [&::-webkit-details-marker]:hidden"
-              aria-label={t.menu}
-            >
-              <Menu className="size-4" />
-            </summary>
-            <nav className="absolute top-[calc(100%+10px)] right-0 z-50 w-[min(calc(100vw-2rem),18rem)] rounded-3xl border border-foreground/10 bg-card p-3 shadow-[0_18px_50px_rgba(19,19,19,.16)]">
-              <Link href={home} className="block rounded-2xl px-3 py-3 text-base hover:bg-secondary">
-                Home
-              </Link>
+          <div className="flex items-center gap-6">
+            <nav className="hidden items-center gap-6 text-[12px] font-bold tracking-wide md:flex">
               {NAV.map((key) => (
-                <Link
+                <NavLink
                   key={key}
                   href={localizedPath(locale, NAV_HREF[key])}
-                  className="block rounded-2xl px-3 py-3 text-base hover:bg-secondary"
+                  pathname={pathname}
                 >
                   {t.nav[key]}
-                </Link>
+                </NavLink>
               ))}
             </nav>
-          </details>
+            <LangSwitch locale={locale} pathname={pathname} />
+          </div>
         </div>
+
+        <nav
+          id="site-mobile-nav"
+          className="flex flex-wrap gap-x-1 gap-y-1 border-t border-foreground/8 py-2 text-[12px] font-bold tracking-wide md:hidden"
+        >
+          <Link href={home} className="rounded-full px-2.5 py-2 hover:bg-secondary">
+            Home
+          </Link>
+          {NAV.map((key) => (
+            <Link
+              key={key}
+              href={localizedPath(locale, NAV_HREF[key])}
+              className={cn(
+                "rounded-full px-2.5 py-2 hover:bg-secondary",
+                isActive(pathname, localizedPath(locale, NAV_HREF[key])) &&
+                  "bg-primary text-primary-foreground",
+              )}
+            >
+              {t.nav[key]}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
+  );
+}
+
+function NavLink({
+  href,
+  pathname,
+  children,
+}: {
+  href: string;
+  pathname: string;
+  children: React.ReactNode;
+}) {
+  const active = isActive(pathname, href);
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "opacity-55 transition-opacity hover:opacity-100",
+        active && "opacity-100 underline decoration-2 underline-offset-8",
+      )}
+    >
+      {children}
+    </Link>
   );
 }
 

@@ -36,7 +36,7 @@ export function GiftFinder({
     <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
       <Link
         href={giftFinderPath(locale)}
-        className="mb-6 inline-block text-sm text-muted-foreground hover:text-foreground"
+        className="mb-6 inline-flex h-11 items-center rounded-full border border-foreground/15 bg-card px-4 text-sm font-semibold hover:bg-secondary"
       >
         ← {t.changeAnswers}
       </Link>
@@ -195,7 +195,7 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
         <fieldset className="border-b border-foreground/8 py-5">
           <legend className="kicker">01</legend>
           <p className="mt-1 mb-3 text-base font-semibold">{t.qWho}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
             {whoOptions.map((option) => (
               <RadioChip
                 key={option.id}
@@ -210,7 +210,7 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
         <fieldset className="border-b border-foreground/8 py-5">
           <legend className="kicker">02</legend>
           <p className="mt-1 mb-3 text-base font-semibold">{t.qBudget}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {budgetOptions.map((id) => (
               <RadioChip
                 key={id}
@@ -225,7 +225,7 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
         <fieldset className="py-5">
           <legend className="kicker">03</legend>
           <p className="mt-1 mb-3 text-base font-semibold">{t.qCat}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {GIFT_THEMES.map((theme) => (
               <RadioChip
                 key={theme.id}
@@ -238,11 +238,20 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
           </div>
         </fieldset>
         <button
+          id="gift-quiz-submit"
           type="submit"
-          className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-full bg-primary text-base font-semibold text-primary-foreground"
+          className="mt-4 inline-flex h-14 w-full items-center justify-center rounded-full bg-primary text-base font-semibold text-primary-foreground shadow-[0_10px_24px_rgba(22,18,14,.18)]"
         >
           {t.quizOk}
         </button>
+        <p className="mt-4 text-center text-sm">
+          <Link
+            href={giftHref(locale, { go: true, shown: 24 })}
+            className="font-semibold underline-offset-4 hover:underline"
+          >
+            {locale === "it" ? "Vedi tutte le idee" : "See all ideas"}
+          </Link>
+        </p>
       </form>
     </section>
   );
@@ -260,17 +269,15 @@ function RadioChip({
   label: string;
 }) {
   return (
-    <label className="cursor-pointer">
+    <label className="flex min-h-12 cursor-pointer items-center gap-3 rounded-2xl border border-foreground/12 bg-[#fffdf8] px-3.5 py-3 text-sm font-medium has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-primary-foreground">
       <input
         type="radio"
         name={name}
         value={value}
         defaultChecked={defaultChecked}
-        className="peer sr-only"
+        className="size-4 shrink-0 accent-current"
       />
-      <span className="inline-flex rounded-full border border-foreground/12 bg-card px-3.5 py-2 text-sm peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-foreground">
-        {label}
-      </span>
+      <span>{label}</span>
     </label>
   );
 }

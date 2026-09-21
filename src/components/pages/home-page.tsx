@@ -55,8 +55,20 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-8 pb-6 sm:px-6 lg:grid-cols-2 lg:min-h-[72vh] lg:gap-14 lg:pt-16">
         <div>
           <p className="kicker">{t.tagline}</p>
-          <h1 className="mt-3 max-w-[11ch] text-5xl leading-[0.88] sm:text-7xl lg:text-[5.6rem]">
-            Discover better choices.
+          <h1 className="mt-3 max-w-[12ch] text-5xl leading-[0.88] sm:text-7xl lg:text-[5.6rem]">
+            {locale === "it" ? (
+              <>
+                Scelte poche.
+                <br />
+                Poi il tavolo.
+              </>
+            ) : (
+              <>
+                Discover better
+                <br />
+                choices.
+              </>
+            )}
           </h1>
           <p className="mt-6 max-w-[28ch] text-lg leading-7 text-muted-foreground sm:text-xl">
             {locale === "it"
