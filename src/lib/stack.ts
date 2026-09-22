@@ -2,6 +2,8 @@ import type { Locale } from "@/lib/i18n";
 
 type L<T> = Record<Locale, T>;
 
+export const awinStoreUrl = "https://store.awin.com/bjbeyond";
+
 export type StackCampaign = {
   slug: string;
   n: string;
