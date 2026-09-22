@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { SiteShell } from "@/components/site-shell";
-import { AffiliateNote, PageIntro } from "@/components/ui-bits";
+import { AffiliateNote, ExternalCta, PageIntro } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { stackCampaigns } from "@/lib/stack";
+import { awinStoreUrl, stackCampaigns } from "@/lib/stack";
 
 export function StackIndexPage({ locale }: { locale: Locale }) {
   const t = copy[locale];
@@ -37,6 +37,24 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
               : "Desk that slides. Home with no eye. Body parked. Language that never starts. Water you don’t drink. Health on a watch. Short path below."
           }
         />
+        <div className="mt-8 rounded-[28px] border border-foreground/8 bg-card p-6 sm:flex sm:items-center sm:justify-between sm:gap-8">
+          <div>
+            <p className="kicker">Awin · {t.advertising}</p>
+            <h2 className="mt-2 text-3xl">
+              {locale === "it" ? "Tutte le offerte Awin" : "All Awin offers"}
+            </h2>
+            <p className="mt-2 max-w-xl text-muted-foreground">
+              {locale === "it"
+                ? "La vetrina ufficiale Awin di BJ Beyond. Campagne attive in un solo posto."
+                : "BJ Beyond’s official Awin storefront. Active campaigns in one place."}
+            </p>
+          </div>
+          <div className="mt-5 sm:mt-0">
+            <ExternalCta href={awinStoreUrl} locale={locale}>
+              {locale === "it" ? "Apri lo store Awin" : "Open the Awin store"}
+            </ExternalCta>
+          </div>
+        </div>
         <div className="mt-12 grid gap-4 lg:grid-cols-2">
           {stackCampaigns.map((c) => (
             <Link
