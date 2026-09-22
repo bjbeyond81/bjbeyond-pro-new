@@ -18,11 +18,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bjbeyond.pro"),
   title: {
-    default: "BJ Beyond — Portale di scelta",
+    default: "BJ Beyond — Smart choices, sharper buying",
     template: "%s",
   },
   description:
-    "Scelte poche e ferme: gift finder, tech selezionata, offerte Amazon, guide e lo Stack.",
+    "English and Italian editorial portal for curated tech, gift ideas, Amazon offers, guides and Awin Stack campaigns.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
     siteName: "BJ Beyond",

@@ -22,14 +22,14 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const home = localizedPath(locale, "/");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-foreground/8 bg-background/92 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-foreground/8 bg-background/80 backdrop-blur-2xl">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4 py-3.5">
           <Link href={home} className="flex items-center gap-3 no-underline">
-            <span className="grid size-9 place-items-center rounded-full bg-primary font-sans text-[10px] font-extrabold tracking-[0.14em] text-primary-foreground shadow-[inset_0_0_0_1.5px_rgba(196,137,74,.55)]">
+            <span className="grid size-10 place-items-center rounded-xl bg-primary font-sans text-[10px] font-extrabold tracking-[0.14em] text-primary-foreground shadow-[8px_8px_0_#b7ff3c]">
               BJ
             </span>
-            <span className="text-[11px] font-extrabold tracking-[0.22em] leading-tight">
+            <span className="text-[11px] leading-tight font-black tracking-[0.24em]">
               BJ
               <br />
               BEYOND

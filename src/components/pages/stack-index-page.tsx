@@ -13,7 +13,7 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <SceneVisual
           scene="stack"
-          className="mb-10 min-h-[180px] rounded-[28px] sm:min-h-[240px]"
+          className="mb-10 min-h-[260px] rounded-[32px] shadow-[0_34px_90px_rgba(11,12,15,.14)] sm:min-h-[340px]"
           label={
             locale === "it"
               ? "Oggetti dello Stack sul tavolo di noce"
@@ -23,24 +23,24 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
         <PageIntro
           kicker={
             locale === "it"
-              ? "Sei campagne · da comprare, non da collezionare"
-              : "Six campaigns · built to buy"
+              ? "Stack ufficiale · Storefront Awin"
+              : "Official Stack · Awin Storefront"
           }
           title={
             locale === "it"
-              ? "Sei problemi. Sei oggetti."
-              : "Six problems. Six objects."
+              ? "Sei campagne. Una vetrina."
+              : "Six campaigns. One storefront."
           }
           lead={
             locale === "it"
-              ? "Scrivania che balla. Casa senza occhio. Corpo fermo. Lingua che non parte. Acqua che non bevi. Salute da orologio. Qui sotto c’è la via breve."
-              : "Desk that slides. Home with no eye. Body parked. Language that never starts. Water you don’t drink. Health on a watch. Short path below."
+              ? "ESR, IMOU, Toputure, Lingzio, Waterdrop e Ultrahuman con link chiari, disclosure e accesso diretto allo Storefront Awin BJ Beyond."
+              : "ESR, IMOU, Toputure, Lingzio, Waterdrop and Ultrahuman with clear links, disclosure and direct access to the BJ Beyond Awin Storefront."
           }
         />
-        <div className="mt-8 rounded-[28px] border border-foreground/8 bg-card p-6 sm:flex sm:items-center sm:justify-between sm:gap-8">
+        <div className="spectacular-card mt-8 p-6 sm:flex sm:items-center sm:justify-between sm:gap-8">
           <div>
             <p className="kicker">Awin · {t.advertising}</p>
-            <h2 className="mt-2 text-3xl">
+            <h2 className="mt-2 text-4xl">
               {locale === "it" ? "Tutte le offerte Awin" : "All Awin offers"}
             </h2>
             <p className="mt-2 max-w-xl text-muted-foreground">
@@ -60,7 +60,7 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
             <Link
               key={c.slug}
               href={localizedPath(locale, `/stack/${c.slug}`)}
-              className="overflow-hidden rounded-[28px] border border-foreground/8 bg-card no-underline transition-transform hover:-translate-y-0.5"
+              className="spectacular-card no-underline transition-transform hover:-translate-y-1"
             >
               <SceneVisual scene={c.visual} className="min-h-[160px]" />
               <div className="p-6">

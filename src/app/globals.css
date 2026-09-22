@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f3ece2;
-  --foreground: #16120e;
-  --card: #fffbf4;
-  --card-foreground: #16120e;
-  --popover: #fffbf4;
-  --popover-foreground: #16120e;
-  --primary: #16120e;
-  --primary-foreground: #f7f1e8;
-  --secondary: #e7dccb;
-  --secondary-foreground: #16120e;
-  --muted: #e8dfd2;
-  --muted-foreground: #6b6258;
-  --accent: #c4894a;
-  --accent-foreground: #16120e;
-  --destructive: #8b3a2a;
-  --border: rgb(22 18 14 / 0.1);
-  --input: rgb(22 18 14 / 0.12);
-  --ring: #c4894a;
-  --radius: 1.35rem;
-  --ink: #16120e;
-  --paper: #fffbf4;
-  --parchment: #f3ece2;
-  --copper: #c4894a;
-  --walnut: #6b4a2b;
+  --background: #f6f7f1;
+  --foreground: #0b0c0f;
+  --card: #ffffff;
+  --card-foreground: #0b0c0f;
+  --popover: #ffffff;
+  --popover-foreground: #0b0c0f;
+  --primary: #0b0c0f;
+  --primary-foreground: #f8fff0;
+  --secondary: #e8ecef;
+  --secondary-foreground: #0b0c0f;
+  --muted: #e9ece8;
+  --muted-foreground: #606762;
+  --accent: #b7ff3c;
+  --accent-foreground: #0b0c0f;
+  --destructive: #b42318;
+  --border: rgb(11 12 15 / 0.1);
+  --input: rgb(11 12 15 / 0.12);
+  --ring: #2458ff;
+  --radius: 1rem;
+  --ink: #0b0c0f;
+  --paper: #ffffff;
+  --parchment: #f6f7f1;
+  --copper: #2458ff;
+  --walnut: #33413a;
 }
 
 @theme inline {
@@ -68,7 +68,10 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 76% 8%, rgba(183, 255, 60, 0.24), transparent 28rem),
+    radial-gradient(circle at 12% 28%, rgba(36, 88, 255, 0.1), transparent 30rem),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
@@ -90,7 +93,7 @@ h3,
 .font-serif {
   font-family: var(--font-fraunces), Georgia, serif;
   font-weight: 500;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
 }
 
 ::selection {
@@ -106,14 +109,32 @@ h3,
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--walnut);
+  color: color-mix(in srgb, var(--foreground), #2458ff 36%);
 }
 
 .kicker::before {
   content: "";
   width: 1.15rem;
   height: 1px;
-  background: var(--copper);
+  background: var(--accent);
+}
+
+.spectacular-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgb(11 12 15 / 0.1);
+  background: rgb(255 255 255 / 0.78);
+  box-shadow: 0 24px 70px rgb(11 12 15 / 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.spectacular-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.32), transparent 48%);
 }
 
 summary {

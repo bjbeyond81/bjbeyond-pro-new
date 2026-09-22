@@ -208,16 +208,16 @@ export const techProducts: TechProduct[] = [
     badge: { it: "Wearable", en: "Wearable" },
     name: { it: "Ultrahuman Ring Pro", en: "Ultrahuman Ring Pro" },
     headline: {
-      it: "Ultrahuman Ring Pro — recensione completa 2026",
-      en: "Ultrahuman Ring Pro — full review 2026",
+      it: "Ultrahuman Ring Pro — scheda decisionale 2026",
+      en: "Ultrahuman Ring Pro — buyer notes 2026",
     },
     short: {
       it: "Smart ring in titanio per sonno, recupero e trend wellness, senza schermo e senza abbonamento obbligatorio per le metriche core.",
       en: "Titanium smart ring for sleep, recovery and wellness trends, with no screen and no mandatory subscription for core metrics.",
     },
     lead: {
-      it: "Ultrahuman Ring Pro è uno smart ring per chi vuole monitorare sonno, recupero e segnali quotidiani senza indossare uno smartwatch. Il valore sta nel formato: discreto, leggero, con batteria dichiarata lunga e metriche leggibili nell'app. Non sostituisce strumenti medici e alcuni PowerPlug avanzati restano opzionali.",
-      en: "Ultrahuman Ring Pro is a smart ring for people who want to track sleep, recovery and daily wellness signals without wearing a smartwatch. Its value is the form factor: discreet, lightweight, with long claimed battery life and readable app insights. It is not a medical device, and some advanced PowerPlugs remain optional.",
+      it: "Ultrahuman Ring Pro è uno smart ring da valutare se vuoi seguire sonno, recupero e trend wellness senza indossare uno smartwatch. Il valore sta nel formato: discreto, leggero, senza schermo e con metriche leggibili nell'app. Specifiche, disponibilità e offerte vanno sempre verificate sulla pagina ufficiale.",
+      en: "Ultrahuman Ring Pro is worth evaluating if you want sleep, recovery and wellness trends without wearing a smartwatch. Its value is the form factor: discreet, lightweight, screen-free and built around readable app insights. Specs, availability and offers must always be verified on the official page.",
     },
     price: 499,
     href: "https://tidd.ly/3UT6vdj",
@@ -226,7 +226,7 @@ export const techProducts: TechProduct[] = [
       it: "Acquista Ultrahuman Ring Pro",
       en: "Buy Ultrahuman Ring Pro",
     },
-    image: "https://public-web-assets.uh-static.com/web_v2/ring-pro/buy-v2/carousel-v4/desktop/bionic-gold/6.png",
+    image: "/products/ultrahuman-ring-pro.jpg",
     highlights: {
       it: [
         "Batteria dichiarata fino a 15 giorni; fino a 45 con la custodia PRO inclusa",
@@ -270,15 +270,15 @@ export const techProducts: TechProduct[] = [
       {
         title: { it: "Confronto con Oura Ring", en: "Compared with Oura Ring" },
         body: {
-          it: "Oura Ring 4 resta un riferimento per il sonno, con un abbonamento per sbloccare le insight complete. Ultrahuman Ring Pro costa 499 euro in Europa, include la custodia e rende disponibili le metriche principali senza fee mensile obbligatoria. Non è un confronto di precisione clinica: è un confronto di formato, costo ricorrente e cosa l'app rende visibile senza extra. Se ti interessa soprattutto il sonno e accetti l'abbonamento, Oura resta una alternativa credibile. Se privilegi formato discreto e metriche core senza fee obbligatoria, Ultrahuman merita di essere valutato.",
-          en: "Oura Ring 4 remains a sleep reference, with a subscription to unlock the full insight. Ultrahuman Ring Pro costs €499 in Europe, includes the case and keeps core metrics available without a mandatory monthly fee. This is not a clinical-accuracy contest: it is a comparison of form factor, recurring cost and what the app shows without extras. If sleep is the priority and a subscription is acceptable, Oura stays a credible alternative. If you want a discreet format and core metrics without a mandatory fee, Ultrahuman is worth evaluating.",
+          it: "Oura Ring resta un riferimento molto noto per il sonno, con un modello basato anche su abbonamento per alcune insight. Ultrahuman Ring Pro va confrontato soprattutto su formato, costo ricorrente e metriche disponibili senza extra. Non è un confronto di precisione clinica: prima di scegliere, controlla dimensioni, disponibilità, garanzia e condizioni aggiornate sui siti ufficiali.",
+          en: "Oura Ring remains a well-known reference for sleep, with a model that also uses a subscription for some insights. Ultrahuman Ring Pro should mainly be compared on form factor, recurring cost and metrics available without extras. This is not a clinical-accuracy comparison: before choosing, check sizing, availability, warranty and current terms on the official sites.",
         },
       },
       {
         title: { it: "Prezzo e offerta", en: "Price and offer" },
         body: {
-          it: "499 euro in Europa, custodia inclusa. Spedizioni indicate dal 10 ottobre in poi sulla pagina ufficiale. Codice sconto per i lettori di BJ Beyond: BJBEYOND10 (verifica al checkout se il codice è attivo sul programma).",
-          en: "€499 in Europe, case included. Shipping listed from 10 October onwards on the official page. BJ Beyond reader code: BJBEYOND10 (check at checkout whether the code is active on the programme).",
+          it: "Prezzo e disponibilità possono cambiare. Usa il link ufficiale per verificare importo finale, tempi di spedizione, taglie disponibili, custodia inclusa e validità del codice BJBEYOND10 al checkout.",
+          en: "Price and availability can change. Use the official link to confirm final price, shipping dates, available sizes, included case and whether code BJBEYOND10 is valid at checkout.",
         },
       },
       {
@@ -299,12 +299,12 @@ export const techProducts: TechProduct[] = [
       en: "Price is on the official site and can change. Shipping listed from 10 October onwards. Always check the listing.",
     },
     seoTitle: {
-      it: "Ultrahuman Ring Pro recensione 2026 – BJ Beyond",
-      en: "Ultrahuman Ring Pro review 2026 – BJ Beyond",
+      it: "Ultrahuman Ring Pro scheda 2026 – BJ Beyond",
+      en: "Ultrahuman Ring Pro buyer notes 2026 – BJ Beyond",
     },
     seoDescription: {
-      it: "Recensione Ultrahuman Ring Pro 2026: smart ring in titanio per sonno e recupero, metriche core senza abbonamento obbligatorio. Non è un dispositivo medico.",
-      en: "Ultrahuman Ring Pro review 2026: titanium smart ring for sleep and recovery, core metrics without a mandatory subscription. It is not a medical device.",
+      it: "Scheda Ultrahuman Ring Pro 2026: smart ring per sonno e recupero, metriche core senza abbonamento obbligatorio e link ufficiale Awin. Non è un dispositivo medico.",
+      en: "Ultrahuman Ring Pro buyer notes 2026: smart ring for sleep and recovery, core metrics without a mandatory subscription and official Awin link. It is not a medical device.",
     },
   },
   {

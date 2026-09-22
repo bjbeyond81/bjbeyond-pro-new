@@ -5,7 +5,7 @@ import { AffiliateNote, ExternalCta } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { getStack } from "@/lib/stack";
+import { awinStoreUrl, getStack } from "@/lib/stack";
 
 export function StackDetailPage({
   locale,
@@ -37,12 +37,12 @@ export function StackDetailPage({
           {campaign.lead[locale]}
         </p>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[.95fr_1.05fr]">
           <SceneVisual
             scene={campaign.visual}
-            className="min-h-[280px] rounded-[28px]"
+            className="min-h-[360px] rounded-[32px] shadow-[0_34px_90px_rgba(11,12,15,.14)]"
           />
-          <div>
+          <div className="spectacular-card p-6 sm:p-8">
             <p className="text-lg leading-8 text-muted-foreground">
               {campaign.body[locale]}
             </p>
@@ -60,9 +60,12 @@ export function StackDetailPage({
                 value={campaign.not[locale]}
               />
             </dl>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap gap-4">
               <ExternalCta href={campaign.href} locale={locale}>
                 {campaign.cta[locale]}
+              </ExternalCta>
+              <ExternalCta href={awinStoreUrl} locale={locale} light>
+                {locale === "it" ? "Storefront Awin" : "Awin Storefront"}
               </ExternalCta>
             </div>
             <AffiliateNote locale={locale} variant="awin" className="mt-6" />
