@@ -169,6 +169,11 @@ export function TechDetailPage({
   );
 }
 
+function absoluteAssetUrl(src: string) {
+  if (src.startsWith("http://") || src.startsWith("https://")) return src;
+  return `https://bjbeyond.pro${src}`;
+}
+
 function TechProductJsonLd({
   locale,
   slug,
@@ -198,7 +203,7 @@ function TechProductJsonLd({
     itemReviewed: {
       "@type": "Product",
       name: product.name[locale],
-      image: `https://bjbeyond.pro${product.image}`,
+      image: absoluteAssetUrl(product.image),
       brand: { "@type": "Brand", name: product.name.it.split(" ")[0] },
       description: product.short[locale],
       ...(product.price != null
