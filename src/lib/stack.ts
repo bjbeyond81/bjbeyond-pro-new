@@ -18,7 +18,7 @@ export type StackCampaign = {
   not: L<string>;
   cta: L<string>;
   href: string;
-  visual: "desk" | "home" | "move" | "learn" | "water" | "tech";
+  visual: "desk" | "home" | "move" | "learn" | "water" | "tech" | "ultrahuman";
   network: "awin" | "merchant";
 };
 
@@ -231,8 +231,8 @@ export const stackCampaigns: StackCampaign[] = [
       en: "Health and sleep without a watch. No monthly fee on the core metrics.",
     },
     body: {
-      it: "Ultrahuman Ring Pro: titanio unibody, batteria dichiarata fino a 15 giorni, custodia inclusa. Recensione su Tech, codice BJBEYOND10 da verificare al checkout. Non è un dispositivo medico.",
-      en: "Ultrahuman Ring Pro: unibody titanium, claimed battery up to 15 days, case included. Review on Tech, code BJBEYOND10 to confirm at checkout. It is not a medical device.",
+      it: "Ultrahuman Ring Pro: anello smart per sonno, recupero e trend wellness. Scheda decisionale su Tech, codice BJBEYOND10 da verificare al checkout. Non è un dispositivo medico.",
+      en: "Ultrahuman Ring Pro: smart ring for sleep, recovery and wellness trends. Buyer notes on Tech, code BJBEYOND10 to confirm at checkout. It is not a medical device.",
     },
     why: {
       it: "Dati sul dito. Niente schermo. Niente abbonamento obbligatorio.",
@@ -248,7 +248,7 @@ export const stackCampaigns: StackCampaign[] = [
     },
     cta: { it: "Vai su Ultrahuman", en: "Go to Ultrahuman" },
     href: "https://tidd.ly/3UT6vdj",
-    visual: "tech",
+    visual: "ultrahuman",
     network: "awin",
   },
 ];
