@@ -19,6 +19,10 @@ function fallbackFor(title?: string) {
   return "/fallbacks/gift.jpg";
 }
 
+function isStudioSrc(src: string) {
+  return /uh-static\.com|ultrahuman-ring/.test(src);
+}
+
 export function ProductImage({
   src,
   alt,
@@ -31,6 +35,7 @@ export function ProductImage({
   const fallback = fallbackFor(alt);
   const [current, setCurrent] = useState(src || fallback);
   const [usedFallback, setUsedFallback] = useState(!src);
+  const studio = isStudioSrc(current);
 
   return (
     // Amazon and local product art: plain img avoids optimizer referrer issues.
@@ -48,7 +53,10 @@ export function ProductImage({
         }
       }}
       className={cn(
-        "aspect-square w-full object-contain bg-white p-6",
+        "aspect-square w-full object-contain",
+        studio
+          ? "bg-[radial-gradient(ellipse_at_50%_38%,#f7ecd8_0%,#e7d2b3_52%,#c49a6a_100%)] p-5 sm:p-8"
+          : "bg-white p-6",
         usedFallback && current.startsWith("/fallbacks/") && "object-cover p-0",
         className,
       )}
