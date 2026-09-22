@@ -38,7 +38,7 @@ export const guides: Guide[] = [
       en: "Pick a watch from what you will do every day. Battery, GPS, compatibility and comfort usually beat the feature count.",
     },
     kind: "article",
-    image: "/editorial/tech.webp",
+    image: "/guides/watch.jpg",
     sections: [
       {
         title: { it: "Autonomia", en: "Battery life" },
@@ -229,7 +229,7 @@ export const guides: Guide[] = [
       en: "Two premium approaches: Apple leans on smart integration and wellness tracking; Garmin on battery, maps and multisport depth. Neither is a medical device.",
     },
     kind: "compare",
-    image: "/editorial/tech.webp",
+    image: "/editorial/apple-garmin-compare.webp",
     table: {
       headers: {
         it: ["Criterio", "Apple Watch Ultra 4", "Garmin fēnix 8"],

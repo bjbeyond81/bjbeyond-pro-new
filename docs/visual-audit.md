@@ -8,6 +8,7 @@ Every visual must either show the exact product/service context or stay intentio
 | Gift Finder | `/gift-finder`, `/en/gift-finder` | Generated editorial still life | `/editorial/gifts.webp` | Generic gift context, not a fake product. |
 | Tech index | `/tech`, `/en/tech` | Generated editorial still life | `/editorial/tech.webp` | Generic tech category context. |
 | Guides | `/guides`, `/en/guides` | Generated editorial still life | `/editorial/guides.webp` | Reading/research context for articles and services. |
+| Apple Watch vs Garmin guide | `/guides/apple-watch-ultra-4-vs-garmin-fenix-8`, `/en/guides/apple-watch-ultra-4-vs-garmin-fenix-8` | Official-product comparison cover | `/editorial/apple-garmin-compare.webp` | Apple Watch asset from the local product catalogue plus official Garmin fēnix 8 47 mm AMOLED image from Garmin product metadata. |
 | ESR | `/stack/esr`, `/en/stack/esr` | Official product photo | `/editorial/esr.webp` | Official ESR CryoBoost 3-in-1 catalog image. |
 | IMOU | `/stack/imou`, `/en/stack/imou` | Official product photo | `/editorial/imou.webp` | Official IMOU Ranger 2C Pro product image. |
 | Toputure | `/stack/toputure`, `/en/stack/toputure` | Official product photo | `/editorial/toputure.webp` | Official Toputure TP8 Walking Pad product image. |
