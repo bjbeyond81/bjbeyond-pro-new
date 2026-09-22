@@ -40,6 +40,7 @@ export function StackDetailPage({
         <div className="mt-10 grid gap-8 lg:grid-cols-[.95fr_1.05fr]">
           <SceneVisual
             scene={campaign.visual}
+            locale={locale}
             className="min-h-[360px] rounded-[32px] shadow-[0_34px_90px_rgba(11,12,15,.14)]"
           />
           <div className="spectacular-card p-6 sm:p-8">

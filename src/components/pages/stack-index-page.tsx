@@ -13,6 +13,7 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <SceneVisual
           scene="stack"
+          locale={locale}
           className="mb-10 min-h-[260px] rounded-[32px] shadow-[0_34px_90px_rgba(11,12,15,.14)] sm:min-h-[340px]"
           label={
             locale === "it"
@@ -62,7 +63,7 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
               href={localizedPath(locale, `/stack/${c.slug}`)}
               className="spectacular-card no-underline transition-transform hover:-translate-y-1"
             >
-              <SceneVisual scene={c.visual} className="min-h-[160px]" />
+              <SceneVisual scene={c.visual} locale={locale} className="aspect-[16/10]" />
               <div className="p-6">
                 <p className="kicker">
                   {c.n} {c.kicker[locale]} · {t.advertising}

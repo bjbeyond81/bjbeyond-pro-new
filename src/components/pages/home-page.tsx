@@ -53,56 +53,35 @@ export function HomePage({ locale }: { locale: Locale }) {
   const t = copy[locale];
   return (
     <SiteShell locale={locale}>
-      <section className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-10 pb-8 sm:px-6 lg:grid-cols-2 lg:min-h-[78vh] lg:gap-14 lg:pt-16">
-        <div>
-          <p className="kicker">{t.tagline}</p>
-          <h1 className="mt-4 max-w-[10ch] text-6xl leading-[0.82] sm:text-8xl lg:text-[6.4rem]">
-            {locale === "it" ? (
-              <>
-                Scelte più
-                <br />
-                intelligenti.
-              </>
-            ) : (
-              <>
-                Buy smarter.
-                <br />
-                Look sharper.
-              </>
-            )}
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground sm:text-2xl">
+      <section className="relative isolate flex min-h-[620px] items-end overflow-hidden bg-black text-white sm:min-h-[680px]">
+        <SceneVisual scene="hero" locale={locale} className="absolute inset-0 -z-20" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+          <p className="text-sm font-semibold uppercase text-[#b7ff3c]">{t.tagline}</p>
+          <h1 className="mt-5 max-w-[9ch] text-6xl leading-[1] sm:text-8xl">BJ Beyond</h1>
+          <p className="mt-6 max-w-[32ch] text-xl leading-8 text-white/90 sm:text-2xl">
             {locale === "it"
-              ? "Un portale bilingue per tech, regali, guide e campagne affiliate: meno rumore, più decisione."
-              : "A bilingual editorial portal for tech, gifts, guides and affiliate campaigns: less noise, sharper decisions."}
+              ? "Tecnologia, regali e idee da vivere. Scopri cosa merita il tuo prossimo acquisto."
+              : "Technology, gifts and ideas for everyday living. Discover what's worth your next purchase."}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href={localizedPath(locale, "/stack")}
-              className="rounded-full bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-[8px_8px_0_#b7ff3c]"
+              className="rounded-lg bg-[#b7ff3c] px-5 py-3 text-sm font-bold text-black transition-colors hover:bg-white"
             >
               {locale === "it" ? "Apri lo Stack" : "Open the Stack"}
             </Link>
             <Link
               href={localizedPath(locale, "/tech/ultrahuman-ring-pro")}
-              className="rounded-full border border-foreground/12 bg-card px-5 py-3 text-sm font-black"
+              className="rounded-lg border border-white/50 bg-black/40 px-5 py-3 text-sm font-bold text-white hover:bg-black/70"
             >
               Ultrahuman Ring Pro
             </Link>
           </div>
         </div>
-        <SceneVisual
-          scene="hero"
-          className="min-h-[320px] rounded-[32px] shadow-[0_34px_90px_rgba(11,12,15,.16)] lg:min-h-[560px]"
-          label={
-            locale === "it"
-              ? "Tavolo in noce con libro, pacco di lino, bicchiere e cuffie"
-              : "Walnut desk with book, linen gift, glass and headphones"
-          }
-        />
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid gap-4 lg:grid-cols-[1.15fr_.85fr]">
           {tiles.slice(0, 2).map((tile) => (
             <HomeTile key={tile.n} locale={locale} tile={tile} />
@@ -117,7 +96,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           href={localizedPath(locale, "/stack")}
             className="spectacular-card mt-4 flex flex-col no-underline transition-transform hover:-translate-y-1"
         >
-          <SceneVisual scene="stack" className="min-h-[200px] sm:min-h-[240px]" />
+          <SceneVisual scene="stack" locale={locale} className="aspect-[16/7]" />
           <div className="p-6">
             <p className="kicker">
               05 {t.nav.stack} · {t.advertising}
@@ -148,7 +127,7 @@ function HomeTile({
       href={localizedPath(locale, tile.href)}
       className="spectacular-card flex flex-col no-underline transition-transform hover:-translate-y-1"
     >
-      <SceneVisual scene={tile.scene} className="min-h-[168px] sm:min-h-[210px]" />
+      <SceneVisual scene={tile.scene} locale={locale} className="aspect-[16/10]" />
       <div className="p-6">
         <p className="kicker">
           {tile.n} {copy[locale].nav[tile.key]}

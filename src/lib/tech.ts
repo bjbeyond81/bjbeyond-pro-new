@@ -226,7 +226,7 @@ export const techProducts: TechProduct[] = [
       it: "Acquista Ultrahuman Ring Pro",
       en: "Buy Ultrahuman Ring Pro",
     },
-    image: "/products/ultrahuman-ring-pro.jpg",
+    image: "https://public-web-assets.uh-static.com/web_v2/ring-pro/buy-v2/carousel-v4/desktop/bionic-gold/6.png",
     highlights: {
       it: [
         "Batteria dichiarata fino a 15 giorni; fino a 45 con la custodia PRO inclusa",
