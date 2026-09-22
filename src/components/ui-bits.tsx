@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { copy } from "@/lib/copy";
 import type { Locale } from "@/lib/i18n";
+import { awinStoreUrl } from "@/lib/stack";
 import { cn } from "@/lib/utils";
 
 export function AffiliateNote({
@@ -39,7 +40,16 @@ export function AffiliateNote({
             <strong className="font-semibold text-foreground">
               {locale === "it" ? "Trasparenza Awin:" : "Awin disclosure:"}
             </strong>{" "}
-            {t.awinCommission}
+            {t.awinCommission}{" "}
+            <a
+              href={awinStoreUrl}
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              className="font-semibold text-foreground underline-offset-4 hover:underline"
+            >
+              {locale === "it" ? "Store Awin BJ Beyond" : "BJ Beyond Awin store"}
+            </a>
+            .
           </p>
           <p className="mt-2">{t.awinDisclosure}</p>
         </>
@@ -64,7 +74,7 @@ export function PriceNote({
 
 function networkOf(href: string): "amazon" | "awin" | "ad" {
   if (/amazon\.|amzn\.to|primevideo\.com/i.test(href)) return "amazon";
-  if (/awin1\.com|tidd\.ly/i.test(href)) return "awin";
+  if (/awin1\.com|tidd\.ly|store\.awin\.com/i.test(href)) return "awin";
   return "ad";
 }
 
