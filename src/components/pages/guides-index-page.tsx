@@ -15,16 +15,12 @@ export function GuidesIndexPage({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <SceneVisual
           scene="guides"
-          className="mb-10 min-h-[200px] rounded-[28px] sm:min-h-[260px]"
-          label={
-            locale === "it"
-              ? "Quaderni e occhiali da lettura sul tavolo"
-              : "Notebooks and reading glasses on the table"
-          }
+          locale={locale}
+          className="mb-10 aspect-[2/1] sm:aspect-[3/1]"
         />
         <PageIntro
-          kicker="Choose better"
-          title={locale === "it" ? "Guide, not noise." : "Guides, not noise."}
+          kicker={locale === "it" ? "PRIMA DI SCEGLIERE" : "BEFORE YOU CHOOSE"}
+          title={locale === "it" ? "Un altro punto di vista." : "A fresh perspective."}
           lead={
             locale === "it"
               ? "Guide brevi e pratiche per capire cosa conta davvero prima di acquistare tecnologia o scegliere un servizio digitale."
@@ -35,7 +31,7 @@ export function GuidesIndexPage({ locale }: { locale: Locale }) {
           {guides.map((g) => (
             <article
               key={g.slugIt}
-              className="flex flex-col overflow-hidden rounded-[28px] border border-foreground/8 bg-card shadow-[0_18px_50px_rgba(19,19,19,.05)]"
+              className="flex flex-col overflow-hidden rounded-lg border border-foreground/8 bg-card"
             >
               <CoverImage src={g.image} alt={g.title[locale]} />
               <div className="flex flex-1 flex-col p-6">
@@ -46,7 +42,7 @@ export function GuidesIndexPage({ locale }: { locale: Locale }) {
                 </p>
                 <Link
                   href={guidePath(locale, g)}
-                  className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground"
+                  className="mt-6 inline-flex h-11 items-center justify-center rounded-sm bg-primary px-5 text-sm font-semibold text-primary-foreground"
                 >
                   {g.kind === "compare" ? t.readComparison : t.readGuide} →
                 </Link>

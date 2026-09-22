@@ -22,22 +22,15 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const home = localizedPath(locale, "/");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-foreground/8 bg-background/80 backdrop-blur-2xl">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex items-center justify-between gap-4 py-3.5">
+    <header className="sticky top-0 z-50 border-b border-foreground/8 bg-white/95 backdrop-blur-lg">
+      <div className="editorial-container">
+        <div className="flex items-center justify-between gap-4 py-5">
           <Link href={home} className="flex items-center gap-3 no-underline">
-            <span className="grid size-10 place-items-center rounded-xl bg-primary font-sans text-[10px] font-extrabold tracking-[0.14em] text-primary-foreground shadow-[8px_8px_0_#b7ff3c]">
-              BJ
-            </span>
-            <span className="text-[11px] leading-tight font-black tracking-[0.24em]">
-              BJ
-              <br />
-              BEYOND
-            </span>
+            <span className="brand-wordmark">bj beyond<span>.</span></span>
           </Link>
 
           <div className="flex items-center gap-6">
-            <nav className="hidden items-center gap-6 text-[12px] font-bold tracking-wide md:flex">
+            <nav aria-label={locale === "it" ? "Navigazione principale" : "Main navigation"} className="hidden items-center gap-6 text-[12px] font-medium md:flex">
               {NAV.map((key) => (
                 <NavLink
                   key={key}
@@ -107,10 +100,12 @@ function LangSwitch({ locale, pathname }: { locale: Locale; pathname: string }) 
   return (
     <div
       className="inline-flex rounded-full border border-foreground/12 bg-card p-0.5 text-[11px] font-bold tracking-[0.12em]"
-      aria-label="Language"
+      aria-label={locale === "it" ? "Lingua" : "Language"}
     >
       <Link
         href={it}
+        hrefLang="it"
+        lang="it"
         className={cn(
           "rounded-full px-2.5 py-1.5",
           locale === "it" && "bg-primary text-primary-foreground",
@@ -121,6 +116,8 @@ function LangSwitch({ locale, pathname }: { locale: Locale; pathname: string }) 
       </Link>
       <Link
         href={en}
+        hrefLang="en"
+        lang="en"
         className={cn(
           "rounded-full px-2.5 py-1.5",
           locale === "en" && "bg-primary text-primary-foreground",

@@ -21,7 +21,7 @@ export function AffiliateNote({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-foreground/8 bg-card/70 px-4 py-3 text-sm leading-6 text-muted-foreground",
+        "border-t border-foreground/12 py-4 text-xs leading-6 text-muted-foreground",
         className,
       )}
     >
@@ -106,9 +106,9 @@ export function ExternalCta({
         target="_blank"
         rel="sponsored nofollow noopener"
         className={cn(
-          "inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-semibold",
+          "inline-flex min-h-12 items-center justify-center rounded px-5 py-3 text-sm font-semibold",
           light
-            ? "bg-card text-foreground hover:bg-card/90"
+            ? "border border-foreground/15 bg-card text-foreground hover:bg-secondary"
             : "bg-primary text-primary-foreground hover:bg-primary/90",
         )}
       >
@@ -133,7 +133,7 @@ export function PageIntro({
   return (
     <div className="max-w-3xl">
       <p className="kicker">{kicker}</p>
-      <h1 className="mt-3 text-4xl leading-[0.94] sm:text-6xl lg:text-7xl">{title}</h1>
+      <h1 className="mt-3 text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{title}</h1>
       <p className="mt-5 max-w-2xl text-lg leading-7 text-muted-foreground sm:text-xl">
         {lead}
       </p>

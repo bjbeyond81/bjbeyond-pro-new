@@ -16,19 +16,15 @@ export function TechIndexPage({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <SceneVisual
           scene="tech"
-          className="mb-10 min-h-[200px] rounded-[28px] sm:min-h-[260px]"
-          label={
-            locale === "it"
-              ? "Telefono, orologio e auricolari sul tavolo"
-              : "Phone, watch and earbuds on the table"
-          }
+          locale={locale}
+          className="mb-10 aspect-[2/1] sm:aspect-[3/1]"
         />
         <PageIntro
           kicker="Smartphone · Wearable · Audio"
           title={
             locale === "it"
-              ? "Tecnologia da guardare da vicino."
-              : "Technology worth looking at closely."
+              ? "Tech. Da vicino."
+              : "Tech. A closer look."
           }
           lead={
             locale === "it"
@@ -40,7 +36,7 @@ export function TechIndexPage({ locale }: { locale: Locale }) {
           {techProducts.map((p) => (
             <article
               key={p.slug}
-              className="flex flex-col overflow-hidden rounded-[28px] border border-foreground/8 bg-card shadow-[0_18px_50px_rgba(19,19,19,.06)]"
+              className="flex flex-col overflow-hidden rounded-lg border border-foreground/8 bg-card"
             >
               <ProductImage src={p.image} alt={p.name[locale]} className="bg-[#fff]" />
               <div className="flex flex-1 flex-col gap-4 p-6">

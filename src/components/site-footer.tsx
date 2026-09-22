@@ -5,7 +5,7 @@ import { localizedPath, type Locale } from "@/lib/i18n";
 export function SiteFooter({ locale }: { locale: Locale }) {
   const t = copy[locale];
   return (
-    <footer className="border-t border-foreground/8">
+    <footer className="site-footer">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 sm:px-6">
         <div>
           <p className="text-[11px] font-extrabold tracking-[0.22em]">BJ BEYOND</p>
@@ -39,6 +39,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           </p>
         </div>
       </div>
+      <div className="editorial-container site-footer-brand">BJ Beyond.</div>
     </footer>
   );
 }

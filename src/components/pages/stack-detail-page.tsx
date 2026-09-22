@@ -31,7 +31,7 @@ export function StackDetailPage({
           {campaign.n} {campaign.kicker[locale]} · {t.advertising} {campaign.name}
         </p>
         <h1 className="mt-3 max-w-4xl text-4xl leading-[0.94] sm:text-6xl">
-          {campaign.title[locale]}
+          {campaign.name}
         </h1>
         <p className="mt-5 max-w-2xl text-xl leading-8 text-muted-foreground">
           {campaign.lead[locale]}
@@ -41,9 +41,9 @@ export function StackDetailPage({
           <SceneVisual
             scene={campaign.visual}
             locale={locale}
-            className="min-h-[360px] rounded-[32px] shadow-[0_34px_90px_rgba(11,12,15,.14)]"
+            className="aspect-square"
           />
-          <div className="spectacular-card p-6 sm:p-8">
+          <div className="py-2">
             <p className="text-lg leading-8 text-muted-foreground">
               {campaign.body[locale]}
             </p>

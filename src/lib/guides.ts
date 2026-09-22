@@ -38,7 +38,7 @@ export const guides: Guide[] = [
       en: "Pick a watch from what you will do every day. Battery, GPS, compatibility and comfort usually beat the feature count.",
     },
     kind: "article",
-    image: "/guides/watch.jpg",
+    image: "/editorial/tech.webp",
     sections: [
       {
         title: { it: "Autonomia", en: "Battery life" },
@@ -92,7 +92,7 @@ export const guides: Guide[] = [
       en: "Under €50 you will find plenty of technology, and plenty of noise. Pick a clear use, simple compatibility, daily value.",
     },
     kind: "article",
-    image: "/guides/tech-gifts.jpg",
+    image: "/editorial/gifts.webp",
     sections: [
       {
         title: {
@@ -172,7 +172,7 @@ export const guides: Guide[] = [
       en: "The free trial is not the main criterion. Before you start, look at renewal, catalogue, supported devices and how hard it is to cancel.",
     },
     kind: "article",
-    image: "/amazon/kindle.jpg",
+    image: "/editorial/guides.webp",
     sections: [
       {
         title: { it: "Prova gratuita e rinnovo", en: "Trial and renewal" },
@@ -229,7 +229,7 @@ export const guides: Guide[] = [
       en: "Two premium approaches: Apple leans on smart integration and wellness tracking; Garmin on battery, maps and multisport depth. Neither is a medical device.",
     },
     kind: "compare",
-    image: "/guides/compare-watches.jpg",
+    image: "/editorial/tech.webp",
     table: {
       headers: {
         it: ["Criterio", "Apple Watch Ultra 4", "Garmin fēnix 8"],
@@ -309,7 +309,7 @@ export const guides: Guide[] = [
       en: "They are not direct rivals: one is built around listening, the other around digital reading.",
     },
     kind: "compare",
-    image: "/amazon/audible.jpg",
+    image: "/editorial/guides.webp",
     table: {
       headers: {
         it: ["Criterio", "Audible", "Kindle Unlimited"],
@@ -389,7 +389,7 @@ export const guides: Guide[] = [
       en: "Prime Student is for eligible students. The deciding point is not the plan name — it is whether you qualify, and which terms are live right now.",
     },
     kind: "compare",
-    image: "/amazon/student.jpg",
+    image: "/editorial/guides.webp",
     table: {
       headers: {
         it: ["Criterio", "Amazon Prime", "Prime Student"],

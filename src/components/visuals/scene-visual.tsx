@@ -3,18 +3,18 @@ import type { Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 const scenes = {
-  hero: ["hero", "Libri, regali e cuffie", "Books, gifts and headphones"],
-  gifts: ["gifts", "Regalo e gioielli", "Gift box and jewelry"],
-  tech: ["tech", "Telefono, orologio e auricolari", "Phone, watch and earbuds"],
-  amazon: ["amazon", "Regali, lettura e audio", "Gifts, reading and audio"],
+  hero: ["hero", "Cuffie, regalo, quaderno e bicchiere su fondo rosso", "Headphones, gift, notebook and glass on a red backdrop"],
+  gifts: ["gifts", "Pacchi bianchi con nastro rosso", "White gifts with red ribbon"],
+  tech: ["tech", "Cuffie, telefono e auricolari", "Headphones, phone and earbuds"],
+  amazon: ["guides", "Lettura e servizi digitali", "Reading and digital services"],
   guides: ["guides", "Libri e appunti", "Books and notes"],
-  stack: ["stack", "Accessori per casa e scrivania", "Home and desk accessories"],
-  desk: ["desk", "Telefono e ricarica wireless", "Phone and wireless charging"],
-  home: ["imou", "Videocamera da interno", "Indoor security camera"],
-  move: ["move", "Tapis roulant sotto la scrivania", "Under-desk treadmill"],
-  learn: ["learn", "Schede per lo studio", "Study flashcards"],
-  water: ["water", "Caraffa e bicchiere d'acqua", "Water carafe and glass"],
-  ultrahuman: ["", "Ultrahuman Ring Pro, Bionic Gold", "Ultrahuman Ring Pro, Bionic Gold"],
+  stack: ["esr", "ESR CryoBoost 3-in-1", "ESR CryoBoost 3-in-1"],
+  desk: ["esr", "ESR CryoBoost 3-in-1", "ESR CryoBoost 3-in-1"],
+  home: ["imou", "IMOU Ranger 2C Pro", "IMOU Ranger 2C Pro"],
+  move: ["toputure", "Toputure TP8 Walking Pad", "Toputure TP8 Walking Pad"],
+  learn: ["guides", "Lingzio", "Lingzio"],
+  water: ["waterdrop", "Waterdrop G3P800", "Waterdrop G3P800"],
+  ultrahuman: ["ultrahuman", "Ultrahuman Ring Pro, Bionic Gold", "Ultrahuman Ring Pro, Bionic Gold"],
 } as const;
 
 export function SceneVisual({ scene, className, label, locale = "en" }: {
@@ -24,16 +24,17 @@ export function SceneVisual({ scene, className, label, locale = "en" }: {
   locale?: Locale;
 }) {
   const item = scenes[scene];
-  const ring = scene === "ultrahuman";
+  const product = ["ultrahuman", "desk", "home", "move", "water", "stack"].includes(scene);
+  if (scene === "learn") return <div className={cn("grid place-content-center bg-[#eef0f4] p-8 text-center", className)}><span className="text-4xl font-semibold">Lingzio<span className="text-primary">.</span></span><span className="mt-4 text-sm text-muted-foreground">{locale === "it" ? "Apprendimento delle lingue" : "Language learning"}</span></div>;
   return (
     <div className={cn("relative isolate overflow-hidden bg-white", className)}>
       <Image
-        src={ring ? "https://public-web-assets.uh-static.com/web_v2/ring-pro/buy-v2/carousel-v4/desktop/bionic-gold/6.png" : `/scenes/${item[0]}.jpg`}
+        src={`/editorial/${item[0]}.webp`}
         alt={label ?? item[locale === "it" ? 1 : 2]}
         fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 1152px"
-        priority={scene === "hero" || ring}
-        className={cn("transition-transform duration-700 motion-reduce:transition-none", ring ? "object-contain" : "object-cover hover:scale-[1.025]")}
+        priority={scene === "hero"}
+        className={cn("transition-transform duration-700 motion-reduce:transition-none", product ? "object-contain p-5" : "object-cover hover:scale-[1.025]")}
       />
     </div>
   );

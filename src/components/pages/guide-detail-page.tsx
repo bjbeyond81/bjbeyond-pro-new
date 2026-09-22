@@ -37,7 +37,7 @@ export function GuideDetailPage({
         <img
           src={guide.image}
           alt=""
-          className="mt-10 h-56 w-full rounded-[28px] object-cover sm:h-80"
+          className="mt-10 aspect-[16/9] w-full rounded-lg border border-foreground/8 bg-white object-cover"
         />
 
         {guide.kind === "article" && guide.sections
@@ -62,7 +62,7 @@ export function GuideDetailPage({
           : null}
 
         {guide.kind === "compare" && guide.table ? (
-          <div className="mt-10 overflow-hidden rounded-[24px] border border-foreground/10 bg-card">
+          <div className="mt-10 overflow-hidden rounded-lg border border-foreground/10 bg-card">
             <div className="hidden grid-cols-3 bg-secondary/70 text-sm font-bold md:grid">
               {guide.table.headers[locale].map((h) => (
                 <div key={h} className="px-4 py-3">
@@ -104,11 +104,11 @@ export function GuideDetailPage({
           </section>
         ) : null}
 
-        <div className="mt-10 rounded-[24px] bg-primary p-6 text-primary-foreground">
+        <div className="mt-10 rounded-lg bg-primary p-6 text-primary-foreground">
           <p className="font-semibold">{guide.cta.label[locale]}</p>
           <Link
             href={guide.cta.hrefIt.startsWith("/en") || locale === "en" ? guide.cta.hrefEn : guide.cta.hrefIt}
-            className="mt-4 inline-flex h-11 items-center rounded-full bg-card px-5 text-sm font-semibold text-foreground"
+            className="mt-4 inline-flex h-11 items-center rounded-sm bg-card px-5 text-sm font-semibold text-foreground"
           >
             {guide.cta.label[locale]} →
           </Link>

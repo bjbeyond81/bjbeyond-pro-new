@@ -1,4 +1,3 @@
-import { CoverImage } from "@/components/product-image";
 import { SiteShell } from "@/components/site-shell";
 import { AffiliateNote, ExternalCta, PageIntro } from "@/components/ui-bits";
 import { Badge } from "@/components/ui/badge";
@@ -14,12 +13,8 @@ export function AmazonPage({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <SceneVisual
           scene="amazon"
-          className="mb-10 min-h-[200px] rounded-[28px] sm:min-h-[280px]"
-          label={
-            locale === "it"
-              ? "Scatola, libro e cuffie sul tavolo"
-              : "Box, book and headphones on the table"
-          }
+          locale={locale}
+          className="mb-10 aspect-[2/1] sm:aspect-[3/1]"
         />
         <PageIntro
           kicker={
@@ -41,9 +36,8 @@ export function AmazonPage({ locale }: { locale: Locale }) {
           {core.map((s) => (
             <article
               key={s.id}
-              className="flex min-h-[280px] flex-col overflow-hidden rounded-[28px] border border-foreground/8 bg-card shadow-[0_18px_50px_rgba(19,19,19,.05)]"
+              className="flex min-h-[280px] flex-col overflow-hidden rounded-lg border border-foreground/8 bg-card"
             >
-              <CoverImage src={s.image} alt={s.name[locale]} />
               <div className="flex flex-1 flex-col p-6">
                 <Badge variant="copper">{s.badge[locale]}</Badge>
                 <h2 className="mt-4 text-3xl leading-[0.98]">{s.name[locale]}</h2>
@@ -75,9 +69,8 @@ export function AmazonPage({ locale }: { locale: Locale }) {
             {channels.map((s) => (
               <article
                 key={s.id}
-                className="flex flex-col overflow-hidden rounded-[28px] border border-foreground/8 bg-card"
+                className="flex flex-col overflow-hidden rounded-lg border border-foreground/8 bg-card"
               >
-                <CoverImage src={s.image} alt={s.name[locale]} className="h-40" />
                 <div className="flex flex-1 flex-col p-6">
                   <Badge variant="outline">{s.badge[locale]}</Badge>
                   <h3 className="mt-4 text-3xl">{s.name[locale]}</h3>

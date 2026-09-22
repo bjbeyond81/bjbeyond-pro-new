@@ -1,140 +1,54 @@
 import Link from "next/link";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/site-shell";
-import { AffiliateNote } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
-import { copy } from "@/lib/copy";
+import { AffiliateNote } from "@/components/ui-bits";
 import { localizedPath, type Locale } from "@/lib/i18n";
-
-const tiles = [
-  {
-    n: "01",
-    key: "gifts" as const,
-    href: "/gift-finder",
-    scene: "gifts" as const,
-    title: { it: "Gift Finder", en: "Gift Finder" },
-    lead: {
-      it: "Tre domande. Poi solo ciò che sta.",
-      en: "Three questions. Then only what belongs.",
-    },
-  },
-  {
-    n: "02",
-    key: "tech" as const,
-    href: "/tech",
-    scene: "tech" as const,
-    title: { it: "Tech", en: "Tech" },
-    lead: {
-      it: "Device selezionati, luce bassa.",
-      en: "Selected devices, low light.",
-    },
-  },
-  {
-    n: "03",
-    key: "amazon" as const,
-    href: "/amazon-offers",
-    scene: "amazon" as const,
-    title: { it: "Offerte", en: "Offers" },
-    lead: { it: "Prime, Audible, Kindle.", en: "Prime, Audible, Kindle." },
-  },
-  {
-    n: "04",
-    key: "guides" as const,
-    href: "/guides",
-    scene: "guides" as const,
-    title: { it: "Guide", en: "Guides" },
-    lead: {
-      it: "Confronti corti prima di comprare.",
-      en: "Short comparisons before you buy.",
-    },
-  },
-];
+import { awinStoreUrl } from "@/lib/stack";
 
 export function HomePage({ locale }: { locale: Locale }) {
-  const t = copy[locale];
+  const it = locale === "it";
+  const path = (p: string) => localizedPath(locale, p);
+  const categories = [
+    { scene: "gifts" as const, href: "/gift-finder", title: "Gift Finder", text: it ? "Un regalo pensato davvero." : "A little more thoughtful.", number: "01" },
+    { scene: "tech" as const, href: "/tech", title: "Tech", text: it ? "Design da usare ogni giorno." : "Design for your everyday.", number: "02" },
+    { scene: "guides" as const, href: "/guides", title: it ? "Guide" : "Guides", text: it ? "Il punto di vista che mancava." : "A fresh perspective before you buy.", number: "03" },
+  ];
   return (
     <SiteShell locale={locale}>
-      <section className="relative isolate flex min-h-[620px] items-end overflow-hidden bg-black text-white sm:min-h-[680px]">
-        <SceneVisual scene="hero" locale={locale} className="absolute inset-0 -z-20" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-          <p className="text-sm font-semibold uppercase text-[#b7ff3c]">{t.tagline}</p>
-          <h1 className="mt-5 max-w-[9ch] text-6xl leading-[1] sm:text-8xl">BJ Beyond</h1>
-          <p className="mt-6 max-w-[32ch] text-xl leading-8 text-white/90 sm:text-2xl">
-            {locale === "it"
-              ? "Tecnologia, regali e idee da vivere. Scopri cosa merita il tuo prossimo acquisto."
-              : "Technology, gifts and ideas for everyday living. Discover what's worth your next purchase."}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href={localizedPath(locale, "/stack")}
-              className="rounded-lg bg-[#b7ff3c] px-5 py-3 text-sm font-bold text-black transition-colors hover:bg-white"
-            >
-              {locale === "it" ? "Apri lo Stack" : "Open the Stack"}
-            </Link>
-            <Link
-              href={localizedPath(locale, "/tech/ultrahuman-ring-pro")}
-              className="rounded-lg border border-white/50 bg-black/40 px-5 py-3 text-sm font-bold text-white hover:bg-black/70"
-            >
-              Ultrahuman Ring Pro
-            </Link>
-          </div>
+      <section className="editorial-hero">
+        <SceneVisual scene="hero" locale={locale} className="hero-photo" />
+        <div className="hero-content">
+          <p className="eyebrow">{it ? "TECNOLOGIA. DESIGN. SCOPERTE." : "TECHNOLOGY. DESIGN. DISCOVERY."}</p>
+          <h1>BJ Beyond<span>.</span></h1>
+          <p className="hero-statement">{it ? <>Il piacere di<br />scegliere meglio.</> : <>Good things.<br />Better choices.</>}</p>
+          <p className="hero-description">{it ? "Oggetti, idee e tecnologia che meritano la tua attenzione." : "Objects, ideas and technology worth your attention."}</p>
+          <Link href={path("/tech")} className="editorial-button light">{it ? "Esplora la selezione" : "Explore the edit"}<ArrowUpRight size={18} /></Link>
+        </div>
+        <div className="hero-caption"><span>BJ BEYOND / {it ? "LA SELEZIONE" : "THE EDIT"}</span><span>01 — 05</span></div>
+      </section>
+
+      <nav className="section-nav" aria-label={it ? "Esplora le sezioni" : "Explore sections"}>
+        {[["Gift Finder", "/gift-finder"], ["Tech", "/tech"], [it ? "Offerte Amazon" : "Amazon offers", "/amazon-offers"], [it ? "Guide" : "Guides", "/guides"], ["The Stack", "/stack"]].map(([title, href], i) => <Link key={href} href={path(href)}><span>0{i + 1}</span>{title}<ArrowUpRight size={16} /></Link>)}
+      </nav>
+
+      <section className="editorial-container editorial-section">
+        <div className="section-heading"><div><p className="eyebrow">{it ? "IL TUO PROSSIMO PASSO" : "FIND YOUR NEXT"}</p><h2>{it ? "Segui la curiosità." : "Follow your curiosity."}</h2></div><p>{it ? "Tre modi per trovare qualcosa di speciale." : "Three ways to find something worth keeping."}</p></div>
+        <div className="category-grid">{categories.map(c => <Link className="category-item" key={c.href} href={path(c.href)}><SceneVisual scene={c.scene} locale={locale} className="category-photo" /><div className="category-meta"><span>{c.number} / {c.title}</span><ArrowUpRight size={22} /></div><h3>{c.text}</h3></Link>)}</div>
+      </section>
+
+      <section className="spotlight-band">
+        <div className="editorial-container spotlight-grid">
+          <SceneVisual scene="ultrahuman" locale={locale} className="spotlight-photo" />
+          <div className="spotlight-copy"><p className="eyebrow">{it ? "IN PRIMO PIANO / WEARABLE" : "IN FOCUS / WEARABLE"}</p><h2>Ultrahuman<br />Ring Pro<span>.</span></h2><p>{it ? "Uno sguardo più attento alle tue abitudini. Scopri formato, funzionalità e cosa verificare prima di scegliere." : "A closer look at your daily rhythms. Explore the design, features and what to check before you choose."}</p><Link className="editorial-button" href={path("/stack/ultrahuman")}>{it ? "Scopri Ring Pro" : "Discover Ring Pro"}<ArrowUpRight size={18} /></Link><p className="micro-copy">{it ? "Link affiliati. Non è un dispositivo medico." : "Affiliate links. Not a medical device."}</p></div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-4 lg:grid-cols-[1.15fr_.85fr]">
-          {tiles.slice(0, 2).map((tile) => (
-            <HomeTile key={tile.n} locale={locale} tile={tile} />
-          ))}
-        </div>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          {tiles.slice(2).map((tile) => (
-            <HomeTile key={tile.n} locale={locale} tile={tile} />
-          ))}
-        </div>
-        <Link
-          href={localizedPath(locale, "/stack")}
-            className="spectacular-card mt-4 flex flex-col no-underline transition-transform hover:-translate-y-1"
-        >
-          <SceneVisual scene="stack" locale={locale} className="aspect-[16/7]" />
-          <div className="p-6">
-            <p className="kicker">
-              05 {t.nav.stack} · {t.advertising}
-            </p>
-            <h2 className="mt-2 text-4xl sm:text-5xl">
-              {locale === "it" ? "Stack ufficiale Awin." : "Official Awin Stack."}
-            </h2>
-            <p className="mt-2 text-muted-foreground">
-              ESR · IMOU · Toputure · Lingzio · Waterdrop · Ultrahuman · Storefront
-            </p>
-          </div>
-        </Link>
-        <AffiliateNote locale={locale} variant="all" className="mt-8" />
+      <section className="editorial-container editorial-section stack-home">
+        <div><p className="eyebrow">THE STACK / AWIN</p><h2>{it ? "Grandi idee. Un solo posto." : "Good finds. One destination."}</h2><p>{it ? "Esplora le campagne e visita lo Storefront Awin di BJ Beyond." : "Explore the campaigns and visit the BJ Beyond Awin Storefront."}</p></div>
+        <div className="stack-home-links"><Link href={path("/stack")}>{it ? "Esplora lo Stack" : "Explore the Stack"}<ArrowRight size={20} /></Link><a href={awinStoreUrl} target="_blank" rel="sponsored nofollow noopener">Awin Storefront<ArrowUpRight size={20} /></a><Link href={path("/amazon-offers")}>{it ? "Servizi e offerte Amazon" : "Amazon services & offers"}<ArrowRight size={20} /></Link></div>
+        <AffiliateNote locale={locale} variant="all" className="col-span-full" />
       </section>
     </SiteShell>
-  );
-}
-
-function HomeTile({
-  locale,
-  tile,
-}: {
-  locale: Locale;
-  tile: (typeof tiles)[number];
-}) {
-  return (
-    <Link
-      href={localizedPath(locale, tile.href)}
-      className="spectacular-card flex flex-col no-underline transition-transform hover:-translate-y-1"
-    >
-      <SceneVisual scene={tile.scene} locale={locale} className="aspect-[16/10]" />
-      <div className="p-6">
-        <p className="kicker">
-          {tile.n} {copy[locale].nav[tile.key]}
-        </p>
-        <h2 className="mt-1 text-4xl sm:text-5xl">{tile.title[locale]}</h2>
-        <p className="mt-2 text-muted-foreground">{tile.lead[locale]}</p>
-      </div>
-    </Link>
   );
 }

@@ -171,12 +171,8 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
     <section className="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-20">
       <SceneVisual
         scene="gifts"
-        className="mb-8 min-h-[180px] rounded-[28px] sm:min-h-[220px]"
-        label={
-          locale === "it"
-            ? "Pacco di lino, rosa e collana sul tavolo"
-            : "Linen gift, rose and necklace on the table"
-        }
+        className="mb-8 aspect-[2/1]"
+        locale={locale}
       />
       <p className="kicker">{t.quizEyebrow}</p>
       <h1 className="mt-3 text-4xl leading-[0.94] sm:text-6xl">
@@ -203,7 +199,7 @@ function GiftQuiz({ locale, query }: { locale: Locale; query: GiftQuery }) {
       <form
         method="get"
         action={action}
-        className="mt-10 rounded-[28px] border border-foreground/8 bg-card p-5 shadow-[0_18px_50px_rgba(40,24,10,.08)] sm:p-8"
+        className="mt-10 border-y border-foreground/12 py-5 sm:py-8"
       >
         <input type="hidden" name="go" value="1" />
         <fieldset className="border-b border-foreground/8 py-5">

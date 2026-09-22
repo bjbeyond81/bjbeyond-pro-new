@@ -1,86 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { ImageOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-function fallbackFor(title?: string) {
-  const t = (title ?? "").toLowerCase();
-  if (/(collana|bracciale|anello|orecchini|argento|gioiell)/.test(t)) {
-    return "/fallbacks/jewelry.jpg";
-  }
-  if (/(rosa|fiore|girasole|eterna)/.test(t)) return "/fallbacks/flowers.jpg";
-  if (
-    /(powerbank|usb|iphone|samsung|bluetooth|speaker|cuffie|auricolari|watch|ring|anello|caricab)/.test(
-      t,
-    )
-  ) {
-    return "/fallbacks/tech.jpg";
-  }
-  return "/fallbacks/gift.jpg";
-}
-
-function isStudioSrc(src: string) {
-  return /uh-static\.com|ultrahuman-ring/.test(src);
-}
-
-export function ProductImage({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  const fallback = fallbackFor(alt);
-  const [current, setCurrent] = useState(src || fallback);
-  const [usedFallback, setUsedFallback] = useState(!src);
-  const studio = isStudioSrc(current);
-
+export function ProductImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  if (!src || failedSrc === src) return <div role="img" aria-label={alt} className={cn("grid aspect-square w-full place-content-center gap-3 bg-secondary p-6 text-center text-muted-foreground", className)}><ImageOff className="mx-auto" aria-hidden="true" /><span className="text-sm">{alt}</span></div>;
   return (
-    // Amazon and local product art: plain img avoids optimizer referrer issues.
+    // Merchant images remain uncropped; a failed image never becomes another product.
     // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={current}
-      alt={alt}
-      loading="lazy"
-      decoding="async"
-      referrerPolicy="no-referrer"
-      onError={() => {
-        if (!usedFallback) {
-          setUsedFallback(true);
-          setCurrent(fallback);
-        }
-      }}
-      className={cn(
-        "aspect-square w-full",
-        studio
-          ? "object-cover p-0 bg-[#e8d3b4]"
-          : "object-contain bg-white p-6",
-        usedFallback && current.startsWith("/fallbacks/") && "object-cover p-0",
-        className,
-      )}
-    />
+    <img src={src} alt={alt} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={() => setFailedSrc(src)} className={cn("aspect-square w-full bg-white object-contain p-6", className)} />
   );
 }
 
-export function CoverImage({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
+export function CoverImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <div className={cn("grid h-44 place-items-center bg-secondary px-6 text-sm", className)}>{alt}</div>;
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt={alt}
-      loading="eager"
-      decoding="async"
-      className={cn("h-44 w-full object-cover", className)}
-    />
+    <img src={src} alt={alt} loading="lazy" decoding="async" onError={() => setFailed(true)} className={cn("h-44 w-full object-cover", className)} />
   );
 }
