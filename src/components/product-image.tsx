@@ -53,10 +53,10 @@ export function ProductImage({
         }
       }}
       className={cn(
-        "aspect-square w-full object-contain",
+        "aspect-square w-full",
         studio
-          ? "bg-[radial-gradient(ellipse_at_50%_38%,#f7ecd8_0%,#e7d2b3_52%,#c49a6a_100%)] p-5 sm:p-8"
-          : "bg-white p-6",
+          ? "object-cover p-0 bg-[#e8d3b4]"
+          : "object-contain bg-white p-6",
         usedFallback && current.startsWith("/fallbacks/") && "object-cover p-0",
         className,
       )}
