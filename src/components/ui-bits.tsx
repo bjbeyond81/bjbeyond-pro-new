@@ -64,7 +64,7 @@ export function PriceNote({
 
 function networkOf(href: string): "amazon" | "awin" | "ad" {
   if (/amazon\.|amzn\.to|primevideo\.com/i.test(href)) return "amazon";
-  if (/awin1\.com|tidd\.ly|store\.awin\.com/i.test(href)) return "awin";
+  if (/awin1\.com|tidd\.ly|store\.awin\.com|pxf\.io|impact\.com/i.test(href)) return "awin";
   return "ad";
 }
 
@@ -99,9 +99,13 @@ export function ExternalCta({
     network === "amazon"
       ? t.paidLink
       : network === "awin"
-        ? locale === "it"
-          ? "Link affiliato · Awin"
-          : "Affiliate link · Awin"
+        ? /pxf\.io|impact/i.test(href)
+          ? locale === "it"
+            ? "Link affiliato · Impact"
+            : "Affiliate link · Impact"
+          : locale === "it"
+            ? "Link affiliato · Awin"
+            : "Affiliate link · Awin"
         : locale === "it"
           ? "Link affiliato"
           : "Affiliate link";
