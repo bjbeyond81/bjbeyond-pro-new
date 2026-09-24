@@ -1,1 +1,83 @@
-KipBZmZpbGlhdGUgZGlzY2xvc3VyZToqKiBXZSBtYXkgZWFybiBhIGNvbW1pc3Npb24gaWYgeW91IGJ1eSB0aHJvdWdoIGxpbmtzIG9uIHRoaXMgcGFnZSwgYXQgbm8gZXh0cmEgY29zdCB0byB5b3UuCgojIFdhdGVyZHJvcCBHM1A4MDAgcmV2ZXJzZSBvc21vc2lzOiBzcGVjcywgd2FzdGUgcmF0aW8gJiBwcmljZQoKSWYgeW91IGFyZSBjb21wYXJpbmcgdW5kZXItc2luayByZXZlcnNlIG9zbW9zaXMgc3lzdGVtcyBmb3IgRVUga2l0Y2hlbnMsIFdhdGVyZHJvcOKAmXMgRVUgc3RvcmUgaGVybyBpcyB0aGUgKipHM1A4MDAqKuKAlGFuIDgwMCBHUEQgdGFua2xlc3MgUk8gd2l0aCBVViBzdGVyaWxpemluZyBsaWdodC4gVGhlIG51bWJlcnMgYmVsb3cgY29tZSBmcm9tIHRoZSBvZmZpY2lhbCBFVSBwcm9kdWN0IHBhZ2UgYXMgb2YgKioyNCBTZXAgMjAyNioqLiBGaWx0cmF0aW9uIGFuZCBiYWN0ZXJpYS1yZWR1Y3Rpb24gZmlndXJlcyBhcmUgKipXYXRlcmRyb3DigJlzIGJyYW5kIGNsYWltcyoqICh3aXRoIE5TRi9BTlNJIGNlcnRpZmljYXRpb25zIGxpc3RlZCBvbiB0aGUgUERQKeKAlHRoaXMgaXMgbm90IG1lZGljYWwgYWR2aWNlIGFuZCBub3QgYSBoYW5kcy1vbiBpbnN0YWxsIHRlc3QuCgojIyBLZXkgc3BlY3MgJiBwcmljZSAod2F0ZXJkcm9wZmlsdGVyLmV1LCAyNCBTZXAgMjAyNikKCnwgU3BlYyB8IE9mZmljaWFsIHZhbHVlIHwKfC0tLXwtLS18CnwgTW9kZWwgfCBXYXRlcmRyb3AgRzNQODAwIOKAlCA4MDAgR1BEIFRhbmtsZXNzIFJPIHdpdGggVVYgfAp8IERpc3BsYXllZCBzYWxlIHByaWNlIHwgKirigqw3OTksOTkqKiB8CnwgQ29tcGFyZSAvIGxpc3QgfCDigqw5OTksOTkgfAp8IENhcGFjaXR5IHwgKio4MDAgR1BEKiogKGJyYW5kOiB+MTUwIG1sIGN1cCBpbiB+NSBzZWNvbmRzKSB8CnwgUHVyZSA6IGRyYWluIHwgKiozOjEqKiB8CnwgRmlsdHJhdGlvbiB8ICoqMTAtc3RhZ2UqKjsgUk8gbWVtYnJhbmUgKiowLjAwMDEgzrxtKiogfAp8IFVWIHwgQnJhbmQgY2xhaW06IHJlZHVjZXMgdXAgdG8gKio5OS45JSoqIGJhY3RlcmlhL3ZpcnVzZXMgfAp8IENlcnRpZmljYXRpb25zIHwgKipOU0YvQU5TSSA0MiwgNTMsIDU4LCAzNzIqKiAoSUFQTU8gUiZUKSB8CnwgRGltZW5zaW9ucyAoY20pIHwgNDUuOTggw5cgMTQuNDEgw5cgNDUuMDMgfAp8IFdlaWdodCB8IDE0Ljcga2cgfAp8IEZhdWNldCB8IFNtYXJ0IGRpc3BsYXkgKFREUyArIGZpbHRlciBsaWZlKSB8CnwgRWxlY3RyaWNpdHkgfCBSZXF1aXJlZCDCtyBpbmRvb3Igb25seSB8CnwgRmlsdGVyIGxpZmVzcGFuIHwgQ0YgfjYgbW8gwrcgQ0IgfjEyIG1vIMK3IFJPIH4yNCBtbyB8CnwgQXZnIGFubnVhbCBmaWx0ZXIgY29zdCAodGFibGUpIHwg4oKsMTU5LDk3IHwKfCBXYXJyYW50eSB8ICoqMSB5ZWFyKiogfAp8IERlbGl2ZXJ5IHwgSW4gc3RvY2sg4oCUIGVzdGltYXRlZCAqKjPigJM2IGJ1c2luZXNzIGRheXMqKiAoUERQKSB8CnwgUmV0dXJucyB8ICoqMzAtZGF5Kiogd29ycnktZnJlZSByZXR1cm5zICgrIEVVIHN0YXR1dG9yeSAxNC1kYXkgd2l0aGRyYXdhbCkgfAoKKipJbiB0aGUgYm94IChsaXN0ZWQpOioqIHN5c3RlbSwgcmVwbGFjZW1lbnQgZmlsdGVycywgUk8gZmF1Y2V0LCBwb3dlciBhZGFwdGVyLCBVViBzdGVyaWxpemVyLCBmZWVkIHdhdGVyIGFkYXB0ZXIgMy84IuKAkzEvMiIsIGRyYWluIHNhZGRsZSAxLzQiLCB3aGl0ZSAzLzgiIFBFIHR1YmluZywgcmVkIDEvNCIgUEUgdHViaW5nLCBUZWZsb24gdGFwZSwgNSBsb2NrIGNsaXBzLgoKUmVsYXRlZCBvbiB0aGUgc2FtZSBjb21wYXJlIHRhYmxlOiAqKkczUDYwMCDigqw0MTksOTkqKiAod2FzIOKCrDU0OSw5OSk7ICoqWDEyIOKCrDkyOSwwMCoqICh3YXMg4oKsMS4yOTksMDApLgoKU291cmNlOiBbRzNQODAwIEVVIFBEUF0oaHR0cHM6Ly93d3cud2F0ZXJkcm9wZmlsdGVyLmV1L3Byb2R1Y3RzL3RhbmtsZXNzLXJldmVyc2Utb3Ntb3Npcy1zeXN0ZW0tZzNwODAwKS4KCiMjIFJlYXNvbnMgdG8gYnV5CgoxLiAqKkNlcnRpZmllZCBmaWx0cmF0aW9uIHN0YWNrKiog4oCUIE5TRi9BTlNJIDQyIC8gNTMgLyA1OCAvIDM3MiBsaXN0ZWQsIHBsdXMgYnJhbmQgY2xhaW1zIG9uIFBGQVMsIGZsdW9yaWRlLCBsZWFkLCBjaHJvbWl1bSwgYW5kIGhlYXZ5IG1ldGFscyByZWR1Y3Rpb24uCjIuICoqRmFzdCB0YW5rbGVzcyBmbG93Kiog4oCUIDgwMCBHUEQgd2l0aCBhIDM6MSBwdXJlLXRvLWRyYWluIHJhdGlvIGFuZCBubyBidWxreSBzdG9yYWdlIHRhbmsgKGJyYW5kOiBzYXZlcyB1cCB0byA3MCUgdW5kZXItc2luayBzcGFjZSkuCjMuICoqVVYgKyBzbWFydCBURFMgZmF1Y2V0Kiog4oCUIFVWIHN0ZXJpbGl6aW5nIGxpZ2h0IG9uIHRoZSBzeXN0ZW07IGZhdWNldCBzaG93cyBURFMgYW5kIGZpbHRlciBsaWZlLgo0LiAqKkZ1bGwgRElZIGtpdCoqIOKAlCBDb21wbGV0ZSB0dWJpbmcvYWRhcHRlcnMgbGlzdDsgYnJhbmQgZXN0aW1hdGVzIH4qKjMwIG1pbnV0ZXMqKiBpbnN0YWxsIHdpdGggaW5zdHJ1Y3Rpb25zIGFuZCB2aWRlby4KNS4gKipCdXllciBwcm90ZWN0aW9ucyoqIOKAlCAzMC1kYXkgcmV0dXJucywgMzAtZGF5IHByaWNlIHByb3RlY3Rpb24gYmFkZ2UsIDEteWVhciB3YXJyYW50eSwgZnJlZSBzdGFuZGFyZCBzaGlwcGluZyBvbiBtYW55IEVVIHJvdXRlcyAoM+KAkzYgYnVzaW5lc3MgZGF5cykuCgojIyBXaG8gaXQncyBmb3IgLyB3aG8gaXQncyBub3QgZm9yCgoqKkZvcjoqKiBFVSBob3VzZWhvbGRzIHRoYXQgd2FudCB1bmRlci1zaW5rIHB1cmlmaWVkIGRyaW5raW5nIHdhdGVyIHdpdGhvdXQgYSBsYXJnZSB0YW5rLCBjYXJlIGFib3V0IE5TRi9BTlNJIG1hcmtpbmdzLCBhbmQgYWNjZXB0IGFuIGVsZWN0cmljIFJPIHdpdGggcGVyaW9kaWMgZmlsdGVyIHNwZW5kICh+4oKsMTU5LDk3L3llYXIgYXZlcmFnZSBpbiB0aGUgcHJvZHVjdCB0YWJsZSkuCgoqKk5vdCBmb3I6KiogUmVudGVycyB3aG8gY2Fubm90IG1vZGlmeSB1bmRlci1zaW5rIHBsdW1iaW5nLiBQZW9wbGUgd2hvIHdhbnQgcmVtaW5lcmFsaXphdGlvbiBidWlsdC1pbiBhcyB0aGUgZGVmYXVsdOKAlFdhdGVyZHJvcCBhbHNvIGxpc3RzIGEgcmVtaW5lcmFsaXphdGlvbiBHM1A4MDAgdmFyaWFudCBVUkwsIGJ1dCBpdHMgcHJpY2Ugd2FzIG5vdCByZS12ZXJpZmllZCBpbiB0aGlzIHJlc2VhcmNoIHBhc3MuIEFueW9uZSBzZWVraW5nIG1lZGljYWwgdHJlYXRtZW50IGNsYWltczogcHVyaWZpZWQgd2F0ZXIgbWFya2V0aW5nIGlzIG5vdCBhIGRvY3RvcuKAmXMgcHJlc2NyaXB0aW9uLiBQaXRjaGVyLW9ubHkgc2hvcHBlcnMgb24gYSB0aWdodCBidWRnZXQgbWF5IHByZWZlciB0aGUgY2hlYXBlciAqKkczUDYwMCoqIHJvdyBvbiB0aGUgc2FtZSB0YWJsZS4KCiMjIEhvbmVzdCBwcm9zICYgY29ucwoKKipQcm9zOioqIE5TRi9BTlNJIG11bHRpLXN0YW5kYXJkIGxpc3Rpbmc7IDgwMCBHUEQgKyAzOjEgZWZmaWNpZW5jeSBjbGFpbTsgVVYgbW9kdWxlOyBzbWFydCBmYXVjZXQ7IGNvbXBsZXRlIGluc3RhbGwga2l0OyB0cmFuc3BhcmVudCBmaWx0ZXIgbGlmZXNwYW4gYW5kIGFubnVhbCBjb3N0IHRhYmxlOyBQRFAgcmV2aWV3IHdpZGdldCBzaG93ZWQgKio3MCByZXZpZXdzKiogd2l0aCAqKjk2JSoqIGZpdmUtc3RhciAvICoqNCUqKiBmb3VyLXN0YXIuCgoqKkNvbnMgLyBsaW1pdHM6KiogVXBmcm9udCBwcmljZSBpcyBoaWdoIGV2ZW4gb24gc2FsZSAo4oKsNzk5LDk5IGRpc3BsYXllZCkuIEVsZWN0cmljaXR5IHJlcXVpcmVkLiBSTyBzdGlsbCBzZW5kcyBkcmFpbiB3YXRlciAoMzoxIGlzIGJldHRlciB0aGFuIG9sZGVyIDE6MuKAkzE6MyB3YXN0ZSBzdG9yaWVzLCBidXQgbm90IHplcm8gd2FzdGUpLiAxLXllYXIgd2FycmFudHkgaXMgc2hvcnRlciB0aGFuIHNvbWUgcHJlbWl1bSBraXRjaGVuIGFwcGxpYW5jZXMuIEZpbHRlciByZXBsYWNlbWVudHMgYXJlIGEgcmVjdXJyaW5nIGNvc3QuCgojIyBNYWluIG9iamVjdGlvbiArIGFuc3dlcgoKKirigJxSTyB3YXN0ZXMgd2F0ZXIgLyBpcyBoYXJkIHRvIGluc3RhbGwu4oCdKiogIApXYXRlcmRyb3DigJlzIGFuc3dlcjogKiozOjEqKiBwdXJlLXRvLWRyYWluIGVmZmljaWVuY3ksIGFuZCBhIERJWSBraXQgbWVhbnQgZm9yIGFib3V0ICoqMzAgbWludXRlcyoqIHdpdGggaW5zdHJ1Y3Rpb25zIGFuZCB2aWRlby4gQ29tcGFyZWQgd2l0aCBvbGRlciBSTyBzeXN0ZW1zIHRoYXQgd2FzdGUgbW9yZSBsaXRlcnMgcGVyIGxpdGVyIHByb2R1Y2VkLCB0aGUgZWZmaWNpZW5jeSBjbGFpbSBpcyB0aGUgYnJhbmTigJlzIHJlc3BvbnNlIHRvIHRoZSB3YXN0ZSBvYmplY3Rpb27igJRzdGlsbCBjb25maXJtIGRyYWluIHBsdW1iaW5nIGFuZCBsb2NhbCB3YXRlciBoYXJkbmVzcyBiZWZvcmUgeW91IGJ1eS4KCiMjIEZBUQoKKipXaGF0IGlzIGRvbWVzdGljIHJldmVyc2Ugb3Ntb3Npcz8qKiAgCkEgbXVsdGktc3RhZ2UgdW5kZXItc2luayBzeXN0ZW0gdGhhdCBmb3JjZXMgd2F0ZXIgdGhyb3VnaCBhIGZpbmUgUk8gbWVtYnJhbmUgKGhlcmUgbGlzdGVkIGF0IDAuMDAwMSDOvG0pIHBsdXMgcHJlL3Bvc3QgZmlsdGVycy4gV2F0ZXJkcm9w4oCZcyBHM1A4MDAgYWRkcyBVViBhbmQgYSB0YW5rbGVzcyBsYXlvdXQuCgoqKkhvdyBtdWNoIHdhdGVyIGlzIHdhc3RlZCBwZXIgbGl0ZXIgcHJvZHVjZWQ/KiogIApCcmFuZCByYXRpbzogKiozOjEqKiBwdXJlLXRvLWRyYWluICh0aHJlZSBwYXJ0cyBwcm9kdWN0IHdhdGVyIHRvIG9uZSBwYXJ0IGRyYWluLCBhcyBtYXJrZXRlZCkuIE9sZGVyIHN5c3RlbXMgb2Z0ZW4gd2FzdGUgbW9yZTsgYWx3YXlzIGNoZWNrIHlvdXIgbW9kZWzigJlzIHB1Ymxpc2hlZCByYXRpby4KCioqRG8gSSBuZWVkIHJlbWluZXJhbGl6YXRpb24/KiogIApTb21lIGhvdXNlaG9sZHMgcHJlZmVyIG1pbmVyYWwgdGFzdGUgYWZ0ZXIgUk8uIFRoZSBzdGFuZGFyZCBHM1A4MDAgcGFnZSBlbXBoYXNpemVzIHB1cmlmaWNhdGlvbiArIFVWOyBhIHNlcGFyYXRlIHJlbWluZXJhbGl6YXRpb24gdmFyaWFudCBleGlzdHMgb24gdGhlIEVVIHNpdGXigJRwcmljZSBub3QgcmUtdmVyaWZpZWQgaGVyZS4gVGhpcyBndWlkZSBkb2VzIG5vdCBnaXZlIG1lZGljYWwgYWR2aWNlIG9uIG1pbmVyYWxzLgoKKipVbmRlci1zaW5rIHZzIHBpdGNoZXIgdnMgY291bnRlcnRvcD8qKiAgCkczUDgwMCBpcyB1bmRlci1zaW5rLCBlbGVjdHJpYywgdGFua2xlc3MsIGhpZ2ggR1BELiBQaXRjaGVycyBhcmUgY2hlYXBlciBhbmQgcG9ydGFibGUgYnV0IHNsb3dlciBhbmQgbGVzcyBjb21wcmVoZW5zaXZlLiBDb3VudGVydG9wIHVuaXRzIGF2b2lkIHBlcm1hbmVudCBwbHVtYmluZyBidXQgdGFrZSBjb3VudGVyIHNwYWNlLgoKKipHM1A4MDAgY2FwYWNpdHksIGZpbHRlcnMsIG1haW50ZW5hbmNlPyoqICAKODAwIEdQRDsgQ0YgfjYgbW9udGhzIC8gQ0IgfjEyIG1vbnRocyAvIFJPIH4yNCBtb250aHMgKG9yIGdhbGxvbiBsaW1pdHMgb24gdGhlIEZBUSk7IGF2ZXJhZ2UgYW5udWFsIGZpbHRlciBjb3N0IGxpc3RlZCBhdCDigqwxNTksOTcuCgoqKklzIHRoaXMgbWVkaWNhbCBvciBoZWFsdGggYWR2aWNlPyoqICAKTm8uIENvbnRhbWluYW50LXJlZHVjdGlvbiBhbmQgVVYgYmFjdGVyaWEgY2xhaW1zIGFyZSAqKldhdGVyZHJvcOKAmXMqKiwgc3VwcG9ydGVkIG9uLXBhZ2UgYnkgTlNGL0FOU0kgbGlzdGluZ3MgYW5kIGJyYW5kIGxhYiBtZXNzYWdpbmfigJRub3QgbWVkaWNhbCBndWFyYW50ZWVzLgoKKipXaGF0IGFib3V0IHNoaXBwaW5nIGFuZCByZXR1cm5zPyoqICAKUERQOiBpbiBzdG9jaywgKioz4oCTNiBidXNpbmVzcyBkYXlzKiogZXN0aW1hdGVkOyAqKjMwLWRheSoqIHJldHVybnMgcGx1cyBFVSAxNC1kYXkgd2l0aGRyYXdhbDsgZnJlZSBzdGFuZGFyZCBzaGlwcGluZyBvbiBtYW55IG5vbi1ERSBFVSByb3V0ZXMgcGVyIHNoaXBwaW5nIHBvbGljeS4KCioqW0FGRklMSUFURV9MSU5LXSoqIOKAlCBTZWUgY3VycmVudCBwcmljZSBvbiB0aGUgb2ZmaWNpYWwgRVUgc2l0ZQo=
+**Affiliate disclosure:** We may earn a commission if you buy through links on this page, at no extra cost to you.
+
+# Waterdrop G3P800 reverse osmosis: specs, waste ratio & price
+
+If you are comparing under-sink reverse osmosis systems for EU kitchens, Waterdrop’s EU store hero is the **G3P800**—an 800 GPD tankless RO with UV sterilizing light. The numbers below come from the official EU product page as of **24 Sep 2026**. Filtration and bacteria-reduction figures are **Waterdrop’s brand claims** (with NSF/ANSI certifications listed on the PDP)—this is not medical advice and not a hands-on install test.
+
+## Key specs & price (waterdropfilter.eu, 24 Sep 2026)
+
+| Spec | Official value |
+|---|---|
+| Model | Waterdrop G3P800 — 800 GPD Tankless RO with UV |
+| Displayed sale price | **€799,99** |
+| Compare / list | €999,99 |
+| Capacity | **800 GPD** (brand: ~150 ml cup in ~5 seconds) |
+| Pure : drain | **3:1** |
+| Filtration | **10-stage**; RO membrane **0.0001 μm** |
+| UV | Brand claim: reduces up to **99.9%** bacteria/viruses |
+| Certifications | **NSF/ANSI 42, 53, 58, 372** (IAPMO R&T) |
+| Dimensions (cm) | 45.98 × 14.41 × 45.03 |
+| Weight | 14.7 kg |
+| Faucet | Smart display (TDS + filter life) |
+| Electricity | Required · indoor only |
+| Filter lifespan | CF ~6 mo · CB ~12 mo · RO ~24 mo |
+| Avg annual filter cost (table) | €159,97 |
+| Warranty | **1 year** |
+| Delivery | In stock — estimated **3–6 business days** (PDP) |
+| Returns | **30-day** worry-free returns (+ EU statutory 14-day withdrawal) |
+
+**In the box (listed):** system, replacement filters, RO faucet, power adapter, UV sterilizer, feed water adapter 3/8"–1/2", drain saddle 1/4", white 3/8" PE tubing, red 1/4" PE tubing, Teflon tape, 5 lock clips.
+
+Related on the same compare table: **G3P600 €419,99** (was €549,99); **X12 €929,00** (was €1.299,00).
+
+Source: [G3P800 EU PDP](https://www.waterdropfilter.eu/products/tankless-reverse-osmosis-system-g3p800).
+
+## Reasons to buy
+
+1. **Certified filtration stack** — NSF/ANSI 42 / 53 / 58 / 372 listed, plus brand claims on PFAS, fluoride, lead, chromium, and heavy metals reduction.
+2. **Fast tankless flow** — 800 GPD with a 3:1 pure-to-drain ratio and no bulky storage tank (brand: saves up to 70% under-sink space).
+3. **UV + smart TDS faucet** — UV sterilizing light on the system; faucet shows TDS and filter life.
+4. **Full DIY kit** — Complete tubing/adapters list; brand estimates ~**30 minutes** install with instructions and video.
+5. **Buyer protections** — 30-day returns, 30-day price protection badge, 1-year warranty, free standard shipping on many EU routes (3–6 business days).
+
+## Who it's for / who it's not for
+
+**For:** EU households that want under-sink purified drinking water without a large tank, care about NSF/ANSI markings, and accept an electric RO with periodic filter spend (~€159,97/year average in the product table).
+
+**Not for:** Renters who cannot modify under-sink plumbing. People who want remineralization built-in as the default—Waterdrop also lists a remineralization G3P800 variant URL, but its price was not re-verified in this research pass. Anyone seeking medical treatment claims: purified water marketing is not a doctor’s prescription. Pitcher-only shoppers on a tight budget may prefer the cheaper **G3P600** row on the same table.
+
+## Honest pros & cons
+
+**Pros:** NSF/ANSI multi-standard listing; 800 GPD + 3:1 efficiency claim; UV module; smart faucet; complete install kit; transparent filter lifespan and annual cost table; PDP review widget showed **70 reviews** with **96%** five-star / **4%** four-star.
+
+**Cons / limits:** Upfront price is high even on sale (€799,99 displayed). Electricity required. RO still sends drain water (3:1 is better than older 1:2–1:3 waste stories, but not zero waste). 1-year warranty is shorter than some premium kitchen appliances. Filter replacements are a recurring cost.
+
+## Main objection + answer
+
+**“RO wastes water / is hard to install.”**  
+Waterdrop’s answer: **3:1** pure-to-drain efficiency, and a DIY kit meant for about **30 minutes** with instructions and video. Compared with older RO systems that waste more liters per liter produced, the efficiency claim is the brand’s response to the waste objection—still confirm drain plumbing and local water hardness before you buy.
+
+## FAQ
+
+**What is domestic reverse osmosis?**  
+A multi-stage under-sink system that forces water through a fine RO membrane (here listed at 0.0001 μm) plus pre/post filters. Waterdrop’s G3P800 adds UV and a tankless layout.
+
+**How much water is wasted per liter produced?**  
+Brand ratio: **3:1** pure-to-drain (three parts product water to one part drain, as marketed). Older systems often waste more; always check your model’s published ratio.
+
+**Do I need remineralization?**  
+Some households prefer mineral taste after RO. The standard G3P800 page emphasizes purification + UV; a separate remineralization variant exists on the EU site—price not re-verified here. This guide does not give medical advice on minerals.
+
+**Under-sink vs pitcher vs countertop?**  
+G3P800 is under-sink, electric, tankless, high GPD. Pitchers are cheaper and portable but slower and less comprehensive. Countertop units avoid permanent plumbing but take counter space.
+
+**G3P800 capacity, filters, maintenance?**  
+800 GPD; CF ~6 months / CB ~12 months / RO ~24 months (or gallon limits on the FAQ); average annual filter cost listed at €159,97.
+
+**Is this medical or health advice?**  
+No. Contaminant-reduction and UV bacteria claims are **Waterdrop’s**, supported on-page by NSF/ANSI listings and brand lab messaging—not medical guarantees.
+
+**What about shipping and returns?**  
+PDP: in stock, **3–6 business days** estimated; **30-day** returns plus EU 14-day withdrawal; free standard shipping on many non-DE EU routes per shipping policy.
+
+**[AFFILIATE_LINK]** — See current price on the official EU site
