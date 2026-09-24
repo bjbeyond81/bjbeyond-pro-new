@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getGuide, guideImageUrl } from "@/lib/guides";
 import { getStack, stackImageUrl } from "@/lib/stack";
+import { loadStackArticle } from "@/lib/stack-article";
 import { getTech } from "@/lib/tech";
 import { canonicalFor, type RouteMatch } from "@/lib/routes";
 
@@ -117,15 +118,21 @@ export function metadataFor(match: RouteMatch): Metadata {
       };
     case "stack-detail": {
       const c = getStack(match.slug);
+      const article = c ? loadStackArticle(match.slug, locale) : null;
       const ogImage = c ? stackImageUrl(c) : undefined;
+      const title = article?.h1
+        ? `${article.h1} | BJ Beyond`
+        : `${c?.name ?? "Stack"} | BJ Beyond`;
+      const description = c?.lead?.[locale] ?? c?.benefit?.[locale] ?? c?.short[locale];
       return {
         ...base,
-        title: `${c?.name ?? "Stack"} | BJ Beyond`,
-        description: c?.benefit?.[locale] ?? c?.short[locale],
+        title,
+        description,
         openGraph: {
           ...base.openGraph,
-          title: `${c?.name ?? "Stack"} | BJ Beyond`,
-          description: c?.benefit?.[locale] ?? c?.short[locale],
+          type: "article" as const,
+          title,
+          description,
           images: ogImage ? [{ url: ogImage }] : undefined,
         },
       };
