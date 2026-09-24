@@ -6,9 +6,7 @@
     "dev": "next dev --port 43127",
     "build": "next build",
     "start": "next start --port 43127",
-    "lint": "eslint",
-    "prebuild": "node scripts/expand-guides.cjs",
-    "predev": "node scripts/expand-guides.cjs"
+    "lint": "eslint"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
