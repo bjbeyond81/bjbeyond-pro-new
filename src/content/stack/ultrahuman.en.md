@@ -1,84 +1,74 @@
-**Affiliate disclosure:** We may earn a commission if you buy through links on this page, at no extra cost to you.
+**Affiliate disclosure:** This is a sponsored product. Purchase, payment and shipping happen on the official Ultrahuman website. If you buy through links on this page, BJ Beyond may earn a commission at no extra cost to you (Impact). Final price is shown on Ultrahuman.com.
 
-# Ultrahuman Ring AIR: worth it? Sleep & recovery without a data subscription
+# Ultrahuman Ring AIR & Ring PRO: sleep and recovery without a subscription
 
-Searching “Ultrahuman Ring review” usually means one question: do you get sleep and recovery tracking on your finger **without** paying yearly for the data? On Ultrahuman’s official buy pages, **Ring AIR** is sold as a **$349** one-time purchase with **lifelong data access** and no mandatory data subscription (official FAQ). Everything below is from those pages as of **24 Sep 2026**. Biomarker and wellness features are **brand claims**—the ring is not framed here as a medical device, and this is not a hands-on battery lab test.
+Ultrahuman offers two smart rings with no mandatory data subscription: **Ring AIR** (€379) and **Ring PRO** (€499). Buy the ring once and keep lifelong access to your data. Exclusive BJ Beyond code: **BJBEYOND** — 10% off, always (even bigger savings during sale events like Prime Day and Black Friday). Enter the code at checkout on the brand's site.
 
-## Key specs & price (ultrahuman.com buy pages, 24 Sep 2026)
+## Ultrahuman Ring AIR — €379
 
-| Item | Official detail |
+Ultrahuman Ring AIR is a smart ring that tracks your sleep, recovery and daily activity around the clock. At just **2.4 g** and **2.4 mm** thick, it is light enough to forget you are wearing it, day and night. No screen, no notifications, and no subscription.
+
+### What it tracks
+- **Sleep:** how long and how well you sleep, night after night.
+- **Recovery:** how ready your body is for the day, based on heart rate, HRV and skin temperature.
+- **Movement:** steps and activity throughout the day.
+
+### Specs
+| Item | Detail |
 |---|---|
-| Model | Ultrahuman Ring AIR |
-| Price shown | **$349** (USD on both global and `/eu/ring/buy/` at fetch) |
-| Data subscription | **Not required** — FAQ: no recurring fee; lifelong access to ring + personal data |
-| Comparison callout | Page table: Oura “Required” / $79/year vs Ultrahuman “Not Required” |
-| Sizing kit | FREE (recommended); sizes **5–14** (no half sizes) |
-| Optional add-ons | Voyager charger **$45**; PowerPlugs e.g. Cardio Adaptability $24/1yr, Cycle & Ovulation Plus $39.99/1yr; UltraCare $36/1yr or $54/2yr |
-| Weight | **2.4–3.6 g** by size (from 2.4 g) |
-| Width / thickness | 8.1 mm · 2.45–2.8 mm |
-| Materials | Titanium + Tungsten Carbide Carbon coating; medical-grade hypoallergenic epoxy inner |
-| Sensors | PPG (IR), medical-grade skin temp, 6-axis motion, red/green/IR LEDs (HR / SpO2 messaging) |
-| Battery | 24 mAh LiPo; **4–6 days**; ~180 min 0→100% |
-| Water | Up to **100 m** for up to **12 hours** |
-| Connectivity | BLE 5; iOS 15+ / Android 6+ |
-| Colors | Raw Titanium, Aster Black, Matte Grey, Bionic Gold, Space Silver |
-| In the box | Ring AIR, standard ring charger, USB-C to C cable (1 m) |
-| Trial / returns | **30-night** risk-free trial* · free returns (asterisk on page) |
-| Delivery timing | After size submitted: ring delivery **approximately 4–6 weeks** (FAQ) |
+| Weight / thickness | **2.4 g** · **2.4 mm** |
+| Material | Titanium with PVD coating |
+| Sensors | PPG heart rate, skin temperature, 6-axis motion |
+| Battery | **4 to 6 days**, wireless charging |
+| Water | Resistant to **100 m** |
+| Sizes / finishes | **5–14** · Raw Titanium, Aster Black, Matte Grey, Bionic Gold, Space Silver |
+| Subscription | **None** |
+| Price | **€379** (final price on Ultrahuman.com) |
 
-EUR fixed list price was **not** shown on `/eu/ring/buy/` at fetch—still **$349**. Do not invent euros. Ring PRO pre-order page shows **$479** (official EU/global buy pages, 24 Sep 2026).
+### Who it is for
+Anyone who wants to understand their body better without wearing a watch: athletes tracking training load and recovery, creators and professionals with irregular schedules, and anyone who wants to sleep better. It pairs with the Ultrahuman app on iOS and Android.
 
-Source: [global buy](https://www.ultrahuman.com/global/ring/buy/) · [EU buy](https://www.ultrahuman.com/eu/ring/buy/).
+## Ultrahuman Ring PRO — €499
 
-## Reasons to buy
+Ultrahuman Ring PRO is the new flagship smart ring. It tracks sleep, recovery and daily activity around the clock, with up to **15 days** of battery life (up to **45** with the PRO Charger) and a **unibody titanium** build. No subscription. **Pre-order: shipping from October 10.**
 
-1. **No mandatory data subscription** — Official FAQ promises lifelong access with the one-time purchase; the comparison table calls out Oura’s required fee.
-2. **Sleep stages + Dynamic Recovery** — Everyday sleep score, Awake/REM/Light/Deep stages, 10+ contributing metrics; Dynamic Recovery from sleep, stress rhythm, skin temperature, HRV (brand).
-3. **Ultra-light titanium comfort** — From **2.4 g**, marketed as far lighter than typical smartwatches, with hypoallergenic inner lining for overnight wear.
-4. **24/7 HRV and skin temperature** — Continuous monitoring listed on the official matrix, plus steps, distance, calories, VO2 Max.
-5. **Risk window + free sizing kit** — 30-night trial messaging and a free sizing kit before the ring ships on the size you confirm.
+### What's new on PRO
+- Up to **15 days** of battery on the ring, and up to **45 days** with the PRO Charger.
+- **PRO Charger case** (included): fits every Ring PRO size, charges via Qi, stores up to 1 year of ring data, built-in speaker to find it.
+- **UltraSnap** charging: the ring clicks into the case magnetically.
+- **Off the grid:** up to **250 days** of data stored on the ring itself.
+- **Jade AI:** ask questions about your health data in plain language.
 
-## Who it's for / who it's not for
+### Details
+| Item | Detail |
+|---|---|
+| Material | Unibody titanium |
+| Finishes | Bionic Gold, Raw Titanium, Aster Black, Space Silver |
+| Sizes | **5–14**, free sizing kit |
+| Subscription | **None** |
+| Price | **€499** (final price on Ultrahuman.com) |
+| Shipping | Pre-order — from **October 10** |
 
-**For:** People who want overnight sleep and recovery insights without a watch on the wrist, dislike recurring data fees, and can wait ~4–6 weeks after sizing for delivery.
+## BJ Beyond discount code
 
-**Not for:** Buyers who need same-week shipping. Anyone expecting a certified medical diagnostic tool—PowerPlugs like AFib detection are regional/optional add-ons, not the core purchase promise. If you already love a wrist wearable and its ecosystem, a ring may be redundant. Ring PRO pre-order lists **$479** on the official buy page (24 Sep 2026)—confirm live before purchase.
+**10% off, always.** Even bigger savings during sale events like Prime Day and Black Friday.
 
-## Honest pros & cons
+**Exclusive BJ Beyond code: BJBEYOND**
 
-**Pros:** Clear no-subscription FAQ; rich sleep/recovery feature list; titanium build from 2.4 g; 4–6 day battery claim; 100 m / 12 h water rating; free sizing kit; optional PowerPlugs are explicitly optional; ACSM-certified coaches “on us” claim for no extra cost.
-
-**Cons / limits:** Price shown only in **USD** on EU URL at research time. Delivery after sizing is slow (~4–6 weeks). Formal warranty PDF beyond the 30-night trial marketing was not transcribed. No numeric star rating was scraped from the buy page in research. Optional PowerPlugs and UltraCare add recurring or extra cost if you choose them. Health metrics are wellness-oriented brand features, not medical guarantees.
-
-## Main objection + answer
-
-**“Smart rings lock you into subscriptions.”**  
-Ultrahuman’s official FAQ answer: *“Rest assured, there are no recurring subscription fees for accessing your data. Ring AIR is available for a simple, one-time purchase, paid upfront. This purchase gives you lifelong access to both the ring and your personal data.”* Optional PowerPlugs are separate; core ring data access is not billed yearly on the page’s mandatory-subscription row.
+Enter the code at checkout on the brand's site.
 
 ## FAQ
 
-**Ring AIR vs Ring PRO?**  
-This guide covers **Ring AIR** at verified **$349**. Official Ring PRO pre-order pages list **$479** (24 Sep 2026). Do not assume AIR specs equal PRO.
-
 **Is there a subscription?**  
-Official answer: **no** recurring fee for ring data; lifelong access with one-time purchase. Optional PowerPlugs (e.g. Cardio Adaptability, Cycle & Ovulation Plus) are add-ons.
+No. You buy the ring once and keep lifelong access to your data. No mandatory recurring data fee.
 
-**How is battery life stated?**  
-**4–6 days**; ~180 minutes for a full charge (official table).
+**Ring AIR or Ring PRO?**  
+AIR (€379) is lighter (2.4 g) with 4–6 day battery. PRO (€499) focuses on battery (up to 15/45 days), UltraSnap case, 250-day storage and Jade AI. Both have no subscription.
 
-**How does it compare to Oura on fees?**  
-Ultrahuman’s own comparison table lists mandatory data subscription as **Not Required** for Ultrahuman vs **Required** / $79/year for Oura. That is Ultrahuman’s marketing matrix—verify Oura’s current terms on Oura’s site if you are cross-shopping.
+**How do I use code BJBEYOND?**  
+At checkout on Ultrahuman.com enter **BJBEYOND** for 10% off (always; more during sales).
 
 **Is it a medical device?**  
-Treat wellness metrics (sleep, recovery, HRV, temperature) as **Ultrahuman product features**, not medical diagnosis. Optional clinical-adjacent PowerPlugs may be region-limited.
+No. Sleep, recovery and activity are brand wellness features, not diagnoses.
 
-**Wrong size?**  
-Free sizing kit (sizes 5–14); FAQ says keep the kit / no return required for the kit. Ring ships after you submit the size (~4–6 weeks).
-
-**What colors exist?**  
-Raw Titanium, Aster Black, Matte Grey, Bionic Gold, Space Silver.
-
-**What is in the box?**  
-Ring AIR, standard charger, 1 m USB-C to C cable.
-
-**[AFFILIATE_LINK]** — See current price on the official site
+**[AFFILIATE_LINK]** — Shop now with code BJBEYOND →
