@@ -5,7 +5,8 @@ import { AffiliateNote, ExternalCta } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { getStack } from "@/lib/stack";
+import { JsonLd } from "@/components/json-ld";
+import { getStack, stackImageUrl } from "@/lib/stack";
 
 export function StackDetailPage({
   locale,
@@ -111,6 +112,27 @@ export function StackDetailPage({
           </aside>
         </div>
       </div>
+      <StackDetailJsonLd locale={locale} slug={slug} />
     </SiteShell>
   );
 }
+
+function StackDetailJsonLd({ locale, slug }: { locale: Locale; slug: string }) {
+  const campaign = getStack(slug);
+  if (!campaign) return null;
+  const it = locale === "it";
+  const homeUrl = it ? "https://bjbeyond.pro/" : "https://bjbeyond.pro/en/";
+  const hubUrl = it ? "https://bjbeyond.pro/stack/" : "https://bjbeyond.pro/en/stack/";
+  const pageUrl = `${hubUrl}${campaign.slug}/`;
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "BJ Beyond", item: homeUrl },
+      { "@type": "ListItem", position: 2, name: it ? "Lo Stack" : "The Stack", item: hubUrl },
+      { "@type": "ListItem", position: 3, name: campaign.name, item: pageUrl },
+    ],
+  };
+  return <JsonLd data={data} />;
+}
+

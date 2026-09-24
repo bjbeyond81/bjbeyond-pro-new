@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
-import { getGuide } from "@/lib/guides";
+import { getGuide, guideImageUrl } from "@/lib/guides";
 import { getStack, stackImageUrl } from "@/lib/stack";
 import { getTech } from "@/lib/tech";
 import { canonicalFor, type RouteMatch } from "@/lib/routes";
@@ -81,13 +81,24 @@ export function metadataFor(match: RouteMatch): Metadata {
           locale === "it"
             ? "Guide pratiche BJ Beyond per scegliere tecnologia, regali e servizi digitali in modo più semplice."
             : "Practical BJ Beyond guides for choosing tech, gifts and digital services more clearly.",
+        openGraph: {
+          ...base.openGraph,
+          images: [{ url: "https://bjbeyond.pro/scenes/guides.jpg" }],
+        },
       };
     case "guide-detail": {
       const g = getGuide(locale, match.slug);
+      const ogImage = g ? guideImageUrl(g) : undefined;
       return {
         ...base,
         title: `${g?.title[locale] ?? "Guide"} | ${t.siteName}`,
         description: g?.description[locale],
+        openGraph: {
+          ...base.openGraph,
+          title: `${g?.title[locale] ?? "Guide"} | ${t.siteName}`,
+          description: g?.description[locale],
+          images: ogImage ? [{ url: ogImage }] : undefined,
+        },
       };
     }
     case "stack":

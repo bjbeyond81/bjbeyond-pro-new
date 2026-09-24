@@ -4,7 +4,8 @@ import { SiteShell } from "@/components/site-shell";
 import { AffiliateNote, ExternalCta, PageIntro } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { awinStoreUrl, stackCampaigns } from "@/lib/stack";
+import { JsonLd } from "@/components/json-ld";
+import { awinStoreUrl, stackCampaigns, stackImageUrl } from "@/lib/stack";
 
 export function StackIndexPage({ locale }: { locale: Locale }) {
   const it = locale === "it";
@@ -13,7 +14,7 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
       <div className="editorial-container editorial-section">
         <PageIntro
           kicker={it ? "LA SELEZIONE / PARTNER" : "THE EDIT / PARTNERS"}
-          title="The Stack."
+          title={it ? "Lo Stack: gli strumenti che consigliamo." : "The Stack."}
           lead={
             it
               ? "Tecnologia, casa e nuove abitudini. Sei campagne da esplorare, ciascuna con visual e tracking propri."
@@ -67,6 +68,41 @@ export function StackIndexPage({ locale }: { locale: Locale }) {
         </div>
         <AffiliateNote locale={locale} variant="awin" className="mt-12" />
       </div>
+
+      <StackHubJsonLd locale={locale} />
     </SiteShell>
   );
 }
+
+function StackHubJsonLd({ locale }: { locale: Locale }) {
+  const it = locale === "it";
+  const hubUrl = it ? "https://bjbeyond.pro/stack/" : "https://bjbeyond.pro/en/stack/";
+  const homeUrl = it ? "https://bjbeyond.pro/" : "https://bjbeyond.pro/en/";
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "BJ Beyond", item: homeUrl },
+          { "@type": "ListItem", position: 2, name: it ? "Lo Stack" : "The Stack", item: hubUrl },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        name: it ? "Lo Stack: gli strumenti che consigliamo" : "The Stack",
+        url: hubUrl,
+        numberOfItems: stackCampaigns.length,
+        itemListElement: stackCampaigns.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: c.name,
+          url: `${hubUrl}${c.slug}/`,
+          image: stackImageUrl(c),
+        })),
+      },
+    ],
+  };
+  return <JsonLd data={data} />;
+}
+

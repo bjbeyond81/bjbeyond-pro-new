@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { headers } from "next/headers";
 import { Fraunces, Outfit } from "next/font/google";
 import "./globals.css";
+
+export const dynamic = "force-dynamic";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -30,15 +33,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: ReactNode;
 }) {
+  const pathname = (await headers()).get("x-pathname") ?? "";
+  const lang =
+    pathname === "/en" || pathname.startsWith("/en/") ? "en" : "it";
+
   return (
     <html
-      lang="it"
+      lang={lang}
       className={`${outfit.variable} ${fraunces.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full bg-background font-sans text-foreground">
         {children}

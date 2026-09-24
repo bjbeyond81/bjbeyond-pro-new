@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/site-shell";
 import { AffiliateNote } from "@/components/ui-bits";
 import { copy } from "@/lib/copy";
-import { getGuide } from "@/lib/guides";
+import { JsonLd } from "@/components/json-ld";
+import { getGuide, guideImageUrl, guidePath } from "@/lib/guides";
 import { localizedPath, type Locale } from "@/lib/i18n";
 
 export function GuideDetailPage({
@@ -36,7 +37,7 @@ export function GuideDetailPage({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={guide.image}
-          alt=""
+          alt={guide.title[locale]}
           className="mt-10 aspect-[16/9] w-full rounded-lg border border-foreground/8 bg-white object-cover"
         />
 
@@ -115,6 +116,47 @@ export function GuideDetailPage({
         </div>
         <AffiliateNote locale={locale} editorial className="mt-8" />
       </article>
+      <GuideDetailJsonLd locale={locale} slug={slug} />
     </SiteShell>
   );
 }
+
+function GuideDetailJsonLd({ locale, slug }: { locale: Locale; slug: string }) {
+  const guide = getGuide(locale, slug);
+  if (!guide) return null;
+  const it = locale === "it";
+  const homeUrl = it ? "https://bjbeyond.pro/" : "https://bjbeyond.pro/en/";
+  const hubUrl = it ? "https://bjbeyond.pro/guides/" : "https://bjbeyond.pro/en/guides/";
+  const pageUrl = `https://bjbeyond.pro${guidePath(locale, guide)}/`;
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "BJ Beyond", item: homeUrl },
+          { "@type": "ListItem", position: 2, name: it ? "Guide" : "Guides", item: hubUrl },
+          { "@type": "ListItem", position: 3, name: guide.title[locale], item: pageUrl },
+        ],
+      },
+      {
+        "@type": "Article",
+        headline: guide.title[locale],
+        description: guide.description[locale],
+        image: guideImageUrl(guide),
+        datePublished: guide.datePublished,
+        dateModified: guide.dateModified,
+        inLanguage: locale === "it" ? "it-IT" : "en-GB",
+        author: { "@type": "Person", name: "Bj" },
+        publisher: {
+          "@type": "Organization",
+          name: "BJ Beyond",
+          url: "https://bjbeyond.pro/",
+        },
+        mainEntityOfPage: pageUrl,
+      },
+    ],
+  };
+  return <JsonLd data={data} />;
+}
+
