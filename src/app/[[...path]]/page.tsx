@@ -15,7 +15,7 @@ import type { GiftProduct } from "@/lib/gifts";
 import { allStaticPaths, matchRoute } from "@/lib/routes";
 import { metadataFor } from "@/lib/seo";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
