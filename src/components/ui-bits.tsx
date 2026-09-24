@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { copy } from "@/lib/copy";
 import type { Locale } from "@/lib/i18n";
-import { awinStoreUrl } from "@/lib/stack";
 import { cn } from "@/lib/utils";
 
 export function AffiliateNote({
@@ -40,16 +39,7 @@ export function AffiliateNote({
             <strong className="font-semibold text-foreground">
               {locale === "it" ? "Trasparenza Awin:" : "Awin disclosure:"}
             </strong>{" "}
-            {t.awinCommission}{" "}
-            <a
-              href={awinStoreUrl}
-              target="_blank"
-              rel="sponsored nofollow noopener"
-              className="font-semibold text-foreground underline-offset-4 hover:underline"
-            >
-              {locale === "it" ? "Store Awin BJ Beyond" : "BJ Beyond Awin store"}
-            </a>
-            .
+            {t.awinCommission}
           </p>
           <p className="mt-2">{t.awinDisclosure}</p>
         </>
@@ -83,11 +73,25 @@ export function ExternalCta({
   children,
   light = false,
   locale = "it",
+  fullWidth = false,
+  showArrow = true,
+  className,
+  dataProduct,
+  dataNetwork,
+  dataPosition,
+  dataLocale,
 }: {
   href: string;
   children: React.ReactNode;
   light?: boolean;
   locale?: Locale;
+  fullWidth?: boolean;
+  showArrow?: boolean;
+  className?: string;
+  dataProduct?: string;
+  dataNetwork?: string;
+  dataPosition?: string;
+  dataLocale?: string;
 }) {
   const t = copy[locale];
   const network = networkOf(href);
@@ -102,19 +106,26 @@ export function ExternalCta({
           ? "Link affiliato"
           : "Affiliate link";
   return (
-    <span className="inline-flex flex-col items-start gap-1">
+    <span className={cn("inline-flex flex-col items-start gap-1", fullWidth && "w-full")}>
       <a
         href={href}
         target="_blank"
         rel="sponsored nofollow noopener"
         className={cn(
-          "inline-flex min-h-12 items-center justify-center rounded px-5 py-3 text-sm font-semibold",
+          "js-aff-cta inline-flex min-h-11 items-center justify-center rounded px-5 py-3 text-sm font-semibold",
+          fullWidth && "w-full",
           light
             ? "border border-foreground/15 bg-card text-foreground hover:bg-secondary"
             : "bg-primary text-primary-foreground hover:bg-primary/90",
+          className,
         )}
+        data-product={dataProduct}
+        data-network={dataNetwork}
+        data-position={dataPosition}
+        data-locale={dataLocale}
       >
-        {children} →
+        {children}
+        {showArrow ? " →" : null}
       </a>
       <span className="text-[11px] font-medium tracking-wide text-muted-foreground uppercase">
         {note}

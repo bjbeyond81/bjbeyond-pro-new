@@ -4,7 +4,6 @@ import { SiteShell } from "@/components/site-shell";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { AffiliateNote } from "@/components/ui-bits";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { awinStoreUrl } from "@/lib/stack";
 
 export function HomePage({ locale }: { locale: Locale }) {
   const it = locale === "it";
@@ -40,13 +39,13 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className="spotlight-band">
         <div className="editorial-container spotlight-grid">
           <SceneVisual scene="ultrahuman" locale={locale} className="spotlight-photo" />
-          <div className="spotlight-copy"><p className="eyebrow">{it ? "IN PRIMO PIANO / WEARABLE" : "IN FOCUS / WEARABLE"}</p><h2>Ultrahuman<br />Ring Pro<span>.</span></h2><p>{it ? "Uno sguardo più attento alle tue abitudini. Scopri formato, funzionalità e cosa verificare prima di scegliere." : "A closer look at your daily rhythms. Explore the design, features and what to check before you choose."}</p><Link className="editorial-button" href={path("/stack/ultrahuman")}>{it ? "Scopri Ring Pro" : "Discover Ring Pro"}<ArrowUpRight size={18} /></Link><p className="micro-copy">{it ? "Link affiliati. Non è un dispositivo medico." : "Affiliate links. Not a medical device."}</p></div>
+          <div className="spotlight-copy"><p className="eyebrow">{it ? "IN PRIMO PIANO / WEARABLE" : "IN FOCUS / WEARABLE"}</p><h2>Ultrahuman<br />Ring AIR<span>.</span></h2><p>{it ? "Sonno e recupero senza abbonamento dati obbligatorio. Scopri formato, funzionalità e cosa verificare prima di scegliere." : "Sleep and recovery without a mandatory data subscription. Explore the design, features and what to check before you choose."}</p><Link className="editorial-button" href={path("/stack/ultrahuman")}>{it ? "Scopri Ring AIR" : "Discover Ring AIR"}<ArrowUpRight size={18} /></Link><p className="micro-copy">{it ? "Link affiliati. Non è un dispositivo medico." : "Affiliate links. Not a medical device."}</p></div>
         </div>
       </section>
 
       <section className="editorial-container editorial-section stack-home">
-        <div><p className="eyebrow">THE STACK / AWIN</p><h2>{it ? "Grandi idee. Un solo posto." : "Good finds. One destination."}</h2><p>{it ? "Esplora le campagne e visita lo Storefront Awin di BJ Beyond." : "Explore the campaigns and visit the BJ Beyond Awin Storefront."}</p></div>
-        <div className="stack-home-links"><Link href={path("/stack")}>{it ? "Esplora lo Stack" : "Explore the Stack"}<ArrowRight size={20} /></Link><a href={awinStoreUrl} target="_blank" rel="sponsored nofollow noopener">Awin Storefront<ArrowUpRight size={20} /></a><Link href={path("/amazon-offers")}>{it ? "Servizi e offerte Amazon" : "Amazon services & offers"}<ArrowRight size={20} /></Link></div>
+        <div><p className="eyebrow">THE STACK / AWIN</p><h2>{it ? "Grandi idee. Un solo posto." : "Good finds. One destination."}</h2><p>{it ? "Esplora le campagne Stack: schede prodotto, FAQ e link affiliati tracciati." : "Explore the Stack campaigns — product guides, FAQs and tracked affiliate links."}</p></div>
+        <div className="stack-home-links"><Link href={path("/stack")}>{it ? "Esplora lo Stack" : "Explore the Stack"}<ArrowRight size={20} /></Link><Link href={path("/amazon-offers")}>{it ? "Servizi e offerte Amazon" : "Amazon services & offers"}<ArrowRight size={20} /></Link></div>
         <AffiliateNote locale={locale} variant="all" className="col-span-full" />
       </section>
     </SiteShell>

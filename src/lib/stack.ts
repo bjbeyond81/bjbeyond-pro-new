@@ -2,7 +2,12 @@ import type { Locale } from "@/lib/i18n";
 
 type L<T> = Record<Locale, T>;
 
-export const awinStoreUrl = "https://store.awin.com/bjbeyond";
+export type StackAffPosition =
+  | "index-card"
+  | "detail-aside"
+  | "detail-mid"
+  | "detail-footer"
+  | "detail-sticky";
 
 export type StackCampaign = {
   slug: string;
@@ -11,20 +16,36 @@ export type StackCampaign = {
   name: string;
   /** Hub benefit headline */
   benefit: L<string>;
+  /** Product/SEO title seed (used in meta description fallback) */
   title: L<string>;
   short: L<string>;
   lead: L<string>;
-  body: L<string>;
   reasons: L<[string, string, string]>;
   audience: L<string>;
+  /** Hub/detail primary CTA label */
   cta: L<string>;
-  href: string;
-  /** Absolute path under /public or https URL, used for hub/detail + og:image */
+  /** Hub card shop CTA */
+  shopCta: L<string>;
+  /** Base destination or tracking URL without clickref */
+  hrefBase: string;
+  network: "awin" | "tiddly";
+  awinmid?: string;
+  /** Absolute path under /public, used for hub/detail + og:image */
   image: string;
+  gallery: string[];
   accent: string;
-  visual: "desk" | "home" | "move" | "learn" | "water" | "tech" | "ultrahuman";
-  network: "awin" | "merchant";
+  visual: "desk" | "home" | "move" | "learn" | "water" | "ultrahuman";
+  objectFit: "cover" | "contain";
+  published: string;
+  modified: string;
 };
+
+const AFFID = "3099482";
+
+function awinCread(mid: string, ued?: string) {
+  const base = `https://www.awin1.com/cread.php?awinmid=${mid}&awinaffid=${AFFID}`;
+  return ued ? `${base}&ued=${encodeURIComponent(ued)}` : base;
+}
 
 export const stackCampaigns: StackCampaign[] = [
   {
@@ -33,47 +54,52 @@ export const stackCampaigns: StackCampaign[] = [
     kicker: { it: "Desk", en: "Desk" },
     name: "ESR",
     benefit: {
-      it: "Ricarica magnetica per la scrivania",
-      en: "Magnetic charging for your desk",
+      it: "Ricarica magnetica CryoBoost per la scrivania",
+      en: "CryoBoost magnetic charging for your desk",
     },
     title: {
-      it: "Ricarica magnetica per la scrivania",
-      en: "Magnetic charging for your desk",
+      it: "ESR CryoBoost 3-in-1: vale la pena per MagSafe e Qi2?",
+      en: "ESR CryoBoost 3-in-1 desk charger: worth it for MagSafe & Qi2?",
     },
     short: {
-      it: "Ricarica magnetica per la scrivania",
-      en: "Magnetic charging for your desk",
+      it: "Stazione 3-in-1 Qi2.2 25W con CryoBoost (EU).",
+      en: "3-in-1 Qi2.2 25W station with CryoBoost (EU).",
     },
     lead: {
-      it: "Accessori e ricarica magnetica ESR. In foto: setup HaloLock su scrivania. Verifica la compatibilità con i tuoi dispositivi prima di acquistare.",
-      en: "ESR accessories and magnetic charging. Pictured: a HaloLock-style desk setup. Check compatibility with your devices before purchasing.",
-    },
-    body: {
-      it: "Dal 2009 ESR è un brand di accessori tech (cover, vetri, ricarica magnetica HaloLock & MagSafe). Commissioni affiliate dichiarate 12–15%, cookie 30 giorni. Confronta formato, connettori e dispositivi supportati sulla scheda del modello.",
-      en: "Since 2009 ESR has been a tech-accessory brand (cases, glass, HaloLock & MagSafe magnetic charging). Affiliate programme highlights: 12–15% commission, 30-day cookie. Compare size, connectors and supported devices on the listing for your chosen model.",
+      it: "Stazione ESR CryoBoost 3-in-1 (25W Qi2.2, EU Plug) per iPhone, Watch e AirPods. Prezzo e specifiche dal sito ufficiale UE al 24 set 2026.",
+      en: "ESR CryoBoost 3-in-1 station (25W Qi2.2, EU Plug) for iPhone, Watch and AirPods. Price and specs from the official EU site as of 24 Sep 2026.",
     },
     reasons: {
       it: [
-        "Aggancio magnetico che tiene fermo il telefono sul desk.",
-        "Linea HaloLock & MagSafe pensata per ricarica wireless ordinata.",
-        "Creatività e datafeed disponibili su Awin Toolbox.",
+        "Vero 3-in-1: iPhone, Watch e AirPods sulla stessa stazione.",
+        "25W Qi2.2 con CryoBoost per velocità e gestione del calore (claim ESR).",
+        "Adattatore 50W incluso e politiche UE chiare (spedizione / resi / garanzia).",
       ],
       en: [
-        "Magnetic hold that keeps the phone still on the desk.",
-        "HaloLock & MagSafe line built for calmer wireless charging.",
-        "Banners and datafeed available in the Awin Toolbox.",
+        "True 3-in-1: iPhone, Watch and AirPods on one station.",
+        "25W Qi2.2 with CryoBoost for speed and heat management (ESR claim).",
+        "50W adapter included plus clear EU shipping / returns / warranty.",
       ],
     },
     audience: {
-      it: "Per chi vuole una scrivania più ordinata e già usa (o valuta) ricarica magnetica / MagSafe.",
-      en: "For anyone who wants a calmer desk and already uses (or is considering) magnetic / MagSafe charging.",
+      it: "Per chi usa MagSafe/Qi2 e vuole meno cavi sulla scrivania.",
+      en: "For MagSafe/Qi2 users who want fewer cables on the desk.",
     },
-    cta: { it: "Vai su ESR", en: "Go to ESR" },
-    href: "https://www.awin1.com/cread.php?awinmid=128639&awinaffid=3099482&ued=https%3A%2F%2Feu.esrtech.com%2F",
-    image: "/scenes/desk.jpg",
+    cta: {
+      it: "Vedi ESR CryoBoost sul sito ufficiale",
+      en: "See ESR CryoBoost on the official site",
+    },
+    shopCta: { it: "Scopri ESR →", en: "Shop ESR →" },
+    hrefBase: awinCread("128639", "https://eu.esrtech.com/products/cryoboost-3-in-1-magnetic-charging-station-25w-qi2-2-eu-plug-black"),
+    network: "awin",
+    awinmid: "128639",
+    image: "/stack/esr/01.webp",
+    gallery: ["/stack/esr/01.webp", "/stack/esr/02.webp", "/stack/esr/03.webp", "/stack/esr/04.webp"],
     accent: "#c4894a",
     visual: "desk",
-    network: "awin",
+    objectFit: "cover",
+    published: "2026-09-24",
+    modified: "2026-09-24",
   },
   {
     slug: "imou",
@@ -81,47 +107,53 @@ export const stackCampaigns: StackCampaign[] = [
     kicker: { it: "Casa", en: "Home" },
     name: "IMOU",
     benefit: {
-      it: "Controlla casa dal telefono",
-      en: "Watch your home from your phone",
+      it: "Telecamere Wi-Fi per controllare casa",
+      en: "Wi-Fi cameras to watch your home",
     },
     title: {
-      it: "Controlla casa dal telefono",
-      en: "Watch your home from your phone",
+      it: "IMOU Ranger 2C Pro e Cruiser SE+: telecamere casa Wi-Fi",
+      en: "IMOU Ranger 2C Pro & Cruiser SE+: home Wi-Fi cameras",
     },
     short: {
-      it: "Controlla casa dal telefono",
-      en: "Watch your home from your phone",
+      it: "Ranger indoor e Cruiser outdoor su store IMOU.",
+      en: "Indoor Ranger and outdoor Cruiser on the IMOU store.",
     },
     lead: {
-      it: "Esplora le videocamere IMOU per gli spazi di ogni giorno. In foto: una camera domestica compatta. Commissione affiliate dichiarata 10%, cookie 30 giorni.",
-      en: "Explore IMOU cameras for everyday spaces. Pictured: a compact home camera. Affiliate programme: 10% default commission, 30-day cookie.",
-    },
-    body: {
-      it: "Videocamere indoor e outdoor da confrontare per risoluzione, alimentazione, archiviazione, privacy e compatibilità app. Le funzioni cloud e AI dipendono dal modello e dal piano.",
-      en: "Compare indoor and outdoor cameras by resolution, power, storage, privacy and app compatibility. Cloud and AI features depend on the model and plan.",
+      it: "Videocamere IMOU per interni ed esterni. Confronta risoluzione, Wi-Fi, storage e privacy sulle schede ufficiali.",
+      en: "IMOU cameras for indoor and outdoor use. Compare resolution, Wi-Fi, storage and privacy on official listings.",
     },
     reasons: {
       it: [
-        "Controllo da app quando sei fuori casa.",
-        "Gamma indoor/outdoor, batteria e 4G a seconda del modello.",
-        "Un occhio in più senza montare un quadro operativo in salotto.",
+        "AI IMOU SENSE® per persone, animali e suoni (claim brand).",
+        "Ranger 2C Pro con Wi-Fi 6 dual-band; Cruiser SE+ outdoor IP66.",
+        "Spedizione gratuita, garanzia 3 anni e storage SD/NVR senza cloud obbligatorio (messaggi store).",
       ],
       en: [
-        "Check in from the app when you are away.",
-        "Indoor/outdoor, battery and 4G options depending on the model.",
-        "An extra eye without an operations board in the living room.",
+        "IMOU SENSE® AI for people, pets and sounds (brand claim).",
+        "Ranger 2C Pro with dual-band Wi-Fi 6; Cruiser SE+ outdoor IP66.",
+        "Free shipping, 3-year warranty and SD/NVR options without forced cloud (store messaging).",
       ],
     },
     audience: {
-      it: "Per chi vuole vedere porta, corridoio o animali da remoto, senza un sistema di allarme certificato.",
-      en: "For anyone who wants to see the door, hallway or pets remotely — not a certified alarm system.",
+      it: "Per chi vuole vedere porta o animali da remoto, non un allarme certificato.",
+      en: "For remote door/pet checks — not a certified alarm system.",
     },
-    cta: { it: "Vai su IMOU", en: "Go to IMOU" },
-    href: "https://www.awin1.com/cread.php?awinmid=122428&awinaffid=3099482",
-    image: "/scenes/imou.jpg",
+    cta: {
+      it: "Vedi le camere IMOU sullo store ufficiale",
+      en: "See IMOU cameras on the official store",
+    },
+    shopCta: { it: "Scopri IMOU →", en: "Shop IMOU →" },
+    // EN/UK store destination so English visitors are not forced to it-it
+    hrefBase: awinCread("122428", "https://store.imou.com/en-uk"),
+    network: "awin",
+    awinmid: "122428",
+    image: "/stack/imou/01.webp",
+    gallery: ["/stack/imou/01.webp", "/stack/imou/02.webp", "/stack/imou/03.webp", "/stack/imou/04.webp"],
     accent: "#4a7c59",
     visual: "home",
-    network: "awin",
+    objectFit: "cover",
+    published: "2026-09-24",
+    modified: "2026-09-24",
   },
   {
     slug: "toputure",
@@ -133,43 +165,48 @@ export const stackCampaigns: StackCampaign[] = [
       en: "Walk while you work",
     },
     title: {
-      it: "Cammina mentre lavori",
-      en: "Walk while you work",
+      it: "Toputure TP8: walking pad under-desk silenzioso?",
+      en: "Toputure TP8: quiet under-desk walking pad?",
     },
     short: {
-      it: "Cammina mentre lavori",
-      en: "Walk while you work",
+      it: "TP8 under-desk con inclinazione 0/5/10%.",
+      en: "TP8 under-desk pad with 0/5/10% incline.",
     },
     lead: {
-      it: "Walking pad e tapis roulant per gli spazi di casa. In foto: under-desk walking pad. Programma Awin: commissione dichiarata 8%+, cookie 30 giorni; bestseller TP5 & TEB5, new arrival TP8.",
-      en: "Walking pads and treadmills for home spaces. Pictured: an under-desk walking pad. Awin programme: 8%+ commission, 30-day cookie; bestsellers TP5 & TEB5, new arrival TP8.",
-    },
-    body: {
-      it: "Confronta ingombro, velocità, portata e spazio necessario all'uso sulla pagina del modello. La scelta dipende dalla stanza, dalla scrivania e dal tipo di attività. Toputure lavora spesso con codici sconto dedicati agli affiliati.",
-      en: "Compare dimensions, speed, weight capacity and required clearance on the model page. Choose for your room, desk and intended activity. Toputure often works with affiliate discount codes.",
+      it: "Walking pad Toputure TP8 per smart working: motore brushless, inclinazione manuale e resi 90 giorni (sito ufficiale).",
+      en: "Toputure TP8 walking pad for desk work: brushless motor, manual incline and 90-day returns (official site).",
     },
     reasons: {
       it: [
-        "Formato under-desk pensato per restare nella stanza di sempre.",
-        "Più movimento nella routine senza montare una palestra.",
-        "Supporto affiliati con creatività e (su richiesta) codici sconto.",
+        "Formato sottile da usare sotto scrivania a inclinazione 0%.",
+        "Motore brushless dichiarato sotto 45 dB + assorbimento urti.",
+        "Inclinazione 0/5/10% e spedizione gratuita / resi 90 giorni sul sito.",
       ],
       en: [
-        "Under-desk format meant to stay in the room you already have.",
-        "More movement in the routine without installing a home gym.",
-        "Affiliate support with creatives and (on request) discount codes.",
+        "Slim format for under-desk walking at 0% incline.",
+        "Brushless motor rated under 45 dB plus shock absorption.",
+        "0/5/10% incline with free shipping and 90-day returns on the site.",
       ],
     },
     audience: {
-      it: "Per chi lavora da casa e vuole camminare mentre risponde alle mail, con spazio e rumore reali da verificare.",
-      en: "For anyone working from home who wants to walk while answering mail — check real space and noise first.",
+      it: "Per chi lavora da casa e vuole più passi senza una palestra in salotto.",
+      en: "For remote workers who want more steps without a living-room gym.",
     },
-    cta: { it: "Vai su Toputure", en: "Go to Toputure" },
-    href: "https://www.awin1.com/cread.php?awinmid=125464&awinaffid=3099482&ued=https%3A%2F%2Ftoputure.com%2F",
-    image: "/scenes/move.jpg",
+    cta: {
+      it: "Vedi il TP8 sul sito Toputure",
+      en: "See the TP8 on Toputure",
+    },
+    shopCta: { it: "Scopri Toputure →", en: "Shop Toputure →" },
+    hrefBase: awinCread("125464", "https://toputure.com/products/toputure-tp8-walking-pad"),
+    network: "awin",
+    awinmid: "125464",
+    image: "/stack/toputure/01.webp",
+    gallery: ["/stack/toputure/01.webp", "/stack/toputure/02.webp", "/stack/toputure/03.webp", "/stack/toputure/04.webp"],
     accent: "#3d6b8a",
     visual: "move",
-    network: "awin",
+    objectFit: "cover",
+    published: "2026-09-24",
+    modified: "2026-09-24",
   },
   {
     slug: "lingzio",
@@ -177,47 +214,52 @@ export const stackCampaigns: StackCampaign[] = [
     kicker: { it: "Learn", en: "Learn" },
     name: "Lingzio",
     benefit: {
-      it: "Una nuova lingua in un mese",
-      en: "A new language in a month",
+      it: "Impara una lingua con percorso CEFR",
+      en: "Learn a language with a CEFR path",
     },
     title: {
-      it: "Una nuova lingua in un mese",
-      en: "A new language in a month",
+      it: "Lingzio: corso lingua online con CEFR e pratica conversazione",
+      en: "Lingzio: online language learning with CEFR & conversation practice",
     },
     short: {
-      it: "Una nuova lingua in un mese",
-      en: "A new language in a month",
+      it: "Lezioni CEFR, flashcard, conversazione AI, certificati.",
+      en: "CEFR lessons, flashcards, AI conversation, certificates.",
     },
     lead: {
-      it: "Corso e app Lingzio di New Learning Network (10+ anni, 140.000+ corsi venduti sulle loro brand). Lingue: EN, ES, DE, FR, IT, JP. Commissione affiliate dichiarata 30–40%, cookie 30 giorni.",
-      en: "Lingzio course and app from New Learning Network (10+ years, 140,000+ courses sold across their brands). Languages: EN, ES, DE, FR, IT, JP. Affiliate commission stated 30–40%, 30-day cookie.",
-    },
-    body: {
-      it: "Valuta Lingzio per lingua disponibile, metodo (lezioni CEFR, flashcard, pratica conversazione AI, certificati), durata dell'accesso e frequenza reale di studio. Prima di acquistare, controlla prezzo, contenuti inclusi e condizioni aggiornate sul sito.",
-      en: "Evaluate Lingzio by available language, method (CEFR lessons, flashcards, AI conversation practice, certificates), access duration and your real study cadence. Before buying, check price, included content and current terms on the site.",
+      it: "Piattaforma Lingzio (New Learning Network): lezioni A1–C2, flashcard e pratica conversazione. Prezzi USD dal client ufficiale al 24 set 2026.",
+      en: "Lingzio platform (New Learning Network): A1–C2 lessons, flashcards and conversation practice. USD prices from the official client as of 24 Sep 2026.",
     },
     reasons: {
       it: [
-        "Più lingue sotto un unico abbonamento digitale.",
-        "Metodo con lezioni, flashcard e pratica conversazione.",
-        "Accesso a tempo: utile se studi sul serio, non un diploma automatico.",
+        "Percorso CEFR A1–C2 con certificato di livello.",
+        "Scoring pronuncia e pratica conversazione (claim ufficiali).",
+        "Plus cancellabile o Lifetime Premium una tantum ($199,99).",
       ],
       en: [
-        "Multiple languages under one digital subscription.",
-        "Method with lessons, flashcards and conversation practice.",
-        "Timed access: useful if you study — not automatic fluency.",
+        "CEFR A1–C2 path with level completion certificates.",
+        "Pronunciation scoring and conversation practice (official claims).",
+        "Cancel-anytime Plus or one-time Lifetime Premium ($199.99).",
       ],
     },
     audience: {
-      it: "Per chi vuole studiare lingue per viaggio, lavoro, studio o immigrazione, con un impegno mensile realistico.",
-      en: "For anyone learning languages for travel, work, study or immigration, with a realistic monthly commitment.",
+      it: "Per chi studia lingue per viaggio, lavoro o immigrazione con un impegno realistico.",
+      en: "For language learners aiming at travel, work or immigration with a realistic study cadence.",
     },
-    cta: { it: "Vai su Lingzio", en: "Go to Lingzio" },
-    href: "https://www.awin1.com/cread.php?awinmid=127997&awinaffid=3099482&ued=https%3A%2F%2Flingzio.com%2F",
-    image: "/scenes/learn.jpg",
+    cta: {
+      it: "Inizia su Lingzio",
+      en: "Start on Lingzio",
+    },
+    shopCta: { it: "Scopri Lingzio →", en: "Shop Lingzio →" },
+    hrefBase: awinCread("127997", "https://lingzio.com/"),
+    network: "awin",
+    awinmid: "127997",
+    image: "/stack/lingzio/01.webp",
+    gallery: ["/stack/lingzio/01.webp", "/stack/lingzio/02.webp", "/stack/lingzio/03.webp", "/stack/lingzio/04.webp"],
     accent: "#3b5bdb",
     visual: "learn",
-    network: "awin",
+    objectFit: "cover",
+    published: "2026-09-24",
+    modified: "2026-09-24",
   },
   {
     slug: "waterdrop",
@@ -229,43 +271,48 @@ export const stackCampaigns: StackCampaign[] = [
       en: "Pure water from your tap",
     },
     title: {
-      it: "Acqua pura dal rubinetto",
-      en: "Pure water from your tap",
+      it: "Waterdrop G3P800: RO tankless da 800 GPD con UV",
+      en: "Waterdrop G3P800: 800 GPD tankless RO with UV",
     },
     short: {
-      it: "Acqua pura dal rubinetto",
-      en: "Pure water from your tap",
+      it: "RO sotto-lavello 800 GPD, certificazioni NSF, UV.",
+      en: "Under-sink 800 GPD RO, NSF certifications, UV.",
     },
     lead: {
-      it: "Sistemi di filtrazione Waterdrop per la cucina. In foto: Waterdrop G3P800 (RO). Brand globale di purificazione per Europa e Nord America.",
-      en: "Waterdrop filtration systems for the kitchen. Pictured: Waterdrop G3P800 (RO). A global water-purification brand for Europe and North America.",
-    },
-    body: {
-      it: "Confronta sistemi Waterdrop per spazio sotto-lavello o piano cucina, capacità, manutenzione, filtri di ricambio e certificazioni dichiarate nelle schede ufficiali. Non è una consulenza sanitaria.",
-      en: "Compare Waterdrop systems by under-sink or countertop space, capacity, maintenance, replacement filters and certifications listed on official sheets. This is not health advice.",
+      it: "Sistema RO Waterdrop G3P800 (tankless, UV). Prezzo e kit dal sito UE al 24 set 2026.",
+      en: "Waterdrop G3P800 tankless RO with UV. Price and kit from the EU site as of 24 Sep 2026.",
     },
     reasons: {
       it: [
-        "Acqua filtrata dal rubinetto di casa, meno plastica in giro.",
-        "Opzioni RO sotto-lavello, da banco e caraffe a seconda dello spazio.",
-        "Manutenzione e ciclo filtri da verificare prima dell'acquisto.",
+        "Certificazioni NSF/ANSI 42, 53, 58, 372 + UV (claim Waterdrop).",
+        "800 GPD, rapporto 3:1 e rubinetto smart TDS.",
+        "Kit completo in scatola, resi 30 giorni e garanzia 1 anno sul sito UE.",
       ],
       en: [
-        "Filtered water from your home tap — less plastic around.",
-        "Under-sink RO, countertop and pitcher options depending on space.",
-        "Check maintenance and filter cycle before you buy.",
+        "NSF/ANSI 42, 53, 58, 372 certifications + UV (Waterdrop claims).",
+        "800 GPD, 3:1 pure-to-drain and smart TDS faucet.",
+        "Full install kit, 30-day returns and 1-year warranty on the EU site.",
       ],
     },
     audience: {
-      it: "Per chi vuole filtrare l'acqua in cucina e può gestire installazione e sostituzione filtri.",
-      en: "For anyone who wants kitchen filtration and can handle installation plus filter changes.",
+      it: "Per chi può installare sotto-lavello e gestire la manutenzione filtri.",
+      en: "For households that can install under-sink and maintain filters.",
     },
-    cta: { it: "Vai su Waterdrop", en: "Go to Waterdrop" },
-    href: "https://www.awin1.com/cread.php?awinmid=117653&awinaffid=3099482",
-    image: "https://cdn.shopify.com/s/files/1/0078/6156/7570/files/ui-wd-g3p800-w-no.png?v=1729671309",
+    cta: {
+      it: "Vedi il G3P800 su Waterdrop UE",
+      en: "See the G3P800 on Waterdrop EU",
+    },
+    shopCta: { it: "Scopri Waterdrop →", en: "Shop Waterdrop →" },
+    hrefBase: awinCread("117653", "https://www.waterdropfilter.eu/products/tankless-reverse-osmosis-system-g3p800"),
+    network: "awin",
+    awinmid: "117653",
+    image: "/stack/waterdrop/01.webp",
+    gallery: ["/stack/waterdrop/01.webp", "/stack/waterdrop/02.webp", "/stack/waterdrop/03.webp", "/stack/waterdrop/04.webp"],
     accent: "#2a9d8f",
     visual: "water",
-    network: "awin",
+    objectFit: "contain",
+    published: "2026-09-24",
+    modified: "2026-09-24",
   },
   {
     slug: "ultrahuman",
@@ -273,47 +320,54 @@ export const stackCampaigns: StackCampaign[] = [
     kicker: { it: "Wearable", en: "Wearable" },
     name: "Ultrahuman",
     benefit: {
-      it: "Ring Pro, senza schermo",
-      en: "Ring Pro, screen-free",
+      it: "Ring AIR: sonno e recupero senza abbonamento dati",
+      en: "Ring AIR: sleep & recovery without a data subscription",
     },
     title: {
-      it: "Ultrahuman Ring Pro, senza schermo.",
-      en: "Ultrahuman Ring Pro, screen-free.",
+      it: "Ultrahuman Ring AIR: vale la pena? Sonno e recupero senza subscription",
+      en: "Ultrahuman Ring AIR: worth it? Sleep & recovery without a data subscription",
     },
     short: {
-      it: "Ring Pro: uno sguardo alle tue abitudini quotidiane.",
-      en: "Ring Pro: a closer look at your daily rhythms.",
+      it: "Smart ring $349, accesso dati a vita (FAQ ufficiale).",
+      en: "$349 smart ring with lifelong data access (official FAQ).",
     },
     lead: {
-      it: "Un wearable senza schermo, da esplorare attraverso le sue funzionalità e l'app. In foto: Ring Pro (immagine ufficiale Ultrahuman).",
-      en: "A screen-free wearable to explore through its features and app. Pictured: Ring Pro (official Ultrahuman image).",
-    },
-    body: {
-      it: "Ultrahuman Ring Pro è uno smart ring per sonno, recupero e trend wellness. Codice BJBEYOND10 da verificare al checkout. Non è un dispositivo medico.",
-      en: "Ultrahuman Ring Pro is a smart ring for sleep, recovery and wellness trends. Code BJBEYOND10 must be confirmed at checkout. It is not a medical device.",
+      it: "Ultrahuman Ring AIR per sonno e recupero. FAQ ufficiale: nessun abbonamento dati obbligatorio. Codice BJBEYOND10 da verificare al checkout.",
+      en: "Ultrahuman Ring AIR for sleep and recovery. Official FAQ: no mandatory data subscription. Code BJBEYOND10 — confirm at checkout.",
     },
     reasons: {
       it: [
-        "Dati sul dito, senza un secondo display al polso.",
-        "Metriche core da verificare in scheda, senza inventare claim clinici.",
-        "Codice BJBEYOND10 da confermare al checkout.",
+        "Nessun abbonamento dati obbligatorio (FAQ ufficiale).",
+        "Sleep score, stadi del sonno e Dynamic Recovery (claim Ultrahuman).",
+        "Da 2,4 g in titanio, sizing kit gratuito e prova 30 notti*.",
       ],
       en: [
-        "Data on the finger — no second display on the wrist.",
-        "Core metrics to verify on the listing; no invented clinical claims.",
-        "Code BJBEYOND10 to confirm at checkout.",
+        "No mandatory data subscription (official FAQ).",
+        "Sleep score, sleep stages and Dynamic Recovery (Ultrahuman claims).",
+        "From 2.4 g titanium, free sizing kit and 30-night trial*.",
       ],
     },
     audience: {
-      it: "Per chi vuole un wearable discreto per sonno e recupero, non un dispositivo medico.",
-      en: "For anyone who wants a discreet wearable for sleep and recovery — not a medical device.",
+      it: "Per chi vuole metriche overnight senza orologio al polso né fee annuale sui dati.",
+      en: "For overnight metrics without a wristwatch or yearly data fee.",
     },
-    cta: { it: "Vai su Ultrahuman", en: "Go to Ultrahuman" },
-    href: "https://tidd.ly/3UT6vdj",
-    image: "https://public-web-assets.uh-static.com/web_v2/meta-assets/ring-pro-og-lg.png",
+    cta: {
+      it: "Ring AIR con codice BJBEYOND10",
+      en: "Ring AIR with code BJBEYOND10",
+    },
+    shopCta: {
+      it: "Scopri Ultrahuman · BJBEYOND10 →",
+      en: "Shop Ultrahuman · BJBEYOND10 →",
+    },
+    hrefBase: "https://tidd.ly/3UT6vdj",
+    network: "tiddly",
+    image: "/stack/ultrahuman/01.webp",
+    gallery: ["/stack/ultrahuman/01.webp", "/stack/ultrahuman/02.webp", "/stack/ultrahuman/03.webp", "/stack/ultrahuman/04.webp"],
     accent: "#8a7a5a",
     visual: "ultrahuman",
-    network: "awin",
+    objectFit: "contain",
+    published: "2026-09-24",
+    modified: "2026-09-24",
   },
 ];
 
@@ -324,4 +378,30 @@ export function getStack(slug: string) {
 export function stackImageUrl(campaign: StackCampaign) {
   if (campaign.image.startsWith("http")) return campaign.image;
   return `https://bjbeyond.pro${campaign.image}`;
+}
+
+/** Append Awin clickref (and keep Ultrahuman tidd.ly queryable). */
+export function stackAffiliateUrl(
+  campaign: StackCampaign,
+  locale: Locale,
+  position: StackAffPosition,
+): string {
+  const clickref = `stack_${locale}_${position}_${campaign.slug}`;
+  const url = new URL(campaign.hrefBase);
+  url.searchParams.set("clickref", clickref);
+  return url.toString();
+}
+
+export function stackAffAttrs(
+  campaign: StackCampaign,
+  locale: Locale,
+  position: StackAffPosition,
+) {
+  return {
+    className: "js-aff-cta",
+    "data-product": campaign.slug,
+    "data-network": campaign.network === "tiddly" ? "tiddly" : "awin",
+    "data-position": position,
+    "data-locale": locale,
+  } as const;
 }
