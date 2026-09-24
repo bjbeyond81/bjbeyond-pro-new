@@ -1,6 +1,8 @@
 /**
  * Stack Ultrahuman affiliate CTA (hub, detail, buyer guides).
- * Swap this single constant to the Impact URL when ready.
- * Do NOT use for /tech — tech keeps its own links in src/lib/tech.ts.
+ * Impact Partnerize deep link — swap here only. Do NOT use for /tech.
  */
-export const ULTRAHUMAN_STACK_HREF = "https://tidd.ly/3UT6vdj";
+export const ULTRAHUMAN_STACK_HREF = "https://ultrahumanhealthcare.pxf.io/xJ63Ky";
+
+/** Impact tracking code shown in CTAs (not a discount %). */
+export const ULTRAHUMAN_TRACKING_CODE = "BJBEYOND";
