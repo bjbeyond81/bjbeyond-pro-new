@@ -1,3 +1,4 @@
+import { buyerGuides } from "@/lib/buyer-guides";
 import { guides } from "@/lib/guides";
 import { stackCampaigns } from "@/lib/stack";
 import { techProducts } from "@/lib/tech";
@@ -10,6 +11,7 @@ export type RouteMatch =
   | { kind: "amazon"; locale: "it" | "en" }
   | { kind: "guides"; locale: "it" | "en" }
   | { kind: "guide-detail"; locale: "it" | "en"; slug: string }
+  | { kind: "buyer-guide"; locale: "it" | "en"; slug: string }
   | { kind: "stack"; locale: "it" | "en" }
   | { kind: "stack-detail"; locale: "it" | "en"; slug: string }
   | { kind: "not-found"; locale: "it" | "en" };
@@ -31,6 +33,10 @@ export function matchRoute(path: string[] = []): RouteMatch {
     const exists = guides.some((g) => (locale === "en" ? g.slugEn : g.slugIt) === slug);
     if (exists) return { kind: "guide-detail", locale, slug };
   }
+  if (section === "guide" && slug && rest.length === 2) {
+    const exists = buyerGuides.some((g) => (locale === "en" ? g.slugEn : g.slugIt) === slug);
+    if (exists) return { kind: "buyer-guide", locale, slug };
+  }
   if (section === "stack" && !slug) return { kind: "stack", locale };
   if (section === "stack" && slug && stackCampaigns.some((c) => c.slug === slug) && rest.length === 2) {
     return { kind: "stack-detail", locale, slug };
@@ -38,22 +44,45 @@ export function matchRoute(path: string[] = []): RouteMatch {
   return { kind: "not-found", locale };
 }
 
-export function allStaticPaths() {
-  const paths: { path: string[] }[] = [{ path: [] }, { path: ["en"] }];
+function pathsForLocale(locale: "it" | "en") {
+  const prefix = locale === "en" ? ["en"] : [];
+  const paths: { path: string[] }[] = [{ path: [...prefix] }];
   const sections = ["gift-finder", "tech", "amazon-offers", "guides", "stack"];
   for (const section of sections) {
-    paths.push({ path: [section] }, { path: ["en", section] });
+    paths.push({ path: [...prefix, section] });
   }
   for (const p of techProducts) {
-    paths.push({ path: ["tech", p.slug] }, { path: ["en", "tech", p.slug] });
+    paths.push({ path: [...prefix, "tech", p.slug] });
   }
   for (const g of guides) {
-    paths.push({ path: ["guides", g.slugIt] }, { path: ["en", "guides", g.slugEn] });
+    const slug = locale === "en" ? g.slugEn : g.slugIt;
+    paths.push({ path: [...prefix, "guides", slug] });
+  }
+  for (const g of buyerGuides) {
+    const slug = locale === "en" ? g.slugEn : g.slugIt;
+    paths.push({ path: [...prefix, "guide", slug] });
   }
   for (const c of stackCampaigns) {
-    paths.push({ path: ["stack", c.slug] }, { path: ["en", "stack", c.slug] });
+    paths.push({ path: [...prefix, "stack", c.slug] });
   }
   return paths;
+}
+
+/** Full site paths (with optional en prefix) — used by sitemap. */
+export function allStaticPaths() {
+  return [...pathsForLocale("it"), ...pathsForLocale("en")];
+}
+
+/** IT catch-all params (no en segment). */
+export function allItStaticPaths() {
+  return pathsForLocale("it").map(({ path }) => ({ path }));
+}
+
+/** EN catch-all params under /en/* (path without leading en). */
+export function allEnStaticPaths() {
+  return pathsForLocale("en").map(({ path }) => ({
+    path: path.slice(1), // drop "en"
+  }));
 }
 
 export function canonicalFor(match: RouteMatch) {
@@ -73,6 +102,8 @@ export function canonicalFor(match: RouteMatch) {
       return `${prefix}/guides/`;
     case "guide-detail":
       return `${prefix}/guides/${match.slug}/`;
+    case "buyer-guide":
+      return `${prefix}/guide/${match.slug}/`;
     case "stack":
       return `${prefix}/stack/`;
     case "stack-detail":
