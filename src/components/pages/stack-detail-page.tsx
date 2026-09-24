@@ -5,7 +5,7 @@ import { AffiliateNote, ExternalCta } from "@/components/ui-bits";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
 import { localizedPath, type Locale } from "@/lib/i18n";
-import { awinStoreUrl, getStack } from "@/lib/stack";
+import { getStack } from "@/lib/stack";
 
 export function StackDetailPage({
   locale,
@@ -17,6 +17,7 @@ export function StackDetailPage({
   const campaign = getStack(slug);
   if (!campaign) notFound();
   const t = copy[locale];
+  const it = locale === "it";
 
   return (
     <SiteShell locale={locale}>
@@ -27,63 +28,89 @@ export function StackDetailPage({
         >
           ← {t.nav.stack}
         </Link>
-        <p className="kicker mt-8">
+
+        <div
+          className="mt-8 h-1.5 w-16 rounded-full"
+          style={{ background: campaign.accent }}
+          aria-hidden
+        />
+
+        <p className="kicker mt-6">
           {campaign.n} {campaign.kicker[locale]} · {t.advertising} {campaign.name}
         </p>
         <h1 className="mt-3 max-w-4xl text-4xl leading-[0.94] sm:text-6xl">
-          {campaign.name}
+          {campaign.benefit[locale]}
         </h1>
         <p className="mt-5 max-w-2xl text-xl leading-8 text-muted-foreground">
           {campaign.lead[locale]}
         </p>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[.95fr_1.05fr]">
+        <div className="mt-10 overflow-hidden rounded-[28px] border border-foreground/8">
           <SceneVisual
             scene={campaign.visual}
+            src={campaign.image}
             locale={locale}
-            className="aspect-square"
+            className="min-h-[240px] aspect-[16/10] sm:min-h-[320px]"
+            label={campaign.benefit[locale]}
+            objectFit={
+              campaign.slug === "waterdrop" || campaign.slug === "ultrahuman"
+                ? "contain"
+                : "cover"
+            }
           />
-          <div className="py-2">
+        </div>
+
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_.9fr]">
+          <div>
             <p className="text-lg leading-8 text-muted-foreground">
               {campaign.body[locale]}
             </p>
-            <dl className="mt-8 grid gap-5">
-              <Fact
-                label={locale === "it" ? "Perché si compra" : "Why you buy it"}
-                value={campaign.why[locale]}
-              />
-              <Fact
-                label={locale === "it" ? "Cosa prende" : "What you get"}
-                value={campaign.takes[locale]}
-              />
-              <Fact
-                label={locale === "it" ? "Cosa non è" : "What it is not"}
-                value={campaign.not[locale]}
-              />
-            </dl>
-            <div className="mt-8 flex flex-wrap gap-4">
+
+            <h2 className="mt-10 text-2xl">
+              {it ? "Tre motivi per comprarlo" : "Three reasons to buy"}
+            </h2>
+            <ol className="mt-5 grid gap-4">
+              {campaign.reasons[locale].map((reason, i) => (
+                <li
+                  key={i}
+                  className="flex gap-4 rounded-2xl border border-foreground/8 bg-card/60 px-4 py-4"
+                >
+                  <span
+                    className="grid size-8 shrink-0 place-items-center rounded-full text-sm font-bold text-primary-foreground"
+                    style={{ background: campaign.accent }}
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="text-lg leading-7">{reason}</span>
+                </li>
+              ))}
+            </ol>
+
+            <h2 className="mt-10 text-2xl">{it ? "Per chi è" : "Who it's for"}</h2>
+            <p className="mt-3 text-lg leading-8 text-muted-foreground">
+              {campaign.audience[locale]}
+            </p>
+          </div>
+
+          <aside className="h-fit rounded-[28px] border border-foreground/8 bg-card p-6 sm:p-8 lg:sticky lg:top-24">
+            <p className="kicker">{campaign.name}</p>
+            <p className="mt-2 text-2xl font-semibold leading-tight">
+              {campaign.benefit[locale]}
+            </p>
+            <div className="mt-6">
               <ExternalCta href={campaign.href} locale={locale}>
                 {campaign.cta[locale]}
               </ExternalCta>
-              <ExternalCta href={awinStoreUrl} locale={locale} light>
-                {locale === "it" ? "Storefront Awin" : "Awin Storefront"}
-              </ExternalCta>
             </div>
+            <p className="mt-4 text-xs leading-5 text-muted-foreground">
+              {it
+                ? "Link affiliato Awin (rel=sponsored nofollow). BJ Beyond può ricevere una commissione se acquisti tramite questo link, senza costi extra per te."
+                : "Awin affiliate link (rel=sponsored nofollow). BJ Beyond may earn a commission if you buy through this link, at no extra cost to you."}
+            </p>
             <AffiliateNote locale={locale} variant="awin" className="mt-6" />
-          </div>
+          </aside>
         </div>
       </div>
     </SiteShell>
-  );
-}
-
-function Fact({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="border-t border-foreground/8 pt-4">
-      <dt className="text-sm font-bold tracking-wide uppercase text-walnut">
-        {label}
-      </dt>
-      <dd className="mt-1 text-lg leading-7">{value}</dd>
-    </div>
   );
 }

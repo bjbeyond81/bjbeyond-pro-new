@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getGuide } from "@/lib/guides";
-import { getStack } from "@/lib/stack";
+import { getStack, stackImageUrl } from "@/lib/stack";
 import { getTech } from "@/lib/tech";
 import { canonicalFor, type RouteMatch } from "@/lib/routes";
 
@@ -99,13 +99,24 @@ export function metadataFor(match: RouteMatch): Metadata {
           locale === "it"
             ? "Sei campagne curate: ESR, IMOU, Toputure, Lingzio, Waterdrop, Ultrahuman."
             : "Six curated campaigns: ESR, IMOU, Toputure, Lingzio, Waterdrop, Ultrahuman.",
+        openGraph: {
+          ...base.openGraph,
+          images: [{ url: "https://bjbeyond.pro/scenes/stack.jpg" }],
+        },
       };
     case "stack-detail": {
       const c = getStack(match.slug);
+      const ogImage = c ? stackImageUrl(c) : undefined;
       return {
         ...base,
         title: `${c?.name ?? "Stack"} | BJ Beyond`,
-        description: c?.short[locale],
+        description: c?.benefit?.[locale] ?? c?.short[locale],
+        openGraph: {
+          ...base.openGraph,
+          title: `${c?.name ?? "Stack"} | BJ Beyond`,
+          description: c?.benefit?.[locale] ?? c?.short[locale],
+          images: ogImage ? [{ url: ogImage }] : undefined,
+        },
       };
     }
     default:

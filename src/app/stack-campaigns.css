@@ -1,0 +1,20 @@
+/* Stack campaign cards — per-brand accent */
+.campaign-item {
+  position: relative;
+}
+.campaign-item .campaign-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  z-index: 2;
+  border-radius: 28px 0 0 28px;
+}
+.campaign-item .campaign-benefit {
+  margin-top: 0.35rem;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--stack-accent, var(--foreground));
+  font-weight: 600;
+}

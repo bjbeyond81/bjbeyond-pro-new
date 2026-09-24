@@ -96,9 +96,11 @@ export function ExternalCta({
       ? t.paidLink
       : network === "awin"
         ? locale === "it"
-          ? "pubblicità · Awin"
-          : "advertising · Awin"
-        : t.advertising;
+          ? "Link affiliato · Awin"
+          : "Affiliate link · Awin"
+        : locale === "it"
+          ? "Link affiliato"
+          : "Affiliate link";
   return (
     <span className="inline-flex flex-col items-start gap-1">
       <a
