@@ -13,8 +13,16 @@ const scenes = {
   home: ["/scenes/imou.jpg", "Videocamera domestica IMOU", "IMOU home security camera"],
   move: ["/scenes/move.jpg", "Walking pad Toputure sotto la scrivania", "Toputure under-desk walking pad"],
   learn: ["/scenes/learn.jpg", "Lingzio — apprendimento delle lingue", "Lingzio — language learning"],
-  water: ["/scenes/water.jpg", "Waterdrop G3P800 — sistema RO", "Waterdrop G3P800 — RO system"],
-  ultrahuman: ["/editorial/ultrahuman.webp", "Ultrahuman Ring Pro, Bionic Gold", "Ultrahuman Ring Pro, Bionic Gold"],
+  water: [
+    "https://cdn.shopify.com/s/files/1/0078/6156/7570/files/ui-wd-g3p800-w-no.png?v=1729671309",
+    "Waterdrop G3P800 — sistema RO",
+    "Waterdrop G3P800 — RO system",
+  ],
+  ultrahuman: [
+    "https://public-web-assets.uh-static.com/web_v2/meta-assets/ring-pro-og-lg.png",
+    "Ultrahuman Ring Pro",
+    "Ultrahuman Ring Pro",
+  ],
 } as const;
 
 const productScenes = new Set(["ultrahuman", "desk", "home", "move", "water", "stack", "learn"]);
