@@ -71,7 +71,7 @@ export const copy: Record<Locale, Copy> = {
     disclosure:
       "In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei.",
     awinDisclosure:
-      "Le campagne Stack e i link Ultrahuman sono pubblicità. ESR, IMOU, Waterdrop e Ultrahuman usano link di tracciamento Awin su HTTPS. Toputure e Lingzio puntano al sito del marchio. BJ Beyond può ricevere una commissione se acquisti tramite quei link.",
+      "Le campagne Stack sono pubblicità. ESR, IMOU, Toputure, Lingzio, Waterdrop e Ultrahuman usano link di tracciamento Awin (Ultrahuman via tidd.ly). BJ Beyond può ricevere una commissione se acquisti tramite quei link, senza costi extra per te.",
     awinCommission:
       "Link di affiliazione Awin. Posso ricevere una commissione senza costi extra per te.",
     paidLink: "link a pagamento",
@@ -148,7 +148,7 @@ export const copy: Record<Locale, Copy> = {
     disclosure:
       "As an Amazon Associate I earn from qualifying purchases.",
     awinDisclosure:
-      "Stack campaigns and Ultrahuman links are advertising. ESR, IMOU, Waterdrop and Ultrahuman use HTTPS Awin tracking links. Toputure and Lingzio go to the merchant site. BJ Beyond may earn a commission if you buy through those links.",
+      "Stack campaigns are advertising. ESR, IMOU, Toputure, Lingzio, Waterdrop and Ultrahuman use Awin tracking links (Ultrahuman via tidd.ly). BJ Beyond may earn a commission if you buy through those links, at no extra cost to you.",
     awinCommission:
       "Awin affiliate links. I may earn a commission at no extra cost to you.",
     paidLink: "paid link",
