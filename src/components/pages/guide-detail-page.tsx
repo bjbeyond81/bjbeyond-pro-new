@@ -36,7 +36,7 @@ export function GuideDetailPage({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={guide.image}
-          alt=""
+          alt={guide.title[locale]}
           className="mt-10 aspect-[16/9] w-full rounded-lg border border-foreground/8 bg-white object-cover"
         />
 
