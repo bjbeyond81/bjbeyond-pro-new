@@ -100,7 +100,7 @@ export const awinStackCampaignsB: StackCampaign[] = [
     },
     cta: {
       it: "Vedi il G3P800 su Waterdrop UE",
-      en: "See the G3P800 su Waterdrop EU",
+      en: "See the G3P800 on Waterdrop EU",
     },
     shopCta: { it: "Scopri Waterdrop →", en: "Shop Waterdrop →" },
     hrefBase: awinCread("117653", "https://www.waterdropfilter.eu/products/tankless-reverse-osmosis-system-g3p800"),
