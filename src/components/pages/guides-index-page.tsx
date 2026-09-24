@@ -5,6 +5,7 @@ import { AffiliateNote, PageIntro } from "@/components/ui-bits";
 import { Badge } from "@/components/ui/badge";
 import { SceneVisual } from "@/components/visuals/scene-visual";
 import { copy } from "@/lib/copy";
+import { JsonLd } from "@/components/json-ld";
 import { guidePath, guides } from "@/lib/guides";
 import type { Locale } from "@/lib/i18n";
 
@@ -52,6 +53,23 @@ export function GuidesIndexPage({ locale }: { locale: Locale }) {
         </div>
         <AffiliateNote locale={locale} editorial className="mt-12" />
       </div>
+      <GuidesHubJsonLd locale={locale} />
     </SiteShell>
   );
 }
+
+function GuidesHubJsonLd({ locale }: { locale: Locale }) {
+  const it = locale === "it";
+  const homeUrl = it ? "https://bjbeyond.pro/" : "https://bjbeyond.pro/en/";
+  const hubUrl = it ? "https://bjbeyond.pro/guides/" : "https://bjbeyond.pro/en/guides/";
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "BJ Beyond", item: homeUrl },
+      { "@type": "ListItem", position: 2, name: it ? "Guide" : "Guides", item: hubUrl },
+    ],
+  };
+  return <JsonLd data={data} />;
+}
+
